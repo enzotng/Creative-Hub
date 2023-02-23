@@ -1,0 +1,27 @@
+header {
+    background: gray;
+    height: 80px;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 20px $background);
+    position: sticky;
+    top: 3vw;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 20px;
+    p {
+        font-weight: bold;
+    }
+
+    nav {
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            li {
+                padding-inline: 10px;
+            }
+        }
+    }
+}

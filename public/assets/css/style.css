@@ -1,0 +1,301 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1rem;
+  background: #f0f3f4;
+  margin: 3vw;
+  font-family: "Ubuntu", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s;
+}
+a:hover {
+  color: #444492;
+}
+a:hover > :not(:hover) {
+  opacity: 0.4;
+}
+
+header {
+  background: gray;
+  height: 80px;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 20px #f0f3f4);
+  position: sticky;
+  top: 3vw;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 20px;
+}
+header p {
+  font-weight: bold;
+}
+header nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header nav ul li {
+  padding-inline: 10px;
+}
+
+footer {
+  height: 80px;
+  background: #fff;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 20px #f0f3f4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 20px;
+}
+footer .reseaux_sociaux i {
+  font-size: 2rem;
+  padding-inline-end: 10px;
+}
+footer .reseaux_sociaux i:nth-child(1) {
+  color: #1D9BF0;
+}
+footer .reseaux_sociaux i:nth-child(2) {
+  color: #0A66C2;
+}
+footer .reseaux_sociaux i:nth-child(3) {
+  color: #1877F2;
+}
+
+.hero {
+  background: #fff;
+  height: 60vh;
+  margin-block: 3vw;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 0 20px #f0f3f4);
+}
+
+.projets {
+  background: #fff;
+  height: 60vh;
+  margin-block: 3vw;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow-x: hidden;
+  align-items: center;
+  filter: drop-shadow(0 0 20px #f0f3f4);
+  position: relative;
+}
+.projets .arrow_gauche {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: black;
+  background: #f0f3f4;
+  left: 2vw;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  filter: drop-shadow(0 0 20px #f0f3f4);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.projets .arrow_droite {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: black;
+  background: #f0f3f4;
+  right: 2vw;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  filter: drop-shadow(0 0 20px #f0f3f4);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.projets .projets_section {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 150px);
+  gap: 0 3vw;
+}
+.projets .projets_section .projets_1 {
+  background-color: red;
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  cursor: grab;
+}
+.projets .projets_section .projets_1:active {
+  cursor: grabbing;
+}
+.projets .projets_section .projets_2 {
+  background-color: black;
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  cursor: grab;
+}
+.projets .projets_section .projets_2:active {
+  cursor: grabbing;
+}
+
+/*# sourceMappingURL=style.css.map */

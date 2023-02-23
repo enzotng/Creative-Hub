@@ -1,0 +1,84 @@
+.hero {
+    background: $blanc;
+    height: 60vh;
+    margin-block: 3vw;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 0 20px $background);
+}
+
+.projets {
+    background: $blanc;
+    height: 60vh;
+    margin-block: 3vw;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow-x: hidden;
+    align-items: center;
+    filter: drop-shadow(0 0 20px $background);
+    position: relative;
+    .arrow_gauche {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        color: black;
+        background: $background;
+        left: 2vw;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        filter: drop-shadow(0 0 20px $background);
+        z-index: 99;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .arrow_droite {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        color: black;
+        background: $background;
+        right: 2vw;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        filter: drop-shadow(0 0 20px $background);
+        z-index: 99;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .projets_section {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(2, 150px);
+        gap: 0 3vw;
+        .projets_1 {
+            background-color: red;
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            cursor: grab;
+            &:active {
+                cursor: grabbing;
+            }
+        }
+        .projets_2 {
+            background-color: black;
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            cursor: grab;
+            &:active {
+                cursor: grabbing;
+            }
+        }
+    }
+}
