@@ -1,12 +1,72 @@
 .hero {
     background: $blanc;
-    height: 60vh;
     margin-block: 3vw;
+    padding: 20px;
     border-radius: 10px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     filter: drop-shadow(0 0 20px $background);
+    .hero_1 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 50vh);
+        text-align: center;
+        font-weight: bold;
+        color: $blanc;
+        .sous_hero_1 {
+            background: $violet;
+            width: 52vw;
+            height: 60vh;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            cursor: grab;
+            &:active {
+                cursor: grabbing;
+            }
+        }
+    }
+
+    .hero_2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 150px);
+        flex-direction: column;
+        gap: 3vw;
+        text-align: center;
+        font-weight: bold;
+        .sous_hero_1_1 {
+            background: $violet;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 100%;
+            color: $blanc;
+            border-radius: 20px;
+            cursor: grab;
+            &:active {
+                cursor: grabbing;
+            }
+        }
+        .sous_hero_2 {
+            background: $background;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 100%;
+            color: $violet;
+            border-radius: 20px;
+            cursor: grab;
+            &:active {
+                cursor: grabbing;
+            }
+        }
+    }
 }
 
 .projets {
@@ -66,6 +126,7 @@
             width: 300px;
             height: 300px;
             border-radius: 20px;
+            filter: drop-shadow(0 0 3px $noir);
             cursor: grab;
             &:active {
                 cursor: grabbing;
@@ -77,6 +138,7 @@
             width: 300px;
             height: 300px;
             border-radius: 20px;
+            filter: drop-shadow(0 0 3px $noir);
             cursor: grab;
             &:active {
                 cursor: grabbing;

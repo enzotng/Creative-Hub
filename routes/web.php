@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\HelloController;
+use App\Http\Controllers\ConnexionController;
+use App\Http\Controllers\InscriptionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', 'App\Http\Controllers\HelloController@index');
+Route::get('/home', [HelloController::class, 'index']);
 
-Route::get('/connexion', 'App\Http\Controllers\ConnexionController@index');
+Route::get('/connexion', [ConnexionController::class, 'showLoginForm'])->name('connexion');
+Route::post('/connexion', [ConnexionController::class, 'login']);
+
+Route::get('/inscription', [InscriptionController::class, 'showRegistrationForm'])->name('inscription');
+Route::post('/inscription', [InscriptionController::class, 'register']);

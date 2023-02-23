@@ -9,7 +9,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 20px;
+    padding-inline-start: 20px;
     color: $blanc;
     p {
         font-weight: bold;
@@ -21,7 +21,7 @@ header {
             justify-content: center;
             align-items: center;
             li {
-                padding-inline: 10px;
+                padding-inline: 20px;
                 i {
                     font-size: 1.5rem;
                 }

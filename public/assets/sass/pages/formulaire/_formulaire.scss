@@ -1,0 +1,35 @@
+form {
+    background: $blanc;
+    height: auto;
+    margin-block: 3vw;
+    padding: 3vw;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+    filter: drop-shadow(0 0 20px $background);
+    input:not([type='checkbox']) { 
+        width: 100%;
+        outline: 0;
+        height: 35px;
+        margin-block: 10px;
+    }
+    button[type="submit"]{
+        margin-block-start: 10px;
+        height: 35px;
+        width: 125px;
+        outline: none;
+        background: $violet;
+        color: $blanc;
+        cursor: pointer;
+        border: 0;
+        border-radius: 5px;
+        transition: all 0.3s;
+        &:hover{
+            background: red;
+            transform: scale(0.95);
+        }
+    }
+}

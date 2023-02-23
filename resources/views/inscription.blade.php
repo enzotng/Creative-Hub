@@ -30,35 +30,41 @@
         ?>
 
 
-        <form method="POST" action="{{ route('connexion') }}">
+        <form class="formulaire" method="POST" action="{{ route('inscription') }}">
             @csrf
 
             <div>
-                <label for="email">Adresse e-mail</label>
-                <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus>
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" value="{{ old('name') }}" required autofocus>
+                @error('name')
+                <span>{{ $message }}</span>
+                @enderror
+            </div>
 
+            <div>
+                <label for="email">Adresse e-mail</label>
+                <input type="email" id="email" name="email" value="{{ old('email') }}" required>
+                @error('email')
+                <span>{{ $message }}</span>
+                @enderror
             </div>
 
             <div>
                 <label for="password">Mot de passe</label>
                 <input type="password" id="password" name="password" required>
-
+                @error('password')
+                <span>{{ $message }}</span>
+                @enderror
             </div>
 
             <div>
-                <input type="checkbox" id="remember" name="remember">
-                <label for="remember">Se souvenir de moi</label>
+                <label for="password_confirmation">Confirmation du mot de passe</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" required>
             </div>
 
             <div>
-                <button type="submit">Connexion</button>
-            </div><br>
-            @error('email')
-            <span>{{ $message }}</span>
-            @enderror
-            @error('password')
-            <span>{{ $message }}</span>
-            @enderror
+                <button type="submit">Inscription</button>
+            </div>
         </form>
 
     </main>
