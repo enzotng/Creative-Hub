@@ -25,7 +25,10 @@ header {
                 i {
                     font-size: 1.5rem;
                 }
-                i:nth-child(2){
+                li:nth-child(1){
+                    &:after{
+                        content: '|';
+                    }
                 }
             }
         }
