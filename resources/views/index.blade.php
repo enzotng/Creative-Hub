@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-<body class="antialiased">
+<body>
     <header>
         <p>Creative Hub</p>
         <nav>
