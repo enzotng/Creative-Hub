@@ -61,7 +61,8 @@
         grid-template-rows: repeat(2, 150px);
         gap: 0 3vw;
         .projets_1 {
-            background-color: red;
+            background-image: url("../../assets/images/jpg/pexels-guillaume-meurice-2808402.jpg");
+            background-size: 50vw;
             width: 300px;
             height: 300px;
             border-radius: 20px;
@@ -71,7 +72,8 @@
             }
         }
         .projets_2 {
-            background-color: black;
+            background-image: url("../../assets/images/jpg/pexels-fauxels-3183153.jpg");
+            background-size: 50vw;
             width: 300px;
             height: 300px;
             border-radius: 20px;

@@ -13,9 +13,8 @@
         <p>Creative Hub</p>
         <nav>
             <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Projects</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href=""><i class="bi bi-search"></i></a></li>
+                <li><a href=""><i class="bi bi-person-circle"></i></a></li>
             </ul>
         </nav>
     </header>

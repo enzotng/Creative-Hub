@@ -1,8 +1,8 @@
 header {
-    background: gray;
+    background: $violet;
     height: 80px;
     border-radius: 10px;
-    filter: drop-shadow(0 0 20px $background);
+    filter: drop-shadow(0 5px 5px $violet);
     position: sticky;
     top: 3vw;
     z-index: 1;
@@ -12,6 +12,7 @@ header {
     padding-inline: 20px;
     p {
         font-weight: bold;
+        color: white;
     }
 
     nav {
@@ -21,6 +22,11 @@ header {
             align-items: center;
             li {
                 padding-inline: 10px;
+                i {
+                    font-size: 1.5rem;
+                }
+                i:nth-child(2){
+                }
             }
         }
     }
