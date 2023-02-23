@@ -14,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/home', 'App\Http\Controllers\HelloController@index');
+
+Route::get('/connexion', 'App\Http\Controllers\ConnexionController@index');
