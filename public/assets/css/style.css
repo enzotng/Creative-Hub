@@ -230,9 +230,8 @@ footer .reseaux_sociaux i:nth-child(3) {
 .hero .hero_1 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(1, 50vh);
+  grid-template-rows: repeat(1, 60vh);
   text-align: center;
-  font-weight: bold;
   color: #fff;
 }
 .hero .hero_1 .sous_hero_1 {
@@ -241,13 +240,13 @@ footer .reseaux_sociaux i:nth-child(3) {
   height: 60vh;
   border-radius: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  cursor: grab;
 }
-.hero .hero_1 .sous_hero_1:active {
-  cursor: grabbing;
+.hero .hero_1 .sous_hero_1 p {
+  padding-inline: 3vw;
+  line-height: 1.5;
 }
 .hero .hero_2 {
   display: grid;
@@ -346,7 +345,7 @@ footer .reseaux_sociaux i:nth-child(3) {
   width: 300px;
   height: 300px;
   border-radius: 20px;
-  filter: drop-shadow(0 0 3px #000);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
   cursor: grab;
 }
 .projets .projets_section .projets_1:active {
@@ -358,36 +357,33 @@ footer .reseaux_sociaux i:nth-child(3) {
   width: 300px;
   height: 300px;
   border-radius: 20px;
-  filter: drop-shadow(0 0 3px #000);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
   cursor: grab;
 }
 .projets .projets_section .projets_2:active {
   cursor: grabbing;
 }
 
-form {
+.connexion {
   background: #fff;
   height: auto;
   margin-block: 3vw;
   padding: 3vw;
   border-radius: 10px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: stretch;
   flex-direction: column;
-  width: 100%;
-  filter: drop-shadow(0 0 20px #f0f3f4);
 }
-form input:not([type=checkbox]) {
-  width: 100%;
-  outline: 0;
-  height: 35px;
-  margin-block: 10px;
+.connexion .header_connexion {
+  display: flex;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
 }
-form button[type=submit] {
-  margin-block-start: 10px;
-  height: 35px;
-  width: 125px;
+.connexion .header_connexion a {
+  padding: 10px;
   outline: none;
   background: #444492;
   color: #fff;
@@ -396,9 +392,128 @@ form button[type=submit] {
   border-radius: 5px;
   transition: all 0.3s;
 }
-form button[type=submit]:hover {
+.connexion .header_connexion a:hover {
   background: red;
   transform: scale(0.95);
+}
+.connexion form {
+  width: 100%;
+  padding-block-start: 3vh;
+}
+.connexion form input:not([type=checkbox]) {
+  width: 100%;
+  outline: 0;
+  height: 35px;
+  margin-block: 10px;
+}
+.connexion form button[type=submit] {
+  margin-block-start: 10px;
+  padding: 10px;
+  outline: none;
+  background: #444492;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.connexion form button[type=submit]:hover {
+  background: red;
+  transform: scale(0.95);
+}
+
+.etudiantMain {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.etudiantMain h1 {
+  margin-block-end: 5vh;
+}
+.etudiantMain .etudiantSection {
+  background: #fff;
+  margin-block: 3vw;
+  margin-inline-end: 3vw;
+  padding: 2vw;
+  border-radius: 10px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: column;
+  width: 70%;
+}
+.etudiantMain .etudiantSection .gridTravaux {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.etudiantMain .etudiantSection .gridTravaux .travaux1 {
+  border-radius: 5px;
+  background-image: url("../../assets/images/jpg/pexels-fauxels-3183153.jpg");
+  background-size: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+.etudiantMain .etudiantAside {
+  position: sticky;
+  top: 25vh;
+  background: #fff;
+  margin-block: 3vw;
+  padding: 2vw;
+  border-radius: 10px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 30%;
+}
+.etudiantMain .etudiantAside label {
+  font-weight: bold;
+  margin-block: 3vh;
+}
+.etudiantMain .etudiantAside select {
+  width: 100%;
+  background-color: #444492;
+  border-radius: 10px;
+  border: 0;
+  padding-block: 5px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+}
+.etudiantMain .etudiantAside p {
+  margin-block: 2vh;
+}
+.etudiantMain .etudiantAside .boxProgression {
+  width: 100%;
+  background-color: #f0f3f4;
+  border-radius: 10px;
+}
+.etudiantMain .etudiantAside .boxProgression .skills {
+  text-align: right;
+  border-radius: 10px;
+  padding-block: 5px;
+  color: #fff;
+}
+.etudiantMain .etudiantAside .boxProgression .html {
+  width: 90%;
+  background: #444492;
+}
+.etudiantMain .etudiantAside .boxProgression .css {
+  width: 80%;
+  background: #444492;
+}
+.etudiantMain .etudiantAside .boxProgression .js {
+  width: 65%;
+  background: #444492;
+}
+.etudiantMain .etudiantAside .boxProgression .php {
+  width: 60%;
+  background: #444492;
 }
 
 /*# sourceMappingURL=style.css.map */

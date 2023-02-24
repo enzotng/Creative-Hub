@@ -10,9 +10,8 @@
     .hero_1 {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(1, 50vh);
+        grid-template-rows: repeat(1, 60vh);
         text-align: center;
-        font-weight: bold;
         color: $blanc;
         .sous_hero_1 {
             background: $violet;
@@ -20,12 +19,12 @@
             height: 60vh;
             border-radius: 20px;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-evenly;
             align-items: center;
             flex-direction: column;
-            cursor: grab;
-            &:active {
-                cursor: grabbing;
+            p{
+                padding-inline: 3vw;
+                line-height: 1.5;
             }
         }
     }
@@ -126,7 +125,7 @@
             width: 300px;
             height: 300px;
             border-radius: 20px;
-            filter: drop-shadow(0 0 3px $noir);
+            box-shadow: 0px 15px 20px rgb(0 0 0 / 10%);
             cursor: grab;
             &:active {
                 cursor: grabbing;
@@ -138,7 +137,7 @@
             width: 300px;
             height: 300px;
             border-radius: 20px;
-            filter: drop-shadow(0 0 3px $noir);
+            box-shadow: 0px 15px 20px rgb(0 0 0 / 10%);
             cursor: grab;
             &:active {
                 cursor: grabbing;

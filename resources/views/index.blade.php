@@ -24,8 +24,14 @@
         <section class="hero">
             <div class="hero_1">
                 <div class="sous_hero_1">
-                    <h1>Latest project</h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <h1>Notre parcours MMI</h1>
+                    <p>Le département forme en trois ans des professionnel·le·s de la conception et de la réalisation de
+                        projets multimédias.
+                        Il propose deux parcours :
+                        “Création numérique” et “Développement web et dispositifs interactifs.”
+                        À la fois créatif·ve·s et compétent.e.s techniquement, les diplômé·e·s de notre département sont
+                        polyvalent·e·s dans le domaine des médias, du web et des nouvelles technologies.
+                    </p>
                 </div>
             </div>
             <div class="hero_2">

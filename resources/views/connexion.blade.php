@@ -29,37 +29,47 @@
                 }
         ?>
 
+        <section class="connexion">
 
-        <form method="POST" action="{{ route('connexion') }}">
-            @csrf
-
-            <div>
-                <label for="email">Adresse e-mail</label>
-                <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus>
-
+            <div class="header_connexion">
+                <h1>Espace de connexion</h1>
+                <a href="admin">Espace administrateur</a>
             </div>
 
-            <div>
-                <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="password" required>
+            <form method="POST" action="{{ route('connexion') }}">
+                @csrf
 
-            </div>
+                <div>
+                    <label for="email">Adresse e-mail</label>
+                    <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus>
 
-            <div>
-                <input type="checkbox" id="remember" name="remember">
-                <label for="remember">Se souvenir de moi</label>
-            </div>
+                </div>
 
-            <div>
-                <button type="submit">Connexion</button>
-            </div><br>
-            @error('email')
-            <span>{{ $message }}</span>
-            @enderror
-            @error('password')
-            <span>{{ $message }}</span>
-            @enderror
-        </form>
+                <div>
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+
+                </div>
+
+                <div>
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Se souvenir de moi</label>
+                </div>
+
+                <div>
+                    <button type="submit">Connexion</button>
+                </div><br>
+                @error('email')
+                <span>{{ $message }}</span>
+                @enderror
+                @error('password')
+                <span>{{ $message }}</span>
+                @enderror
+
+                <a href="inscription">Pas encore de compte ?</a>
+            </form>
+
+        </section>
 
     </main>
     <footer>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HelloController;
+use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\ConnexionController;
 use App\Http\Controllers\InscriptionController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/home', [HelloController::class, 'index']);
+
+Route::get('/etudiant', [EtudiantController::class, 'etudiantProfil']);
 
 Route::get('/connexion', [ConnexionController::class, 'showLoginForm'])->name('connexion');
 Route::post('/connexion', [ConnexionController::class, 'login']);
