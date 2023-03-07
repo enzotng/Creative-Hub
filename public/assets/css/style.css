@@ -457,6 +457,14 @@ footer .reseaux_sociaux i:nth-child(3) {
   align-items: center;
   height: 30vh;
 }
+.etudiantMain .etudiantSection .gridTravaux .travaux1 p {
+  text-align: center;
+  background: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  width: 70%;
+  filter: drop-shadow(0 0 50px #000);
+}
 .etudiantMain .etudiantAside {
   position: sticky;
   top: 25vh;
@@ -480,7 +488,7 @@ footer .reseaux_sociaux i:nth-child(3) {
   background-color: #444492;
   border-radius: 10px;
   border: 0;
-  padding-block: 5px;
+  padding: 10px;
   color: #fff;
   outline: none;
   cursor: pointer;

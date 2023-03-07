@@ -73,6 +73,7 @@
             <label for="nomDomaine">Choisissez votre domaine</label>
 
             <select name="domaine" id="domaine">
+                <option value="default">Tous les projets</option>
                 <option value="web">Web</option>
                 <option value="communication">Communication</option>
                 <option value="graphisme">Graphisme</option>
