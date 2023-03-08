@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -156,12 +157,10 @@ a {
   text-decoration: none;
   color: #fff;
   transition: all 0.3s;
+  font-weight: bold;
 }
 a:hover {
   color: #444492;
-}
-a:hover > :not(:hover) {
-  opacity: 0.4;
 }
 
 header {
@@ -461,6 +460,11 @@ footer .reseaux_sociaux i:nth-child(3) {
   justify-content: center;
   align-items: center;
   height: 30vh;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.etudiantMain .etudiantSection .gridTravaux .travaux1:hover {
+  transform: scale(0.95);
 }
 .etudiantMain .etudiantSection .gridTravaux .travaux1 p {
   text-align: center;
@@ -469,6 +473,9 @@ footer .reseaux_sociaux i:nth-child(3) {
   padding: 10px;
   width: 70%;
   filter: drop-shadow(0 0 50px #000);
+}
+.etudiantMain .etudiantSection .gridTravaux .travaux1 p i {
+  padding-inline-end: 5px;
 }
 .etudiantMain .etudiantAside {
   position: sticky;
@@ -488,16 +495,43 @@ footer .reseaux_sociaux i:nth-child(3) {
   font-weight: bold;
   margin-block: 3vh;
 }
-.etudiantMain .etudiantAside select {
+.etudiantMain .etudiantAside .select {
+  position: relative;
+  display: flex;
   width: 100%;
-  background-color: #444492;
-  border-radius: 10px;
-  border: 0;
-  padding: 10px;
+  height: 3em;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.etudiantMain .etudiantAside .select::after {
+  content: "▼";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
   color: #fff;
-  outline: none;
-  cursor: pointer;
+  background-color: #222292;
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+.etudiantMain .etudiantAside .select:hover::after {
+  color: #444492;
+}
+.etudiantMain .etudiantAside .select select {
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background: #444492;
   font-family: "Ubuntu", sans-serif;
+  background-image: none;
+  cursor: pointer;
+}
+.etudiantMain .etudiantAside .select select::-ms-expand {
+  display: none;
 }
 .etudiantMain .etudiantAside p {
   margin-block: 2vh;

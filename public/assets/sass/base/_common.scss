@@ -14,10 +14,8 @@ a {
   text-decoration: none;
   color: $blanc;
   transition: all 0.3s;
+  font-weight: bold;
   &:hover {
     color: #444492;
-  }
-  &:hover > :not(:hover) {
-    opacity: 0.4;
   }
 }

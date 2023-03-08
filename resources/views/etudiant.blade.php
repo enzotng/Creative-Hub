@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <p>Creative Hub</p>
+        <a href="home">Creative Hub</a>
         <nav>
             <ul>
                 <li><a href=""><i class="bi bi-search"></i></a></li>
@@ -28,7 +28,7 @@
             <div class="gridTravaux">
                 <div class="travaux1">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
                     </p>
                 </div>
                 <div class="travaux1">
@@ -74,18 +74,19 @@
             <hr>
 
             <label for="nomDomaine">Choisissez votre domaine</label>
-
-            <select name="domaine" id="domaine">
-                <option value="default">Tous les projets</option>
-                <option value="web">Web</option>
-                <option value="communication">Communication</option>
-                <option value="graphisme">Graphisme</option>
-                <option value="audiovisuel">Audiovisuel</option>
-            </select>
+            <div class="select">
+                <select name="domaine" id="domaine">
+                    <option value="default">Tous les projets</option>
+                    <option value="web">Web</option>
+                    <option value="communication">Communication</option>
+                    <option value="graphisme">Graphisme</option>
+                    <option value="audiovisuel">Audiovisuel</option>
+                </select>
+            </div>
 
             <label for="nomProgress">Votre progression</label>
 
-            <p>Développement web</p>
+            <!-- <p>Développement web</p>
             <div class="boxProgression">
                 <div class="skills html">
                     <span>90%</span>
@@ -111,7 +112,9 @@
                 <div class="skills php">
                     <span>60%</span>
                 </div>
-            </div>
+            </div> -->
+
+            <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
         </aside>
     </main>
     <footer>
@@ -122,8 +125,10 @@
         </div>
         <p>© 2023 Creative Hub</p>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"></script>
-    <script src="./assets/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+        integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="./assets/js/etudiant.js"></script>
 </body>
 
 </html>

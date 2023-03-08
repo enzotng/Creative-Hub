@@ -35,13 +35,21 @@
                 justify-content: center;
                 align-items: center;
                 height: 30vh;
-                p{
+                cursor: pointer;
+                transition: all 0.5s;
+                &:hover {
+                    transform: scale(0.95);
+                }
+                p {
                     text-align: center;
                     background: $blanc;
                     border-radius: 5px;
                     padding: 10px;
                     width: 70%;
                     filter: drop-shadow(0 0 50px $noir);
+                    i {
+                        padding-inline-end: 5px;
+                    }
                 }
             }
         }
@@ -64,17 +72,45 @@
             font-weight: bold;
             margin-block: 3vh;
         }
-        select {
+        .select {
+            position: relative;
+            display: flex;
             width: 100%;
-            background-color: $violet;
-            border-radius: 10px;
-            border: 0;
-            padding: 10px;
-            color: $blanc;
-            outline: none;
-            cursor: pointer;
-            font-family: "Ubuntu", sans-serif;
+            height: 3em;
+            border-radius: 5px;
+            overflow: hidden;
+            &::after {
+                content: "\25BC";
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 1em;
+                color: $blanc;
+                background-color: #222292;
+                transition: 0.25s all ease;
+                pointer-events: none;
+            }
+            &:hover::after {
+                color: $violet;
+            }
+            select {
+                appearance: none;
+                outline: 0;
+                border: 0;
+                box-shadow: none;
+                flex: 1;
+                padding: 0 1em;
+                color: $blanc;
+                background: $violet;
+                font-family: "Ubuntu", sans-serif;
+                background-image: none;
+                cursor: pointer;
+                &::-ms-expand {
+                    display: none;
+                }
+            }
         }
+
         p {
             margin-block: 2vh;
         }
