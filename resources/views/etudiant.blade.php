@@ -23,6 +23,8 @@
     <main class="etudiantMain">
         <section class="etudiantSection">
             <h1>Vos travaux</h1>
+            <hr>
+
             <div class="gridTravaux">
                 <div class="travaux1">
                     <p>
@@ -68,7 +70,8 @@
         </section>
 
         <aside class="etudiantAside">
-            <h1>Personnalisez</h1>
+            <h1>Vos compétences</h1>
+            <hr>
 
             <label for="nomDomaine">Choisissez votre domaine</label>
 
@@ -119,6 +122,7 @@
         </div>
         <p>© 2023 Creative Hub</p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"></script>
     <script src="./assets/js/main.js"></script>
 </body>
 

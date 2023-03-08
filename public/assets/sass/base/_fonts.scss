@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
 
 h1 {
-    font-size: 2rem;
+    font-size: clamp(1rem, 0.8165rem + 0.9174vw, 1.5rem);
     font-weight: bold;
 }

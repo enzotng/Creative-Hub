@@ -136,7 +136,7 @@ table {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: clamp(1rem, 0.8165rem + 0.9174vw, 1.5rem);
   font-weight: bold;
 }
 
@@ -428,7 +428,11 @@ footer .reseaux_sociaux i:nth-child(3) {
   align-items: flex-start;
 }
 .etudiantMain h1 {
-  margin-block-end: 5vh;
+  margin-block-end: 20px;
+}
+.etudiantMain hr {
+  border: 1px solid #f8f8f8;
+  width: 100%;
 }
 .etudiantMain .etudiantSection {
   background: #fff;
@@ -449,6 +453,7 @@ footer .reseaux_sociaux i:nth-child(3) {
   gap: 20px;
 }
 .etudiantMain .etudiantSection .gridTravaux .travaux1 {
+  margin-block-start: 3vh;
   border-radius: 5px;
   background-image: url("../../assets/images/jpg/pexels-fauxels-3183153.jpg");
   background-size: 50vw;
@@ -492,6 +497,7 @@ footer .reseaux_sociaux i:nth-child(3) {
   color: #fff;
   outline: none;
   cursor: pointer;
+  font-family: "Ubuntu", sans-serif;
 }
 .etudiantMain .etudiantAside p {
   margin-block: 2vh;
