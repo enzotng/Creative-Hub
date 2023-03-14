@@ -4,6 +4,7 @@ use App\Http\Controllers\HelloController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\ConnexionController;
 use App\Http\Controllers\InscriptionController;
+use App\Http\Controllers\ProjetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,6 @@ Route::post('/connexion', [ConnexionController::class, 'login']);
 
 Route::get('/inscription', [InscriptionController::class, 'showRegistrationForm'])->name('inscription');
 Route::post('/inscription', [InscriptionController::class, 'register']);
+
+Route::get('/projet/{id}', [ProjetController::class, 'show' ]);
+Route::get('/projet/add', [ProjetController::class, 'addProjet' ]);
