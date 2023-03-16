@@ -26,14 +26,14 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            .travaux1 {
+            .travaux {
                 margin-block-start: 3vh;
                 border-radius: 5px;
-                background-image: url("../../assets/images/jpg/pexels-fauxels-3183153.jpg");
-                background-size: 50vw;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                flex-direction: column;
+                position: relative;
                 height: 30vh;
                 cursor: pointer;
                 transition: all 0.5s;
@@ -43,15 +43,56 @@
                 p {
                     text-align: center;
                     background: $blanc;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
                     border-radius: 5px;
-                    padding: 10px;
                     width: 70%;
+                    padding: 10px;
                     filter: drop-shadow(0 0 50px $noir);
                     i {
                         padding-inline-end: 5px;
                     }
                 }
+                img {
+                    width: 100%;
+                    border-radius: 5px;
+                    height: 30vh;
+                }
             }
+        }
+        .simple-pagination ul {
+            margin-block-start: 50px;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+        
+        .simple-pagination li {
+            display: inline-block;
+            margin-right: 5px;
+        }
+        
+        .simple-pagination li a,
+        .simple-pagination li span {
+            color: $noir;
+            padding: 15px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            background-color: $blanc;
+            box-shadow: 0px 15px 20px rgb(0 0 0 / 10%);
+        }
+        
+        .simple-pagination .current {
+            color: $blanc;
+            background-color: $violet;
+            border-color: $violet;
+        }
+        
+        .simple-pagination .prev.current,
+        .simple-pagination .next.current {
+            background: $violet;
         }
     }
 

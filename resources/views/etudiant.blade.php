@@ -26,47 +26,56 @@
             <hr>
 
             <div class="gridTravaux">
-                <div class="travaux1">
+                <div class="travaux">
+                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
                     <p>
                         <i class="bi bi-youtube"></i>SAE 301 : Darknet
                     </p>
                 </div>
-                <div class="travaux1">
+                <div class="travaux">
+                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
                     </p>
                 </div>
-                <div class="travaux1">
+                <div class="travaux">
+                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
                     </p>
                 </div>
-                <div class="travaux1">
+                <div class="travaux">
+                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
                     </p>
                 </div>
-                <div class="travaux1">
+                <div class="travaux">
+                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
                     </p>
                 </div>
-                <div class="travaux1">
+                <div class="travaux">
+                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
                     </p>
                 </div>
-                <div class="travaux1">
+                <div class="travaux">
+                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
                     </p>
                 </div>
-                <div class="travaux1">
+                <div class="travaux">
+                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
                     </p>
                 </div>
             </div>
+            <div id="pagination-container"></div>
         </section>
 
         <aside class="etudiantAside">
@@ -128,6 +137,7 @@
     <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
         integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
     <script src="./assets/js/etudiant.js"></script>
 </body>
 
