@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('competence_table', function (Blueprint $table) {
-            $$table->increments('id_competence');
+            $table->increments('id_competence');
             $table->string('nom_competence');
             $table->string('niveau_competence');
         });
