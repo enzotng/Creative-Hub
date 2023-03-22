@@ -19,8 +19,8 @@ class ConnexionController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+            'email_user' => ['required', 'email_user'],
+            'mdp_user' => ['required'],
         ]);
 
         if (Auth::attempt($credentials)) {
@@ -29,7 +29,7 @@ class ConnexionController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Les informations d\'identification fournies ne correspondent pas à nos enregistrements.',
+            'email_user' => 'Les informations d\'identification fournies ne correspondent pas à nos enregistrements.',
         ]);
     }
 }

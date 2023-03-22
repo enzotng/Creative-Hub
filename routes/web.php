@@ -28,5 +28,6 @@ Route::post('/connexion', [ConnexionController::class, 'login']);
 Route::get('/inscription', [InscriptionController::class, 'showRegistrationForm'])->name('inscription');
 Route::post('/inscription', [InscriptionController::class, 'register']);
 
-Route::get('/projet/{id}', [ProjetController::class, 'show' ]);
-Route::get('/projet/add', [ProjetController::class, 'addProjet' ]);
+Route::get('/projets/create', [App\Http\Controllers\ProjetController::class, 'create'])->name('projets.create');
+Route::post('/projets', [App\Http\Controllers\ProjetController::class, 'store'])->name('projets.store');
+Route::get('/projets/liste', [App\Http\Controllers\ProjetController::class, 'liste'])->name('projets.liste');

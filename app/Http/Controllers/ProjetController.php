@@ -3,34 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Projet;
 
 class ProjetController extends Controller
 {
-    public function show($id)
-    {
-        // Récupère le projet avec l'ID spécifié
-        $project = Project::findOrFail($id);
     
-        // Passe le projet à la vue pour l'affichage
-        return view('projet', ['project' => $project]);
+    public function create()
+    {
+        return view('create');
     }
 
-    public function addProjet(Request $request)
+    public function store(Request $request)
     {
-        $projet = new Projet;
-        $projet->titre_projet = $request->titre_projet;
+        $validatedData = $request->validate([
+            'titre_projet' => 'required',
+            'image_projet' => 'required',
+            'description_projet' => 'required',
+            'date_projet' => 'required',
+        ]);
 
-        if ($request->hasFile('image_projet')) {
-            $image = $request->file('image_projet');
-            $filename = time() . '_' . $image->getClientOriginalName();
-            $image->move(public_path('images'), $filename);
-            $projet->image_projet = $filename;
-        }
-        
-        $projet->description = $request->description;
+        $projet = new Projet;
+        $projet->titre_projet = $validatedData['titre_projet'];
+        $projet->image_projet = $validatedData['image_projet'];
+        $projet->description_projet = $validatedData['description_projet'];
+        $projet->date_projet = $validatedData['date_projet'];
         $projet->save();
 
-    return redirect()->route('etudiant');
+        return redirect('/projets')->with('success', 'Le projet a été enregistré avec succès.');
     }
+
+    public function liste()
+    {
+        $projets = Projet::all();
+
+        return view('projets.liste', compact('projets'));
+    }   
 
 }

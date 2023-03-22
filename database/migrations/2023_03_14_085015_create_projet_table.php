@@ -9,17 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('projet_table', function (Blueprint $table) {
-            $table->increments('id_projet');
-            $table->string('titre_projet');
-            $table->string('image_projet');
-            $table->text('description_projet');
-            $table->datetime('date_projet')->useCurrent();
-            $table->timestamps();
-        });
-    }
+    public function up()
+{
+    Schema::create('projet_table', function (Blueprint $table) {
+        $table->id();
+        $table->string('titre_projet');
+        $table->string('image_projet');
+        $table->text('description_projet');
+        $table->dateTime('date_projet');
+        $table->timestamps();
+    });
+}
 
     /**
      * Reverse the migrations.
