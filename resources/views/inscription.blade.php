@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Creative Hub - Plateforme en ligne</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -30,49 +31,71 @@
         ?>
 
 
-        <form class="formulaire" method="POST" action="{{ route('inscription') }}">
+        <form method="POST" action="{{ route('inscription.store') }}">
             @csrf
 
-            <div>
-                <label for="name">Nom</label>
-                <input type="text" id="name" name="name" value="{{ old('name') }}" required autofocus>
-                @error('name')
-                <span>{{ $message }}</span>
+            <div class="form-group">
+                <label for="nom_user">Nom</label>
+                <input id="nom_user" type="text" class="form-control @error('nom_user') is-invalid @enderror"
+                    name="nom_user" value="{{ old('nom_user') }}" required autocomplete="name" autofocus>
+                @error('nom_user')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
-            <div>
-                <label for="name">Numéro étudiant</label>
-                <input type="text" id="name" name="name" value="{{ old('name') }}" required autofocus>
-                @error('name')
-                <span>{{ $message }}</span>
+            <div class="form-group">
+                <label for="prenom_user">Prénom</label>
+                <input id="prenom_user" type="text" class="form-control @error('prenom_user') is-invalid @enderror"
+                    name="prenom_user" value="{{ old('prenom_user') }}" required autocomplete="name" autofocus>
+                @error('prenom_user')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
-            <div>
-                <label for="email">Adresse e-mail</label>
-                <input type="email" id="email" name="email" value="{{ old('email') }}" required>
-                @error('email')
-                <span>{{ $message }}</span>
+            <div class="form-group">
+                <label for="email_user">Adresse email</label>
+                <input id="email_user" type="email" class="form-control @error('email_user') is-invalid @enderror"
+                    name="email_user" value="{{ old('email_user') }}" required autocomplete="email">
+                @error('email_user')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
-            <div>
-                <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="password" required>
-                @error('password')
-                <span>{{ $message }}</span>
+            <div class="form-group">
+                <label for="mdp_user">Mot de passe</label>
+                <input id="mdp_user" type="password" class="form-control @error('mdp_user') is-invalid @enderror"
+                    name="mdp_user" required autocomplete="new-password">
+                @error('mdp_user')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
                 @enderror
             </div>
 
-            <div>
-                <label for="password_confirmation">Confirmation du mot de passe</label>
-                <input type="password" id="password_confirmation" name="password_confirmation" required>
+            <div class="form-group">
+                <label for="mdp_user_confirmation">Confirmation du mot de passe</label>
+                <input id="mdp_user_confirmation" type="password" class="form-control" name="mdp_user_confirmation"
+                    required autocomplete="new-password">
             </div>
 
-            <div>
-                <button type="submit">Inscription</button>
+            <div class="form-group">
+                <label for="role_user">Rôle</label>
+                <input id="role_user" type="text" class="form-control @error('role_user') is-invalid @enderror"
+                    name="role_user" value="{{ old('role_user') }}" required>
+                @error('role_user')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
             </div>
+
+            <button type="submit" class="btn btn-primary">Inscription</button>
         </form>
 
     </main>

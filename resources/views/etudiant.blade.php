@@ -20,6 +20,16 @@
         </nav>
     </header>
 
+    @if (Auth::check())
+    <p>Bonjour, {{ Auth::user()->prenom_user }} {{ Auth::user()->nom_user }}!</p>
+    <form action="{{ route('deconnexion') }}" method="POST">
+        @csrf
+        <button type="submit">Déconnexion</button>
+    </form>
+    @else
+    <a href="{{ route('connexion') }}">Se connecter</a>
+    @endif
+
     <main class="etudiantMain">
         <section class="etudiantSection">
             <h1>Vos travaux</h1>

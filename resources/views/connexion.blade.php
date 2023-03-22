@@ -36,37 +36,34 @@
                 <a href="admin">Espace administrateur</a>
             </div>
 
-            <form method="POST" action="{{ route('connexion') }}">
+            <form action="{{ route('login') }}" method="POST">
                 @csrf
 
                 <div>
-                    <label for="email">Adresse e-mail</label>
-                    <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus>
+                    <label for="email_user">{{ __('Adresse e-mail') }}</label>
 
+                    <div>
+                        <input id="email_user" type="email" name="email_user" value="{{ old('email_user') }}" required
+                            autofocus>
+                    </div>
                 </div>
 
                 <div>
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" required>
+                    <label for="mdp_user">{{ __('Mot de passe') }}</label>
 
+                    <div>
+                        <input id="mdp_user" type="password" name="mdp_user" required>
+                    </div>
                 </div>
 
                 <div>
-                    <input type="checkbox" id="remember" name="remember">
-                    <label for="remember">Se souvenir de moi</label>
+                    <div>
+                        <button type="submit">
+                            {{ __('Connexion') }}
+                        </button>
+                        <a href="{{ route('inscription.create') }}">Inscription</a>
+                    </div>
                 </div>
-
-                <div>
-                    <button type="submit">Connexion</button>
-                </div><br>
-                @error('email')
-                <span>{{ $message }}</span>
-                @enderror
-                @error('password')
-                <span>{{ $message }}</span>
-                @enderror
-
-                <a href="inscription">Pas encore de compte ?</a>
             </form>
 
         </section>
