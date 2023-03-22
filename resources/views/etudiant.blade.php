@@ -29,7 +29,7 @@
                 <div class="travaux">
                     <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
                     <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
+                        <i class="bi bi-youtube"></i>SAE 301 : 3
                     </p>
                 </div>
                 <div class="travaux">
