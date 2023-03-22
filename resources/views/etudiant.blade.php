@@ -15,7 +15,7 @@
             <ul>
                 <li><a href=""><i class="bi bi-search"></i></a></li>
                 <span>|</span>
-                <li><a href="connexion"><i class="bi bi-person-circle"></i></a></li>
+                <li><a href="profil"><i class="bi bi-person-circle"></i></a></li>
             </ul>
         </nav>
     </header>
@@ -134,6 +134,7 @@
             </div> -->
 
             <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
         </aside>
     </main>
     <footer>

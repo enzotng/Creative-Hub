@@ -43,7 +43,8 @@ class ConnexionController extends Controller
         }
 
         throw ValidationException::withMessages([
-            'email_user' => __('auth.failed'),
+            'email_user' => __('Adresse mail non existante !'),
+            'mdp_user' => __('Mauvais mot de passe !')
         ]);
     }
 }

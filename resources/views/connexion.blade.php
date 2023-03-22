@@ -48,12 +48,27 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="mdp_user">{{ __('Mot de passe') }}</label>
-
-                    <div>
-                        <input id="mdp_user" type="password" name="mdp_user" required>
+                    <div class="input-group">
+                        <input id="mdp_user" type="password" name="mdp_user" class="form-control" required>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary toggle-password" type="button"><i
+                                    class="bi bi-eye-slash"></i></button>
+                        </div>
                     </div>
+                </div>
+
+                <div>
+                    @if ($errors->any())
+                    <div style="color: red";>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                 </div>
 
                 <div>
@@ -77,6 +92,9 @@
         </div>
         <p>© 2023 Creative Hub</p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+        integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+    <script src="./assets/js/connexion.js"></script>
     <script src="./assets/js/main.js"></script>
 </body>
 
