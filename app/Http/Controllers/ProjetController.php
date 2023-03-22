@@ -29,14 +29,7 @@ class ProjetController extends Controller
         $projet->date_projet = $validatedData['date_projet'];
         $projet->save();
 
-        return redirect('/projets')->with('success', 'Le projet a été enregistré avec succès.');
+        return redirect('etudiant')->with('success', 'Le projet a été enregistré avec succès.');
     }
-
-    public function liste()
-    {
-        $projets = Projet::all();
-
-        return view('projets.liste', compact('projets'));
-    }   
 
 }
