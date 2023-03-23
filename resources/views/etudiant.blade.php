@@ -9,30 +9,45 @@
 </head>
 
 <body>
+
     <header>
-        <a href="home">Creative Hub</a>
+        <a href="home"><img src="assets/images/ico/logo_blanc.ico" alt="Logo CreativeHub"></a>
         <nav>
             <ul>
-                <li><a href=""><i class="bi bi-search"></i></a></li>
+                <li><a href="#"><i class="bi bi-search"></i></a></li>
                 <span>|</span>
+                @if (Auth::check())
                 <li><a href="profil"><i class="bi bi-person-circle"></i></a></li>
+                @else
+                <li><a href="connexion"><i class="bi bi-person-circle"></i></a></li>
+                @endif
             </ul>
         </nav>
+        <div class="search-overlay">
+            <form action="#" method="get">
+                <input type="text" name="search" placeholder="Recherche...">
+                <button type="submit"><i class="bi bi-search"></i></button>
+            </form>
+        </div>
     </header>
 
-    @if (Auth::check())
-    <p>Bonjour, {{ Auth::user()->prenom_user }} {{ Auth::user()->nom_user }}!</p>
-    <form action="{{ route('deconnexion') }}" method="POST">
-        @csrf
-        <button type="submit">Déconnexion</button>
-    </form>
-    @else
-    <a href="{{ route('connexion') }}">Se connecter</a>
-    @endif
+    <main id="portfolio">
 
-    <main class="etudiantMain">
-        <section class="etudiantSection">
-            <h1>Vos travaux</h1>
+        <section class="portfolioSection">
+            <div class="headerPortfolio">
+
+                @if (Auth::check())
+                <h1>Bonjour, {{ Auth::user()->prenom_user }} {{ Auth::user()->nom_user }} !</h1>
+                <form action="{{ route('deconnexion') }}" method="POST">
+                    @csrf
+                    <button class="boutonGeneral" type="submit">Déconnexion</button>
+                </form>
+                @else
+                <h1>Travaux MMI</h1>
+                <a href="{{ route('connexion') }}" class="boutonGeneral">Se connecter</a>
+                @endif
+            </div>
+
             <hr>
 
             <div class="gridTravaux">
@@ -150,6 +165,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
     <script src="./assets/js/etudiant.js"></script>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>

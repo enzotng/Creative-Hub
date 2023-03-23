@@ -10,63 +10,48 @@
 </head>
 
 <body>
+
     <header>
-        <p>Creative Hub</p>
+        <a href="home"><img src="assets/images/ico/logo_blanc.ico" alt="Logo CreativeHub"></a>
         <nav>
             <ul>
-                <li><a href=""><i class="bi bi-search"></i></a></li>
+                <li><a href="#"><i class="bi bi-search"></i></a></li>
                 <span>|</span>
-                <li><a href=""><i class="bi bi-person-circle"></i></a></li>
+                <li><a href="connexion"><i class="bi bi-person-circle"></i></a></li>
             </ul>
         </nav>
+        <div class="search-overlay">
+            <form action="#" method="get">
+                <input type="text" name="search" placeholder="Recherche...">
+                <button type="submit"><i class="bi bi-search"></i></button>
+            </form>
+        </div>
     </header>
 
     <main id="inscription">
 
-        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 flex flex-col my-2">
-            <form method="POST" action="{{ route('inscription.store') }}">
-                @csrf
+        <form method="POST" action="{{ route('inscription.store') }}"
+            class="form_container bg-white shadow-md px-8 pt-6 pb-8 flex flex-col my-2">
+            @csrf
 
-                <div class="-mx-3 md:flex mb-6">
-                    <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-                        <div class="form-group">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                for="nom_user">
-                                Nom
-                            </label>
-                            <input id="nom_user" type="text"
-                                class="form-control @error('nom_user') is-invalid @enderror" name="nom_user"
-                                value="{{ ucfirst(strtolower(old('nom_user'))) }}" required autocomplete="name"
-                                autofocus>
+            <div class="title_container">
+                <p class="title">Inscription</p>
+                <span class="subtitle">Inscrivez-vous pour utiliser notre application et profiter de toutes ses
+                    fonctionnalités.</span>
+            </div>
+
+            <div class="-mx-3 md:flex mb-6">
+                <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                    <div class="input_container mb-4">
+                        <label class="input_label" for="nom_user">
+                            Nom
+                        </label>
+                        <div class="relative">
+                            <i class="bi bi-person icon text-gray-400 hover:text-gray-500"></i>
+                            <input id="nom_user" type="text" class="input_field @error('nom_user') is-invalid @enderror"
+                                name="nom_user" value="{{ ucfirst(strtolower(old('nom_user'))) }}" required
+                                autocomplete="name" autofocus>
                             @error('nom_user')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label class="block uppercase tracking-wide text-xs mb-2" for="mdp_user">
-                                Mot de passe
-                            </label>
-                            <input id="mdp_user" type="password"
-                                class="form-control @error('mdp_user') is-invalid @enderror" name="mdp_user" required
-                                autocomplete="new-password">
-                            @error('mdp_user')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label class="block uppercase tracking-wide text-xs mb-2" for="email_user">
-                                Adresse email
-                            </label>
-                            <input id="email_user" type="email"
-                                class="form-control @error('email_user') is-invalid @enderror" name="email_user"
-                                value="{{ old('email_user') }}" required autocomplete="email">
-                            @error('email_user')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -74,15 +59,56 @@
                         </div>
                     </div>
 
-                    <div class="md:w-1/2 px-3">
+                    <div class="input_container mb-4">
+                        <label class="input_label" for="mdp_user">
+                            Mot de passe
+                        </label>
+                        <div class="relative">
+                            <i class="bi bi-lock icon text-gray-400 hover:text-gray-500"></i>
+                            <input id="mdp_user" type="password"
+                                class="input_field @error('mdp_user') is-invalid @enderror" name="mdp_user" required
+                                autocomplete="new-password">
+                            <button class="btn-toggle-password toggle-password absolute top-0 right-0 mr-3 mt-3"
+                                type="button">
+                                <i class="bi bi-eye-slash text-gray-400 hover:text-gray-500"></i>
+                            </button>
+                            @error('mdp_user')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                for="prenom_user">
-                                Prénom
-                            </label>
+                    <div class="input_container mb-4">
+                        <label class="input_label" for="email_user">
+                            Adresse email
+                        </label>
+                        <div class="relative">
+                            <i class="bi bi-envelope icon text-gray-400 hover:text-gray-500"></i>
+                            <input id="email_user" type="email"
+                                class="input_field @error('email_user') is-invalid @enderror" name="email_user"
+                                value="{{ old('email_user') }}" oninput="this.value = this.value.toLowerCase()" required
+                                autocomplete="email">
+                            @error('email_user')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 px-3">
+
+                    <div class="input_container mb-4">
+                        <label class="input_label" for="prenom_user">
+                            Prénom
+                        </label>
+                        <div class="relative">
+                            <i class="bi bi-person icon text-gray-400 hover:text-gray-500"></i>
                             <input id="prenom_user" type="text"
-                                class="form-control @error('prenom_user') is-invalid @enderror" name="prenom_user"
+                                class="input_field @error('prenom_user') is-invalid @enderror" name="prenom_user"
                                 value="{{ ucfirst(strtolower(old('prenom_user'))) }}" required autocomplete="name"
                                 autofocus>
                             @error('prenom_user')
@@ -91,30 +117,40 @@
                             </span>
                             @enderror
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="block uppercase tracking-wide text-xs mb-2" for="mdp_user_confirmation">
-                                Confirmation du mot de passe
-                            </label>
-                            <input id="mdp_user_confirmation" type="password" class="form-control"
+                    <div class="input_container mb-4">
+                        <label class="input_label" for="mdp_user_confirmation">
+                            Confirmation du mot de passe
+                        </label>
+                        <div class="relative">
+                            <i class="bi bi-lock icon text-gray-400 hover:text-gray-500"></i>
+                            <input id="mdp_user_confirmation" type="password" class="input_field"
                                 name="mdp_user_confirmation" required autocomplete="new-password">
+                            <button class="btn-toggle-password toggle-password2 absolute top-0 right-0 mr-3 mt-3"
+                                type="button">
+                                <i class="bi bi-eye-slash text-gray-400 hover:text-gray-500"></i>
+                            </button>
                             @error('mdp_user_confirmation')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
+                    </div>
 
-                        <div>
-                            <span id="password-match-message"></span>
-                        </div>
+                    <div>
+                        <span id="password-match-message"></span>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="block uppercase tracking-wide text-xs mb-2" for="role_user">
-                                Rôle
-                            </label>
+                    <div class="input_container mb-4">
+                        <label class="input_label" for="role_user">
+                            Rôle
+                        </label>
+                        <div class="relative">
+                            <i class="bi bi-person-circle icon text-gray-400 hover:text-gray-500"></i>
                             <input id="role_user" type="text"
-                                class="form-control @error('role_user') is-invalid @enderror" name="role_user"
+                                class="input_field @error('role_user') is-invalid @enderror" name="role_user"
                                 value="{{ old('role_user') }}" required>
                             @error('role_user')
                             <span class="invalid-feedback" role="alert">
@@ -124,18 +160,23 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="flex justify-end">
-                    <button type="submit">
-                        S'inscrire
-                    </button>
-                </div>
+            <button type="submit" class="boutonGeneral">
+                S'inscrire
+            </button>
 
-            </form>
-        </div>
+            <p class="note">
+                En soumettant ce formulaire, vous acceptez nos conditions d'utilisation et notre
+                politique de confidentialité.
+            </p>
+
+            <a href="conditions" class="conditions">Politique de confidentialité et conditions d'utilisation</a>
+
+        </form>
 
     </main>
-    <footer>
+    <footer class="shadow-md">
         <div class="reseaux_sociaux">
             <i class="bi bi-linkedin"></i>
             <i class="bi bi-twitter"></i>

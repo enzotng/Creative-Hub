@@ -11,7 +11,7 @@
 <body>
 
     <header>
-        <p>Creative Hub</p>
+        <a href="home"><img src="assets/images/ico/logo_blanc.ico" alt="Logo CreativeHub"></a>
         <nav>
             <ul>
                 <li><a href="#"><i class="bi bi-search"></i></a></li>
@@ -75,7 +75,6 @@
                 </div>
             </div>
         </section>
-
 
     </main>
     <footer>

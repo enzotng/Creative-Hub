@@ -1,27 +1,18 @@
-// const passwordField = document.getElementById("mdp_user");
-// const confirmPasswordField = document.getElementById("mdp_user_confirmation");
-// const passwordMatchMessage = document.getElementById("password-match-message");
-// const passwordLengthMessage = document.getElementById("password-length-message");
+const togglePassword = document.querySelector('.toggle-password');
+const confirmertogglePassword = document.querySelector('.toggle-password2');
+const password = document.querySelector('#mdp_user');
+const confirmerPassword = document.querySelector('#mdp_user_confirmation');
 
-// const MIN_PASSWORD_LENGTH = 8;
+togglePassword.addEventListener('click', function (e) {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.querySelector('i').classList.toggle('bi-eye');
+    this.querySelector('i').classList.toggle('bi-eye-slash');
+});
 
-// if (passwordField && confirmPasswordField && passwordMatchMessage && passwordLengthMessage) {
-//     confirmPasswordField.addEventListener("input", () => {
-//         const confirmPassword = confirmPasswordField.value;
-//         const passwordLength = confirmPassword.length;
-
-//         if (passwordLength >= MIN_PASSWORD_LENGTH) {
-//             confirmPasswordField.setCustomValidity("");
-//             passwordLengthMessage.textContent = "";
-//         } else {
-//             confirmPasswordField.setCustomValidity(`Le mot de passe doit contenir au moins ${MIN_PASSWORD_LENGTH} caractères`);
-//             passwordLengthMessage.textContent = `${passwordLength}/${MIN_PASSWORD_LENGTH}`;
-//         }
-
-//         if (confirmPassword === passwordField.value) {
-//             passwordMatchMessage.textContent = "Les deux mots de passe correspondent";
-//         } else {
-//             passwordMatchMessage.textContent = "";
-//         }
-//     });
-// }
+confirmertogglePassword.addEventListener('click', function (e) {
+    const type = confirmerPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+    confirmerPassword.setAttribute('type', type);
+    this.querySelector('i').classList.toggle('bi-eye');
+    this.querySelector('i').classList.toggle('bi-eye-slash');
+});

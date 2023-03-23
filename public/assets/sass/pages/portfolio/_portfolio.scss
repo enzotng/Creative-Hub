@@ -1,4 +1,4 @@
-.etudiantMain {
+#portfolio {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -10,7 +10,7 @@
         border: 1px solid #f8f8f8;
         width: 100%;
     }
-    .etudiantSection {
+    .portfolioSection {
         background: $blanc;
         margin-block: 3vw;
         margin-inline-end: 3vw;
@@ -22,6 +22,32 @@
         align-items: stretch;
         flex-direction: column;
         width: 70%;
+        .headerPortfolio {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-direction: row;
+            .boutonGeneral {
+                width: fit-content;
+                height: fit-content;
+                padding: 15px 20px;
+                border: 0;
+                background: $violet;
+                font-family: "Ubuntu", sans-serif;
+                border-radius: 7px;
+                outline: none;
+                color: #ffffff;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.3s;
+                font-weight: normal;
+                &:hover{
+                    background: $violet2;
+                }
+            }
+        }
         .gridTravaux {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
