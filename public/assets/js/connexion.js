@@ -1,12 +1,9 @@
-$(document).ready(function () {
-    $('.toggle-password').click(function () {
-        var input = $(this).parents('.input-group').find('input');
-        if (input.attr('type') == 'password') {
-            input.attr('type', 'text');
-            $(this).html('<i class="bi bi-eye"></i>');
-        } else {
-            input.attr('type', 'password');
-            $(this).html('<i class="bi bi-eye-slash"></i>');
-        }
-    });
+const togglePassword = document.querySelector('.toggle-password');
+const password = document.querySelector('#mdp_user');
+
+togglePassword.addEventListener('click', function (e) {
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.querySelector('i').classList.toggle('bi-eye');
+    this.querySelector('i').classList.toggle('bi-eye-slash');
 });

@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Creative Hub - Plateforme en ligne</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -20,68 +21,55 @@
         </nav>
     </header>
 
-    <main>
-        <?php
-            if(DB::connection()->getPdo())
-                {
-                    echo "Connexion réussie";
-                    DB::connection()->getDatabaseName();
-                }
-        ?>
+    <main id="connexion">
 
-        <section class="connexion">
-
-            <div class="header_connexion">
-                <h1>Espace de connexion</h1>
-                <a href="admin">Espace administrateur</a>
-            </div>
-
-            <form action="{{ route('login') }}" method="POST">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 flex flex-col my-2">
+            <form method="POST" action="{{ route('login') }}">
                 @csrf
 
-                <div>
-                    <label for="email_user">{{ __('Adresse e-mail') }}</label>
-
-                    <div>
-                        <input id="email_user" type="email" name="email_user" value="{{ old('email_user') }}" required
-                            autofocus>
-                    </div>
+                <div class="form-group">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email_user">
+                        {{ __('Adresse e-mail') }}
+                    </label>
+                    <input id="email_user" type="email" class="form-control @error('email_user') is-invalid @enderror"
+                        name="email_user" value="{{ old('email_user') }}" required autofocus>
+                    @error('email_user')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
 
                 <div class="form-group">
-                    <label for="mdp_user">{{ __('Mot de passe') }}</label>
-                    <div class="input-group">
-                        <input id="mdp_user" type="password" name="mdp_user" class="form-control" required>
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary toggle-password" type="button"><i
-                                    class="bi bi-eye-slash"></i></button>
-                        </div>
+                    <label class="block uppercase tracking-wide text-xs mb-2" for="mdp_user">
+                        Mot de passe
+                    </label>
+                    <div class="relative">
+                        <input id="mdp_user" type="password" name="mdp_user"
+                            class="form-control @error('mdp_user') is-invalid @enderror" required>
+                        <button class="btn-toggle-password toggle-password absolute top-0 right-0 mr-3 mt-3"
+                            type="button">
+                            <i class="bi bi-eye-slash text-gray-400 hover:text-gray-500"></i>
+                        </button>
+                        @error('mdp_user')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
 
-                <div>
-                    @if ($errors->any())
-                    <div style="color: red;">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
-                </div>
-
-                <div>
+                <div class="flex justify-end">
                     <div>
                         <button type="submit">
                             {{ __('Connexion') }}
                         </button>
-                        <a href="{{ route('inscription.create') }}">Inscription</a>
+                        <!-- <a href="{{ route('inscription.create') }}">Inscription</a> -->
                     </div>
                 </div>
-            </form>
 
-        </section>
+            </form>
+        </div>
 
     </main>
     <footer>

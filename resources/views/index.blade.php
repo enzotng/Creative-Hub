@@ -9,15 +9,22 @@
 </head>
 
 <body>
+
     <header>
         <p>Creative Hub</p>
         <nav>
             <ul>
-                <li><a href=""><i class="bi bi-search"></i></a></li>
+                <li><a href="#"><i class="bi bi-search"></i></a></li>
                 <span>|</span>
                 <li><a href="connexion"><i class="bi bi-person-circle"></i></a></li>
             </ul>
         </nav>
+        <div class="search-overlay">
+            <form action="#" method="get">
+                <input type="text" name="search" placeholder="Recherche...">
+                <button type="submit"><i class="bi bi-search"></i></button>
+            </form>
+        </div>
     </header>
 
     <main>
@@ -54,12 +61,22 @@
             <div class="arrow_gauche"><i class="bi bi-arrow-left"></i></div>
             <div class="arrow_droite"><i class="bi bi-arrow-right"></i></div>
             <div class="projets_section">
-                <div class="projets_1"></div>
-                <div class="projets_2"></div>
-                <div class="projets_1"></div>
-                <div class="projets_2"></div>
+                <div class="projets_item">
+                    <div class="projets_1"></div>
+                </div>
+                <div class="projets_item">
+                    <div class="projets_2"></div>
+                </div>
+                <div class="projets_item">
+                    <div class="projets_1"></div>
+                </div>
+                <div class="projets_item">
+                    <div class="projets_2"></div>
+                </div>
             </div>
         </section>
+
+
     </main>
     <footer>
         <div class="reseaux_sociaux">
