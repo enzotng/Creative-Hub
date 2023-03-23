@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('prenom_user');
             $table->string('email_user');
             $table->string('mdp_user');
-            $table->string('role_user');
             $table->timestamps();
         });
     }

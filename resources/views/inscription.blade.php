@@ -60,19 +60,16 @@
                     </div>
 
                     <div class="input_container mb-4">
-                        <label class="input_label" for="mdp_user">
-                            Mot de passe
+                        <label class="input_label" for="prenom_user">
+                            Prénom
                         </label>
                         <div class="relative">
-                            <i class="bi bi-lock icon text-gray-400 hover:text-gray-500"></i>
-                            <input id="mdp_user" type="password"
-                                class="input_field @error('mdp_user') is-invalid @enderror" name="mdp_user" required
-                                autocomplete="new-password">
-                            <button class="btn-toggle-password toggle-password absolute top-0 right-0 mr-3 mt-3"
-                                type="button">
-                                <i class="bi bi-eye-slash text-gray-400 hover:text-gray-500"></i>
-                            </button>
-                            @error('mdp_user')
+                            <i class="bi bi-person icon text-gray-400 hover:text-gray-500"></i>
+                            <input id="prenom_user" type="text"
+                                class="input_field @error('prenom_user') is-invalid @enderror" name="prenom_user"
+                                value="{{ ucfirst(strtolower(old('prenom_user'))) }}" required autocomplete="name"
+                                autofocus>
+                            @error('prenom_user')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -102,16 +99,19 @@
                 <div class="md:w-1/2 px-3">
 
                     <div class="input_container mb-4">
-                        <label class="input_label" for="prenom_user">
-                            Prénom
+                        <label class="input_label" for="mdp_user">
+                            Mot de passe
                         </label>
                         <div class="relative">
-                            <i class="bi bi-person icon text-gray-400 hover:text-gray-500"></i>
-                            <input id="prenom_user" type="text"
-                                class="input_field @error('prenom_user') is-invalid @enderror" name="prenom_user"
-                                value="{{ ucfirst(strtolower(old('prenom_user'))) }}" required autocomplete="name"
-                                autofocus>
-                            @error('prenom_user')
+                            <i class="bi bi-lock icon text-gray-400 hover:text-gray-500"></i>
+                            <input id="mdp_user" type="password"
+                                class="input_field @error('mdp_user') is-invalid @enderror" name="mdp_user" required
+                                autocomplete="new-password">
+                            <button class="btn-toggle-password toggle-password absolute top-0 right-0 mr-3 mt-3"
+                                type="button">
+                                <i class="bi bi-eye-slash text-gray-400 hover:text-gray-500"></i>
+                            </button>
+                            @error('mdp_user')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -150,8 +150,8 @@
                         <div class="relative">
                             <i class="bi bi-person-circle icon text-gray-400 hover:text-gray-500"></i>
                             <input id="role_user" type="text"
-                                class="input_field @error('role_user') is-invalid @enderror" name="role_user"
-                                value="{{ old('role_user') }}" required>
+                                class="input_field @error('role_user') is-invalid @enderror" disabled placeholder="User"
+                                name="role_user" value="{{ old('role_user') }}" required>
                             @error('role_user')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

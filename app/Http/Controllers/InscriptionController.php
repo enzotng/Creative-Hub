@@ -34,7 +34,6 @@ class InscriptionController extends Controller
             'prenom_user' => 'required|string|max:255',
             'email_user' => 'required|string|email|max:255|unique:users_table,email_user',
             'mdp_user' => 'required|string|min:8|confirmed',
-            'role_user' => 'required|string|max:255',
         ]);
 
         // Insérer les données remplies dans le formulaire dans la base de données
@@ -43,7 +42,6 @@ class InscriptionController extends Controller
             'prenom_user' => $request->input('prenom_user'),
             'email_user' => $request->input('email_user'),
             'mdp_user' => bcrypt($request->input('mdp_user')),
-            'role_user' => $request->input('role_user'),
         ]);
 
         // Connecter directement l'utilisateur

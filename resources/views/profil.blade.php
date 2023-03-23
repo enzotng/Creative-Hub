@@ -35,7 +35,7 @@
                 <li><strong>Nom :</strong> {{ $user->nom_user }}</li>
                 <li><strong>Prénom :</strong> {{ $user->prenom_user }}</li>
                 <li><strong>Email :</strong> {{ $user->email_user }}</li>
-                <li><strong>Role :</strong> {{ $user->role_user }}</li>
+                <li><strong>Rôle :</strong> {{ $user->role_user }}</li>
             </ul>
         </div>
 
