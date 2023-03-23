@@ -29,8 +29,8 @@ class ConnexionController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'email_user' => 'required|string|email',
-            'mdp_user' => 'required|string',
+            'email_user' => 'required|email',
+            'mdp_user' => 'required',
         ]);
 
         $credentials = $request->only('email_user', 'mdp_user');
