@@ -29,14 +29,21 @@ class ProjetController extends Controller
         $projet->date_projet = $validatedData['date_projet'];
         $projet->save();
 
-        return redirect('/projets')->with('success', 'Le projet a été enregistré avec succès.');
+        return redirect('etudiant')->with('success', 'Le projet a été enregistré avec succès.');
     }
 
-    public function liste()
-    {
-        $projets = Projet::all();
+    public function stored(Request $request){
 
-        return view('projets.liste', compact('projets'));
-    }   
+        $validatedData = $request->validate([
+            'contenu_commentaire' => 'required',
+        ]);
+
+        $comm = new Commentaire;
+        $comm->contenu_commentaire = $validatedData['contenu_commentaire'];
+        $comm->save();
+
+        return redirect('etudiant')->with('success', 'Le commentaire a été poster avec succès.');
+
+    }
 
 }

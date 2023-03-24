@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('commentaire_table', function (Blueprint $table) {
             $table->increments('id_commentaire');
             $table->text('contenu_commentaire');
-            $table->datetime('date_commentaire');
+            $table->dateTime('date_commentaire');
             $table->timestamps();
         });
     }
