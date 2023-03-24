@@ -9,20 +9,26 @@
 </head>
 
 <body>
-    <header>
-        <a href="home">Creative Hub</a>
-        <nav>
-            <ul>
-                <li><a href=""><i class="bi bi-search"></i></a></li>
-                <span>|</span>
-                <li><a href="connexion"><i class="bi bi-person-circle"></i></a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main class="etudiantMain">
-        <section class="etudiantSection">
-            <h1>Vos travaux</h1>
+    @include('includes.header')
+
+    <main id="portfolio">
+
+        <section class="portfolioSection">
+            <div class="headerPortfolio">
+
+                @if (Auth::check())
+                <h1>Bonjour, {{ Auth::user()->prenom_user }} {{ Auth::user()->nom_user }} !</h1>
+                <form action="{{ route('deconnexion') }}" method="POST">
+                    @csrf
+                    <button class="boutonGeneral" type="submit">Déconnexion</button>
+                </form>
+                @else
+                <h1>Travaux MMI</h1>
+                <a href="{{ route('connexion') }}" class="boutonGeneral">Se connecter</a>
+                @endif
+            </div>
+
             <hr>
 
             <div class="gridTravaux">
@@ -124,20 +130,15 @@
             </div> -->
 
             <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
         </aside>
     </main>
-    <footer>
-        <div class="reseaux_sociaux">
-            <i class="bi bi-linkedin"></i>
-            <i class="bi bi-twitter"></i>
-            <i class="bi bi-facebook"></i>
-        </div>
-        <p>© 2023 Creative Hub</p>
-    </footer>
+    @include('includes.footer')
     <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
         integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
+    <script src="./assets/js/main.js"></script>
     <script src="./assets/js/etudiant.js"></script>
 </body>
 

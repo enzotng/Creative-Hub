@@ -9,16 +9,8 @@
 </head>
 
 <body>
-    <header>
-        <p>Creative Hub</p>
-        <nav>
-            <ul>
-                <li><a href=""><i class="bi bi-search"></i></a></li>
-                <span>|</span>
-                <li><a href="connexion"><i class="bi bi-person-circle"></i></a></li>
-            </ul>
-        </nav>
-    </header>
+
+    @include('includes.header')
 
     <main>
         <section class="hero">
@@ -54,21 +46,23 @@
             <div class="arrow_gauche"><i class="bi bi-arrow-left"></i></div>
             <div class="arrow_droite"><i class="bi bi-arrow-right"></i></div>
             <div class="projets_section">
-                <div class="projets_1"></div>
-                <div class="projets_2"></div>
-                <div class="projets_1"></div>
-                <div class="projets_2"></div>
+                <div class="projets_item">
+                    <div class="projets_1"></div>
+                </div>
+                <div class="projets_item">
+                    <div class="projets_2"></div>
+                </div>
+                <div class="projets_item">
+                    <div class="projets_1"></div>
+                </div>
+                <div class="projets_item">
+                    <div class="projets_2"></div>
+                </div>
             </div>
         </section>
+
     </main>
-    <footer>
-        <div class="reseaux_sociaux">
-            <i class="bi bi-linkedin"></i>
-            <i class="bi bi-twitter"></i>
-            <i class="bi bi-facebook"></i>
-        </div>
-        <p>© 2023 Creative Hub</p>
-    </footer>
+    @include('includes.footer')
     <script src="./assets/js/main.js"></script>
 </body>
 

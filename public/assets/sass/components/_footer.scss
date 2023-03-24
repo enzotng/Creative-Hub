@@ -8,20 +8,17 @@ footer {
     align-items: center;
     padding-inline: 20px;
     .reseaux_sociaux {
-        i {
-            font-size: 2rem;
+        display: flex;
+        flex-direction: row;
+        a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: $violet;
             padding-inline-end: 10px;
-        }
-        i:nth-child(1){
-            color: #1D9BF0;
-        }
-
-        i:nth-child(2){
-            color: #0A66C2;
-        }
-
-        i:nth-child(3){
-            color: #1877F2;
+            &:hover{
+                color: $violet2;
+                transform: scale(0.95);
+            }
         }
     }
 }
