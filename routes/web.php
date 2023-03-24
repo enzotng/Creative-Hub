@@ -35,6 +35,8 @@ Route::post('/inscription', [InscriptionController::class, 'store'])->name('insc
 
 Route::get('/profil', [ProfilController::class, 'index'])->name('profil')->middleware('auth');
 
-Route::get('/projets/create', [App\Http\Controllers\ProjetController::class, 'create'])->name('projets.create');
-Route::post('/projets', [App\Http\Controllers\ProjetController::class, 'store'])->name('projets.store');
-Route::get('/projets/liste', [App\Http\Controllers\ProjetController::class, 'liste'])->name('projets.liste');
+Route::get('/projets', [ProjetController::class, 'create'])->name('create');
+Route::post('/projets', [ProjetController::class, 'store'])->name('store');
+
+Route::get('/projets/{id}', [ProjetController::class, 'showProjet'])->name('show');
+Route::get('/projets/{id}/comment', [CommentaireController::class, 'stored'])->name('stored');
