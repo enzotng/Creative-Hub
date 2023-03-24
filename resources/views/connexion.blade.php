@@ -12,28 +12,13 @@
 
 <body>
 
-    <header>
-        <a href="home"><img src="assets/images/ico/logo_blanc.ico" alt="Logo CreativeHub"></a>
-        <nav>
-            <ul>
-                <li><a href="#"><i class="bi bi-search"></i></a></li>
-                <span>|</span>
-                <li><a href="connexion"><i class="bi bi-person-circle"></i></a></li>
-            </ul>
-        </nav>
-        <div class="search-overlay">
-            <form action="#" method="get">
-                <input type="text" name="search" placeholder="Recherche...">
-                <button type="submit"><i class="bi bi-search"></i></button>
-            </form>
-        </div>
-    </header>
+    @include('includes.header')
 
     <main id="connexion">
 
         <form method="POST" action="{{ route('login') }}" class="form_container bg-white shadow-md px-8 pt-6 pb-8 flex flex-col my-2">
             @csrf
-            
+
             <div class="title_container">
                 <p class="title">Connexion à votre compte</p>
                 <span class="subtitle">Connectez-vous pour utiliser notre application et profiter de toutes ses
@@ -41,7 +26,7 @@
             </div>
 
             <div class="input_container mb-4">
-                <label class="input_label" for="email_user">Adresse e-mail</label>
+                <label class="input_label" for="email_user">Adresse email</label>
                 <div class="relative">
                     <i class="bi bi-envelope icon text-gray-400 hover:text-gray-500"></i>
                     <input id="email_user" type="email" class="input_field @error('email_user') is-invalid @enderror"
@@ -94,14 +79,7 @@
         </form>
 
     </main>
-    <footer class="shadow-md">
-        <div class="reseaux_sociaux">
-            <i class="bi bi-linkedin"></i>
-            <i class="bi bi-twitter"></i>
-            <i class="bi bi-facebook"></i>
-        </div>
-        <p>© 2023 Creative Hub</p>
-    </footer>
+    @include('includes.footer')
     <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
         integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
     <script src="./assets/js/connexion.js"></script>

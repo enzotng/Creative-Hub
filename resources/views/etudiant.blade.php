@@ -10,26 +10,7 @@
 
 <body>
 
-    <header>
-        <a href="home"><img src="assets/images/ico/logo_blanc.ico" alt="Logo CreativeHub"></a>
-        <nav>
-            <ul>
-                <li><a href="#"><i class="bi bi-search"></i></a></li>
-                <span>|</span>
-                @if (Auth::check())
-                <li><a href="profil"><i class="bi bi-person-circle"></i></a></li>
-                @else
-                <li><a href="connexion"><i class="bi bi-person-circle"></i></a></li>
-                @endif
-            </ul>
-        </nav>
-        <div class="search-overlay">
-            <form action="#" method="get">
-                <input type="text" name="search" placeholder="Recherche...">
-                <button type="submit"><i class="bi bi-search"></i></button>
-            </form>
-        </div>
-    </header>
+    @include('includes.header')
 
     <main id="portfolio">
 
@@ -152,20 +133,13 @@
 
         </aside>
     </main>
-    <footer>
-        <div class="reseaux_sociaux">
-            <i class="bi bi-linkedin"></i>
-            <i class="bi bi-twitter"></i>
-            <i class="bi bi-facebook"></i>
-        </div>
-        <p>© 2023 Creative Hub</p>
-    </footer>
+    @include('includes.footer')
     <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
         integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
-    <script src="./assets/js/etudiant.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/etudiant.js"></script>
 </body>
 
 </html>

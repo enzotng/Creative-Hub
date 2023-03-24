@@ -7,95 +7,99 @@ header {
     border-radius: 10px;
     color: $blanc;
     padding: 0 20px;
-    img {
-        width: 36px;
-        height: 36px;
-        transition: all 0.2s;
-        &:hover{
-            transform: scale(0.95);
-        }
-    }
 
-    nav {
-        ul {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            li {
-                padding-inline: 20px;
-                i {
-                    font-size: 1.5rem;
-                }
-            }
-        }
-    }
-
-    .search-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(0, 0, 0, 0.5);
-        display: none;
+    .nav_gauche {
+        display: flex;
         justify-content: center;
         align-items: center;
-        z-index: 999;
-        transition: background-color 0.3s ease-in-out;
-
-        form {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            max-width: 50vw;
-            width: 100%;
-
-            input[type="text"] {
-                padding: 15px 20px;
-                border: none;
-                border-radius: 50px 0px 0px 50px;
-                font-family: "Ubuntu", sans-serif;
-                font-size: 1.2rem;
-                width: 100%;
-                background-color: $blanc;
-                color: $noir;
-                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-                transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
-
-                &:focus {
-                    outline: none;
-                    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 0 2px $violet2;
-                    background-color: #fff;
-                }
-
-                &::placeholder {
-                    color: #999;
-                }
-            }
-
-            button[type="submit"] {
-                padding: 15px 20px;
-                border: none;
-                border-radius: 0px 50px 50px 0px;
-                font-size: 1.2rem;
-                background-color: $violet;
-                color: #fff;
-                cursor: pointer;
-                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-                transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-
-                &:hover {
-                    background-color: $violet2;
-                }
+        img {
+            width: 36px;
+            height: 36px;
+            transition: all 0.2s;
+            &:hover {
+                transform: scale(0.95);
             }
         }
     }
 
-    &.search-active {
-        overflow: hidden;
-
-        .search-overlay {
+    .nav_droite {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .nav_rechercher {
+            border-radius: 20px;
+            background-color: $blanc;
+            padding-right: 12px;
+            height: 40px;
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 480px;
+            color: $gris;
+            box-shadow: 0 2px 6px 0 rgba(61, 2, 74, 0.2), 0 24px 20px -24px rgba(71, 82, 107, 0.1);
+            overflow: hidden;
+            position: relative;
+
+            .search-input {
+                border: none;
+                flex: 1;
+                outline: none;
+                height: 100%;
+                font-family: "Ubuntu", sans-serif;
+                padding: 0 15px;
+                font-size: 1rem;
+                background-color: $blanc;
+                overflow-x: hidden;
+                color: $noir;
+                &:placeholder {
+                    color: $noir;
+                    opacity: 0.6;
+                }
+            }
+
+            i {
+                position: absolute;
+                right: 15px;
+                padding-inline-start: 20px;
+                cursor: pointer;
+                transition: all 0.3s;
+                &:hover {
+                    color: $violet;
+                    font-weight: bold;
+                }
+            }
+        }
+        nav {
+            width: 100%;
+            ul {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                a{
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row;
+                    p{
+                        font-weight: bold;
+                        font-size: 1.15rem;
+                    }
+                }
+                li {
+                    padding-inline: 20px;
+                    i {
+                        font-size: 1.5rem;
+                    }
+                }
+                img {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    margin-inline: 20px;
+                    object-fit: cover;
+                    aspect-ratio: 16/9;
+                }
+            }
         }
     }
 }

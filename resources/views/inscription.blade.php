@@ -11,22 +11,7 @@
 
 <body>
 
-    <header>
-        <a href="home"><img src="assets/images/ico/logo_blanc.ico" alt="Logo CreativeHub"></a>
-        <nav>
-            <ul>
-                <li><a href="#"><i class="bi bi-search"></i></a></li>
-                <span>|</span>
-                <li><a href="connexion"><i class="bi bi-person-circle"></i></a></li>
-            </ul>
-        </nav>
-        <div class="search-overlay">
-            <form action="#" method="get">
-                <input type="text" name="search" placeholder="Recherche...">
-                <button type="submit"><i class="bi bi-search"></i></button>
-            </form>
-        </div>
-    </header>
+    @include('includes.header')
 
     <main id="inscription">
 
@@ -145,7 +130,7 @@
 
                     <div class="input_container mb-4">
                         <label class="input_label" for="role_user">
-                            Rôle
+                            Rôle (par défaut)
                         </label>
                         <div class="relative">
                             <i class="bi bi-person-circle icon text-gray-400 hover:text-gray-500"></i>
@@ -176,14 +161,7 @@
         </form>
 
     </main>
-    <footer class="shadow-md">
-        <div class="reseaux_sociaux">
-            <i class="bi bi-linkedin"></i>
-            <i class="bi bi-twitter"></i>
-            <i class="bi bi-facebook"></i>
-        </div>
-        <p>© 2023 Creative Hub</p>
-    </footer>
+    @include('includes.footer')
     <script src="./assets/js/inscription.js"></script>
     <script src="./assets/js/main.js"></script>
 </body>
