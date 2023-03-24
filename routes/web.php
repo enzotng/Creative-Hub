@@ -5,6 +5,7 @@ use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\ConnexionController;
 use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\CommentaireController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,8 @@ Route::post('/connexion', [ConnexionController::class, 'login']);
 Route::get('/inscription', [InscriptionController::class, 'showRegistrationForm'])->name('inscription');
 Route::post('/inscription', [InscriptionController::class, 'register']);
 
-Route::post('/projets/create', [ProjetController::class, 'create'])->name('projets.create');
-Route::post('/projets', [ProjetController::class, 'store'])->name('projets.store');
-//Route::get('/projets/liste', [ProjetController::class, 'liste'])->name('projets.liste');
+Route::get('/projets', [ProjetController::class, 'create'])->name('create');
+Route::post('/projets', [ProjetController::class, 'store'])->name('store');
+
+Route::get('/commentaire', [CommentaireController::class, 'created'])->name('created');
+Route::post('/commentaire', [CommentaireController::class, 'stored'])->name('stored');
