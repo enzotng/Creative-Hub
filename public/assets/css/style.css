@@ -173,96 +173,142 @@ header {
   color: #fff;
   padding: 0 20px;
 }
-header .nav_gauche {
+header .logo {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
-header .nav_gauche img {
-  width: 36px;
-  height: 36px;
+header .logo img {
+  width: 40px;
+  height: 40px;
   transition: all 0.2s;
+  object-fit: cover;
+  aspect-ratio: 16/9;
 }
-header .nav_gauche img:hover {
+header .logo img:hover {
   transform: scale(0.95);
 }
-header .nav_droite {
+header nav ul {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-header .nav_droite .nav_rechercher {
-  border-radius: 20px;
-  background-color: #fff;
-  padding-right: 12px;
-  height: 40px;
+header nav ul li {
+  margin-right: 20px;
+}
+header nav ul li a {
+  padding-inline-start: 20px;
+}
+header nav ul li a:hover {
+  color: #2f2f68;
+}
+header .search {
+  flex: 1;
+}
+header .search form {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-end;
+}
+header .search form input[type=text] {
+  border-radius: 20px;
+  height: 40px;
   width: 100%;
-  max-width: 480px;
+  max-width: 25vw;
   color: #8b8e98;
   box-shadow: 0 2px 6px 0 rgba(61, 2, 74, 0.2), 0 24px 20px -24px rgba(71, 82, 107, 0.1);
   overflow: hidden;
   position: relative;
-}
-header .nav_droite .nav_rechercher .search-input {
   border: none;
   flex: 1;
   outline: none;
-  height: 100%;
   font-family: "Ubuntu", sans-serif;
   padding: 0 15px;
   font-size: 1rem;
   background-color: #fff;
   overflow-x: hidden;
-  color: #000;
 }
-header .nav_droite .nav_rechercher .search-input:placeholder {
+header .search form input[type=text]:placeholder {
   color: #000;
   opacity: 0.6;
 }
-header .nav_droite .nav_rechercher i {
+header .search form button[type=submit] {
+  border: none;
+  background-color: transparent;
+  position: relative;
+  color: #8b8e98;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+header .search form button[type=submit] i {
   position: absolute;
   right: 15px;
   padding-inline-start: 20px;
   cursor: pointer;
   transition: all 0.3s;
 }
-header .nav_droite .nav_rechercher i:hover {
+header .search form button[type=submit] i:hover {
   color: #444492;
   font-weight: bold;
 }
-header .nav_droite nav {
-  width: 100%;
-}
-header .nav_droite nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-header .nav_droite nav ul a {
+header .user {
   display: flex;
   align-items: center;
-  flex-direction: row;
 }
-header .nav_droite nav ul a p {
-  font-weight: bold;
-  font-size: 1.15rem;
-}
-header .nav_droite nav ul li {
+header .user .separateur {
   padding-inline: 20px;
+  font-size: 1.25rem;
+  color: #f0f3f4;
 }
-header .nav_droite nav ul li i {
-  font-size: 1.5rem;
+header .user i {
+  font-size: 2.5rem;
 }
-header .nav_droite nav ul img {
-  width: 48px;
-  height: 48px;
+header .user img {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #2f2f68;
   border-radius: 50%;
-  margin-inline: 20px;
+  transition: all 0.2s;
   object-fit: cover;
+  margin-inline-end: 20px;
   aspect-ratio: 16/9;
+}
+header .user img:hover {
+  transform: scale(0.95);
+}
+@media (max-width: 768px) {
+  header .logo img {
+    width: 50px;
+    margin-right: 10px;
+  }
+  header nav {
+    display: none;
+  }
+  header .user span {
+    display: none;
+  }
+  header .search-toggle {
+    display: block;
+  }
+  header .search {
+    position: static;
+    width: auto;
+    transform: none;
+    padding: 0;
+  }
+  header .search form {
+    display: none;
+  }
+  header .search form input[type=text] {
+    padding: 5px;
+    font-size: 14px;
+    margin-right: 5px;
+  }
+  header .search form button[type=submit] {
+    font-size: 14px;
+  }
 }
 
 footer {
@@ -293,144 +339,86 @@ footer .reseaux_sociaux a:hover {
 .hero {
   background: #fff;
   margin-block: 3vw;
-  padding: 20px;
   border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  filter: drop-shadow(0 0 20px #f0f3f4);
-}
-.hero .hero_1 {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(1, 60vh);
-  text-align: center;
-  color: #fff;
-}
-.hero .hero_1 .sous_hero_1 {
-  background: #444492;
-  width: 100%;
-  height: 60vh;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-}
-.hero .hero_1 .sous_hero_1 p {
-  padding-inline: 3vw;
-  line-height: 1.5;
-}
-.hero .hero_2 {
-  display: grid;
-  grid-template-columns: repeat(2, 40%);
-  grid-template-rows: repeat(2, 30vh);
-  flex-direction: column;
-  text-align: center;
-  font-weight: bold;
-}
-.hero .hero_2 .sous_hero_1_1 {
-  background: #444492;
+  height: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 30vh;
-  color: #fff;
-  border-radius: 20px;
-  cursor: grab;
+  align-items: stretch;
 }
-.hero .hero_2 .sous_hero_1_1:active {
-  cursor: grabbing;
-}
-.hero .hero_2 .sous_hero_2 {
-  background: #f0f3f4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 30vh;
+.hero h1 {
   color: #444492;
-  border-radius: 20px;
-  cursor: grab;
 }
-.hero .hero_2 .sous_hero_2:active {
-  cursor: grabbing;
+.hero .box_hero {
+  width: 100%;
+  border-radius: 1.5rem 1rem 0 1rem;
+  border: 5px solid #444492;
+  height: 100%;
+  background-size: cover;
+  background-image: url("../../assets/images/jpg/pexels-guillaume-meurice-2808402.jpg");
+}
+.hero .boutonGeneral {
+  margin-block-start: 20px;
+  width: fit-content;
+  padding: 15px 20px;
+  border: 0;
+  background: #444492;
+  border-radius: 7px;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+  font-weight: normal;
+}
+.hero .boutonGeneral:hover {
+  background: #2f2f68;
 }
 
 .projets {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
   background: #fff;
-  height: 60vh;
-  margin-block: 3vw;
   border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-block: 3vw;
+}
+.projets .projets_box {
+  width: 20vw;
+  height: 75vh;
+  background-position: center;
+  background-size: cover;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  overflow-x: hidden;
   align-items: center;
-  filter: drop-shadow(0 0 20px #f0f3f4);
+  cursor: pointer;
+}
+.projets .projets_box img {
+  object-fit: cover;
+  border-radius: 10px;
+  aspect-ratio: 16/9;
+  height: 100%;
   position: relative;
 }
-.projets .arrow_gauche {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  color: black;
-  background: #f0f3f4;
-  left: 2vw;
+.projets .projets_box a {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  filter: drop-shadow(0 0 20px #f0f3f4);
-  z-index: 99;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-.projets .arrow_droite {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  color: black;
-  background: #f0f3f4;
-  right: 2vw;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  filter: drop-shadow(0 0 20px #f0f3f4);
-  z-index: 99;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-.projets .projets_section {
-  display: flex;
-  gap: 3vw;
+  text-align: center;
+  white-space: nowrap;
   overflow: hidden;
-  transition: all 0.3s;
+  color: #fff;
+  background: #2f2f68;
+  padding: 15px 20px;
+  border-radius: 30px;
 }
-.projets .projets_section .projets_item {
-  flex-shrink: 0;
-  width: 300px;
-  height: 300px;
-  border-radius: 10px;
-  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
-  cursor: grab;
-  background-image: url("../../assets/images/jpg/pexels-guillaume-meurice-2808402.jpg");
-  background-size: 50vw;
-}
-.projets .projets_section .projets_item:active {
-  cursor: grabbing;
-}
-.projets .projets_section .projets_item .projets_1 {
-  background-image: url("../../assets/images/jpg/pexels-guillaume-meurice-2808402.jpg");
-  background-size: 50vw;
-}
-.projets .projets_section .projets_item .projets_2 {
-  background-image: url("../../assets/images/jpg/pexels-fauxels-3183153.jpg");
-  background-size: 50vw;
+.projets .projets_box a:hover {
+  background: #444492;
+  transform: scale(0.95);
 }
 
 #inscription {
@@ -892,7 +880,11 @@ footer .reseaux_sociaux a:hover {
 #profil {
   margin-block: 5vh;
 }
-#profil .form_container {
+#profil .profil {
+  border-radius: 10px;
+  padding: 20px;
+}
+#profil .profil .form_container {
   width: 100%;
   height: fit-content;
   display: flex;
@@ -902,32 +894,32 @@ footer .reseaux_sociaux a:hover {
   border-radius: 10px;
   gap: 30px;
 }
-#profil .form_container .logo_container {
+#profil .profil .form_container .logo_container {
   width: 100%;
   height: 80px;
   color: #444492;
   text-align: center;
 }
-#profil .form_container .header_profil {
+#profil .profil .form_container .header_profil {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
 }
-#profil .form_container .header_profil .title_container {
+#profil .profil .form_container .header_profil .title_container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   gap: 10px;
 }
-#profil .form_container .header_profil .title_container .title {
+#profil .profil .form_container .header_profil .title_container .title {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 700;
   color: #000;
 }
-#profil .form_container .header_profil a {
+#profil .profil .form_container .header_profil a {
   padding: 15px 20px;
   border: 0;
   background: #444492;
@@ -941,28 +933,28 @@ footer .reseaux_sociaux a:hover {
   transition: all 0.3s;
   font-weight: normal;
 }
-#profil .form_container .header_profil a:hover {
+#profil .profil .form_container .header_profil a:hover {
   background: #2f2f68;
 }
-#profil .form_container .input_container {
+#profil .profil .form_container .input_container {
   width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-#profil .form_container .input_container .icon {
+#profil .profil .form_container .input_container .icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: 12px;
   z-index: 99;
 }
-#profil .form_container .input_container .input_label {
+#profil .profil .form_container .input_container .input_label {
   color: #8b8e98;
   font-weight: bold;
 }
-#profil .form_container .input_container .input_field {
+#profil .profil .form_container .input_container .input_field {
   width: 100%;
   height: 40px;
   padding: 10px 40px;
@@ -972,21 +964,25 @@ footer .reseaux_sociaux a:hover {
   filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
   transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
 }
-#profil .form_container .input_container .input_field:focus {
+#profil .profil .form_container .input_container .input_field:focus {
   border: 1px solid transparent;
   box-shadow: 0px 0px 0px 2px #242424;
   background-color: transparent;
 }
-#profil .form_container .input_container .invalid-feedback {
+#profil .profil .form_container .input_container #role_user {
+  cursor: not-allowed;
+}
+#profil .profil .form_container .input_container .invalid-feedback {
   color: red;
 }
-#profil .form_container .input_container .invalid-feedback strong {
+#profil .profil .form_container .input_container .invalid-feedback strong {
   position: absolute;
   left: 0;
   top: 50px;
 }
-#profil .boutonGeneral {
+#profil .profil .boutonGeneral {
   padding: 15px 20px;
+  width: fit-content;
   border: 0;
   background: #444492;
   border-radius: 7px;
@@ -999,7 +995,7 @@ footer .reseaux_sociaux a:hover {
   transition: all 0.3s;
   font-weight: normal;
 }
-#profil .boutonGeneral:hover {
+#profil .profil .boutonGeneral:hover {
   background: #2f2f68;
 }
 

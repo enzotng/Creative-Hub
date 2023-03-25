@@ -135,7 +135,7 @@
                         <div class="relative">
                             <i class="bi bi-person-circle icon text-gray-400 hover:text-gray-500"></i>
                             <input id="role_user" type="text"
-                                class="input_field @error('role_user') is-invalid @enderror" disabled placeholder="User"
+                                class="input_field @error('role_user') is-invalid @enderror" disabled placeholder="Utilisateur"
                                 name="role_user" value="{{ old('role_user') }}" required>
                             @error('role_user')
                             <span class="invalid-feedback" role="alert">

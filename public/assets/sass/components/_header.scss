@@ -1,3 +1,109 @@
+// header {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     height: 80px;
+//     background-color: $violet;
+//     border-radius: 10px;
+//     color: $blanc;
+//     padding: 0 20px;
+
+//     .nav_gauche {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+// img {
+//     width: 40px;
+//     height: 40px;
+//     transition: all 0.2s;
+//     &:hover {
+//         transform: scale(0.95);
+//     }
+// }
+//     }
+
+//     .nav_droite {
+//         display: flex;
+//         justify-content: flex-end;
+//         align-items: center;
+//         .nav_rechercher {
+//             border-radius: 20px;
+//             background-color: $blanc;
+//             padding-right: 12px;
+//             height: 40px;
+//             display: flex;
+//             justify-content: space-between;
+//             align-items: center;
+//             width: 100%;
+//             max-width: 480px;
+//             color: $gris;
+//             box-shadow: 0 2px 6px 0 rgba(61, 2, 74, 0.2), 0 24px 20px -24px rgba(71, 82, 107, 0.1);
+//             overflow: hidden;
+//             position: relative;
+
+//             .search-input {
+//                 border: none;
+//                 flex: 1;
+//                 outline: none;
+//                 height: 100%;
+//                 font-family: "Ubuntu", sans-serif;
+//                 padding: 0 15px;
+//                 font-size: 1rem;
+//                 background-color: $blanc;
+//                 overflow-x: hidden;
+//                 color: $noir;
+//                 &:placeholder {
+//                     color: $noir;
+//                     opacity: 0.6;
+//                 }
+//             }
+
+//             i {
+//                 position: absolute;
+//                 right: 15px;
+//                 padding-inline-start: 20px;
+//                 cursor: pointer;
+//                 transition: all 0.3s;
+//                 &:hover {
+//                     color: $violet;
+//                     font-weight: bold;
+//                 }
+//             }
+//         }
+//         nav {
+//             width: 100%;
+//             ul {
+//                 display: flex;
+//                 justify-content: center;
+//                 align-items: center;
+//                 a{
+//                     display: flex;
+//                     align-items: center;
+//                     flex-direction: row;
+//                     p{
+//                         font-weight: bold;
+//                         font-size: 1.15rem;
+//                     }
+//                 }
+//                 li {
+//                     padding-inline: 20px;
+//                     i {
+//                         font-size: 1.5rem;
+//                     }
+//                 }
+//                 img {
+//                     width: 48px;
+//                     height: 48px;
+//                     border-radius: 50%;
+//                     margin-inline: 20px;
+//                     object-fit: cover;
+//                     aspect-ratio: 16/9;
+//                 }
+//             }
+//         }
+//     }
+// }
+
 header {
     display: flex;
     justify-content: space-between;
@@ -8,96 +114,163 @@ header {
     color: $blanc;
     padding: 0 20px;
 
-    .nav_gauche {
+    .logo {
         display: flex;
-        justify-content: center;
         align-items: center;
+
         img {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             transition: all 0.2s;
+            object-fit: cover;
+            aspect-ratio: 16/9;
             &:hover {
                 transform: scale(0.95);
             }
         }
     }
 
-    .nav_droite {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        .nav_rechercher {
-            border-radius: 20px;
-            background-color: $blanc;
-            padding-right: 12px;
-            height: 40px;
+    nav {
+        ul {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            max-width: 480px;
-            color: $gris;
-            box-shadow: 0 2px 6px 0 rgba(61, 2, 74, 0.2), 0 24px 20px -24px rgba(71, 82, 107, 0.1);
-            overflow: hidden;
-            position: relative;
+            list-style: none;
+            margin: 0;
+            padding: 0;
 
-            .search-input {
+            li {
+                margin-right: 20px;
+
+                a {
+                    padding-inline-start: 20px;
+                    &:hover {
+                        color: $violet2;
+                    }
+                }
+            }
+        }
+    }
+
+    .search {
+        flex: 1;
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            input[type="text"] {
+                border-radius: 20px;
+                height: 40px;
+                width: 100%;
+                max-width: 25vw;
+                color: $gris;
+                box-shadow: 0 2px 6px 0 rgba(61, 2, 74, 0.2), 0 24px 20px -24px rgba(71, 82, 107, 0.1);
+                overflow: hidden;
+                position: relative;
                 border: none;
                 flex: 1;
                 outline: none;
-                height: 100%;
                 font-family: "Ubuntu", sans-serif;
                 padding: 0 15px;
                 font-size: 1rem;
                 background-color: $blanc;
                 overflow-x: hidden;
-                color: $noir;
                 &:placeholder {
                     color: $noir;
                     opacity: 0.6;
                 }
             }
 
-            i {
-                position: absolute;
-                right: 15px;
-                padding-inline-start: 20px;
-                cursor: pointer;
-                transition: all 0.3s;
-                &:hover {
-                    color: $violet;
-                    font-weight: bold;
-                }
-            }
-        }
-        nav {
-            width: 100%;
-            ul {
+            button[type="submit"] {
+                border: none;
+                background-color: transparent;
+                position: relative;
+                color: $gris;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                a{
-                    display: flex;
-                    align-items: center;
-                    flex-direction: row;
-                    p{
+                cursor: pointer;
+                i {
+                    position: absolute;
+                    right: 15px;
+                    padding-inline-start: 20px;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    &:hover {
+                        color: $violet;
                         font-weight: bold;
-                        font-size: 1.15rem;
                     }
                 }
-                li {
-                    padding-inline: 20px;
-                    i {
-                        font-size: 1.5rem;
-                    }
+            }
+        }
+    }
+
+    .user {
+        display: flex;
+        align-items: center;
+        .separateur {
+            padding-inline: 20px;
+            font-size: 1.25rem;
+            color: $background;
+        }
+
+        i {
+            font-size: 2.5rem;
+        }
+
+        img {
+            width: 40px;
+            height: 40px;
+            border: 2px solid $violet2;
+            border-radius: 50%;
+            transition: all 0.2s;
+            object-fit: cover;
+            margin-inline-end: 20px;
+            aspect-ratio: 16/9;
+            &:hover {
+                transform: scale(0.95);
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .logo {
+            img {
+                width: 50px;
+                margin-right: 10px;
+            }
+        }
+
+        nav {
+            display: none;
+        }
+
+        .user {
+            span {
+                display: none;
+            }
+        }
+
+        .search-toggle {
+            display: block;
+        }
+
+        .search {
+            position: static;
+            width: auto;
+            transform: none;
+            padding: 0;
+
+            form {
+                display: none;
+
+                input[type="text"] {
+                    padding: 5px;
+                    font-size: 14px;
+                    margin-right: 5px;
                 }
-                img {
-                    width: 48px;
-                    height: 48px;
-                    border-radius: 50%;
-                    margin-inline: 20px;
-                    object-fit: cover;
-                    aspect-ratio: 16/9;
+
+                button[type="submit"] {
+                    font-size: 14px;
                 }
             }
         }
