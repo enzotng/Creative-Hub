@@ -136,7 +136,7 @@
                             <i class="bi bi-person-circle icon text-gray-400 hover:text-gray-500"></i>
                             <input id="role_user" type="text"
                                 class="input_field @error('role_user') is-invalid @enderror" disabled placeholder="Utilisateur"
-                                name="role_user" value="{{ old('role_user') }}" required>
+                                name="role_user" value="{{ old('role_user') }}" required title="Contactez un administrateur pour changer votre rôle">
                             @error('role_user')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

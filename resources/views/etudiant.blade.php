@@ -20,10 +20,11 @@
 
                 @if (Auth::check())
                 <h1>Bonjour, {{ Auth::user()->prenom_user }} {{ Auth::user()->nom_user }} !</h1>
-                <form action="{{ route('deconnexion') }}" method="POST">
+                <!-- <form action="{{ route('deconnexion') }}" method="POST">
                     @csrf
                     <button class="boutonGeneral" type="submit">Déconnexion</button>
-                </form>
+                </form> -->
+                <a href="projets" class="boutonGeneral">Créer un nouveau projet</a>
                 @else
                 <h1>Travaux MMI</h1>
                 <a href="{{ route('connexion') }}" class="boutonGeneral">Se connecter</a>

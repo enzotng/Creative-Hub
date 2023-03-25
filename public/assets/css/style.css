@@ -493,6 +493,9 @@ footer .reseaux_sociaux a:hover {
   box-shadow: 0px 0px 0px 2px #242424;
   background-color: transparent;
 }
+#inscription .form_container .input_container #role_user {
+  cursor: not-allowed;
+}
 #inscription .form_container .input_container .invalid-feedback {
   color: red;
 }
@@ -701,6 +704,7 @@ footer .reseaux_sociaux a:hover {
   justify-content: space-between;
   align-items: baseline;
   flex-direction: row;
+  margin-block-end: 5vh;
 }
 #portfolio .portfolioSection .headerPortfolio .boutonGeneral {
   width: fit-content;
@@ -997,6 +1001,131 @@ footer .reseaux_sociaux a:hover {
 }
 #profil .profil .boutonGeneral:hover {
   background: #2f2f68;
+}
+
+#projets {
+  margin-block: 5vh;
+}
+#projets .form_container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  border-radius: 10px;
+  gap: 30px;
+}
+#projets .form_container .logo_container {
+  width: 100%;
+  height: 80px;
+  color: #444492;
+  text-align: center;
+}
+#projets .form_container .title_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+}
+#projets .form_container .title_container .title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000;
+}
+#projets .form_container .title_container .subtitle {
+  max-width: 80%;
+  text-align: center;
+  line-height: 1.1rem;
+  color: #8b8e98;
+}
+#projets .form_container .input_container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+#projets .form_container .input_container .icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12px;
+  z-index: 99;
+}
+#projets .form_container .input_container .input_label {
+  color: #8b8e98;
+  font-weight: bold;
+}
+#projets .form_container .input_container .input_field {
+  width: 100%;
+  height: 40px;
+  padding: 10px 40px;
+  border-radius: 7px;
+  outline: none;
+  border: 1px solid #e5e5e5;
+  filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+  transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+#projets .form_container .input_container .input_field:focus {
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 0px 2px #242424;
+  background-color: transparent;
+}
+#projets .form_container .input_container .invalid-feedback {
+  color: red;
+}
+#projets .form_container .input_container .invalid-feedback strong {
+  position: absolute;
+  left: 0;
+  top: 50px;
+}
+#projets .boutonGeneral {
+  width: 100%;
+  height: 40px;
+  border: 0;
+  background: #444492;
+  border-radius: 7px;
+  outline: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+  font-weight: normal;
+}
+#projets .boutonGeneral:hover {
+  background: #2f2f68;
+}
+#projets .separateur {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  color: #8b8e98;
+}
+#projets .separateur .hr {
+  display: block;
+  width: 100%;
+  height: 1px;
+  border: 0;
+  background-color: #e8e8e8;
+}
+#projets .note {
+  color: #8b8e98;
+  text-align: center;
+  font-weight: normal;
+}
+#projets .conditions {
+  color: #8b8e98;
+  text-decoration: underline;
+  text-align: center;
+  font-weight: normal;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -96,10 +96,6 @@
                                 <input id="mdp_user" type="password"
                                     class="input_field @error('mdp_user') is-invalid @enderror" name="mdp_user"
                                     autocomplete="new-password" disabled value="{{ $user->mdp_user }}">
-                                <button class="btn-toggle-password toggle-password absolute top-0 right-0 mr-3 mt-3"
-                                    type="button">
-                                    <i class="bi bi-eye-slash text-gray-400 hover:text-gray-500"></i>
-                                </button>
                                 @error('mdp_user')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
