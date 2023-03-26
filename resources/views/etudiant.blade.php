@@ -34,54 +34,16 @@
             <hr>
 
             <div class="gridTravaux">
+                @if ($projets->isEmpty())
+                <p class="mt-5">Vous n'avez encore aucun projets.</p>
+                @else
+                @foreach ($projets as $projet)
                 <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : 3
-                    </p>
+                    <img src="assets/images/png/{{ $projet->image_projet }}" alt="Image Projet">
+                    <p>{{ $projet->titre_projet }}</p>
                 </div>
-                <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
-                    </p>
-                </div>
-                <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
-                    </p>
-                </div>
-                <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
-                    </p>
-                </div>
-                <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
-                    </p>
-                </div>
-                <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
-                    </p>
-                </div>
-                <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
-                    </p>
-                </div>
-                <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
-                    </p>
-                </div>
+                @endforeach
+                @endif
             </div>
             <div id="pagination-container"></div>
         </section>

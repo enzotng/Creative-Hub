@@ -63,24 +63,25 @@
             </div>
         </section>
 
-        <div class="projets shadow-md">
-            <div class="projets_box">
-                <img src="assets/images/jpg/pexels-guillaume-meurice-2808402.jpg" alt="">
-                <a href="">SAE Darknet</a>
+        <div class="projets shadow-md flex flex-col">
+            <h1 class="mb-4">Les derniers projets</h1>
+            @php
+            $projets = \App\Models\Projet::latest()->take(4)->get();
+            @endphp
+            @if ($projets->count() > 0)
+            <div class="flex flex-wrap">
+                @foreach ($projets as $projet)
+                <div class="projets_box flex flex-col items-center flex-grow mb-4 mr-4">
+                    <img src="{{ asset('assets/images/png/'.$projet->image_projet) }}" alt="Image Projet" class="mb-2">
+                    <a href="" class="text-center">{{ $projet->titre_projet }}</a>
+                </div>
+                @endforeach
             </div>
-            <div class="projets_box">
-                <img src="assets/images/jpg/pexels-guillaume-meurice-2808402.jpg" alt="">
-                <a href="">SAE Darknet</a>
-            </div>
-            <div class="projets_box">
-                <img src="assets/images/jpg/pexels-guillaume-meurice-2808402.jpg" alt="">
-                <a href="">SAE Darknet</a>
-            </div>
-            <div class="projets_box">
-                <img src="assets/images/jpg/pexels-guillaume-meurice-2808402.jpg" alt="">
-                <a href="">SAE Darknet</a>
-            </div>
+            @else
+            <p>Aucun élève n'a encore créé de projets.</p>
+            @endif
         </div>
+
 
     </main>
     @include('includes.footer')

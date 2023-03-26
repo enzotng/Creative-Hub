@@ -26,7 +26,7 @@ class ProfilController extends Controller
         // Vérifier si une nouvelle image a été envoyée
     if ($request->hasFile('img_user')) {
         $image = $request->file('img_user');
-        $filename = $user->id_user . '.' . $image->getClientOriginalExtension();
+        $filename = 'Avatar_'.$user->nom_user.'_'.$user->prenom_user.'.'.$image->getClientOriginalExtension();
         $path = public_path('assets/images/png/');
         $image->move($path, $filename);
         $user->img_user = $filename;

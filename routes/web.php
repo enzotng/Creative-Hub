@@ -34,7 +34,7 @@ Route::get('/test-db', function () {
 
 Route::get('/home', [HelloController::class, 'index'])->name('home');
 
-Route::get('/etudiant', [EtudiantController::class, 'etudiantProfil'])->name('etudiant');
+Route::get('/etudiant', [EtudiantController::class, 'etudiantProfil'])->name('etudiant')->middleware('auth');
 
 Route::get('/connexion', [ConnexionController::class, 'showLoginForm'])->name('connexion');
 Route::post('/connexion', [ConnexionController::class, 'login'])->name('login');

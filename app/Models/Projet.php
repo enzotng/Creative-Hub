@@ -9,4 +9,10 @@ class Projet extends Model
 {
     use HasFactory;
     protected $table = 'projet_table';
+    protected $primaryKey = 'id_projet';
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

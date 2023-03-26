@@ -15,8 +15,7 @@
     @include('includes.header')
 
     <main id="projets">
-        <form method="POST" action="{{ route('store') }}"
-            class="form_container bg-white shadow-md px-8 pt-6 pb-8 flex flex-col my-2">
+        <form method="POST" action="{{ route('store') }}" class="form_container bg-white shadow-md px-8 pt-6 pb-8 flex flex-col my-2" enctype="multipart/form-data">
             @csrf
 
             <div class="title_container">
@@ -38,7 +37,7 @@
                         <label class="input_label" for="image_projet">Image du projet</label>
                         <div class="relative">
                             <i class="bi bi-image-fill icon text-gray-400 hover:text-gray-500"></i>
-                            <input type="file" name="image_projet" class="input_field" required>
+                            <input type="file" name="image_projet" class="input_field" accept="image/*" required>
                         </div>
                     </div>
                 </div>
