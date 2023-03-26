@@ -7,6 +7,7 @@ use App\Http\Controllers\ConnexionController;
 use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\PortfolioMMIController;
 use App\Http\Controllers\CommentaireController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -49,3 +50,6 @@ Route::put('/profil', [ProfilController::class, 'update'])->name('profil.update'
 
 Route::get('/projets', [ProjetController::class, 'create'])->name('create');
 Route::post('/projets', [ProjetController::class, 'store'])->name('store');
+
+Route::get('/portfolio', [PortfolioMMIController::class, 'index'])->name('portfolio.index');
+
