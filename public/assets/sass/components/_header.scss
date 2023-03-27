@@ -116,7 +116,6 @@ header {
 
     .separateur {
         padding-inline: 20px;
-        font-size: 1.25rem;
         color: $background;
     }
 
@@ -268,6 +267,7 @@ header {
 
         i {
             font-size: 35px;
+            color: $blanc;
         }
 
         img {
@@ -356,7 +356,6 @@ header {
     @media (max-width: 768px) {
         .logo {
             img {
-                width: 50px;
                 margin-right: 10px;
             }
         }
@@ -366,7 +365,7 @@ header {
         }
 
         .user {
-            span {
+            .separateur {
                 display: none;
             }
         }
@@ -400,4 +399,7 @@ header {
 
 .dark_mode_header {
     background-color: $violet2;
+    h1, a, span, p {
+        color: $background;
+    }
 }

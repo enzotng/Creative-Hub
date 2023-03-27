@@ -181,7 +181,6 @@ header {
 }
 header .separateur {
   padding-inline: 20px;
-  font-size: 1.25rem;
   color: #f0f3f4;
 }
 header .logo {
@@ -314,6 +313,7 @@ header .user {
 }
 header .user i {
   font-size: 35px;
+  color: #fff;
 }
 header .user img {
   width: 35px;
@@ -394,13 +394,12 @@ header .user .dropdown:hover .dropdown-menu {
 }
 @media (max-width: 768px) {
   header .logo img {
-    width: 50px;
     margin-right: 10px;
   }
   header nav {
     display: none;
   }
-  header .user span {
+  header .user .separateur {
     display: none;
   }
   header .search-toggle {
@@ -427,6 +426,9 @@ header .user .dropdown:hover .dropdown-menu {
 
 .dark_mode_header {
   background-color: #2f2f68;
+}
+.dark_mode_header h1, .dark_mode_header a, .dark_mode_header span, .dark_mode_header p {
+  color: #f0f3f4;
 }
 
 .footer {
@@ -562,8 +564,7 @@ header .user .dropdown:hover .dropdown-menu {
 .dark_mode_hero {
   background-color: #2f2f68;
 }
-.dark_mode_hero h1,
-.dark_mode_hero p {
+.dark_mode_hero h1, .dark_mode_hero a, .dark_mode_hero span, .dark_mode_hero p {
   color: #f0f3f4;
 }
 
