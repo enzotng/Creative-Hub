@@ -163,7 +163,6 @@
     </main>
     @include('includes.footer')
     <script src="./assets/js/inscription.js"></script>
-    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>

@@ -75,10 +75,17 @@
             background: $violet2;
             padding: 15px 20px;
             border-radius: 30px;
-            &:hover{
+            &:hover {
                 background: $violet;
                 transform: scale(0.95);
             }
         }
+    }
+}
+
+.dark_mode_hero {
+    background-color: $violet2;
+    h1, p {
+        color: $blanc;
     }
 }

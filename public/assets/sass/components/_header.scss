@@ -114,6 +114,12 @@ header {
     color: $blanc;
     padding: 0 20px;
 
+    .separateur {
+        padding-inline: 20px;
+        font-size: 1.25rem;
+        color: $background;
+    }
+
     .logo {
         display: flex;
         align-items: center;
@@ -138,10 +144,8 @@ header {
             padding: 0;
 
             li {
-                margin-right: 20px;
-
                 a {
-                    padding-inline-start: 20px;
+                    padding-inline-end: 20px;
                     &:hover {
                         color: $violet2;
                     }
@@ -203,15 +207,63 @@ header {
             }
         }
     }
+    
+    .toggle-switch {
+        position: relative;
+        margin-inline-end: 20px;
+        width: 100px;
+        height: 40px;
+        
+        .switch-label {
+            position: absolute;
+            width: 100%;
+            height: 40px;
+            background-color: $violet2;
+            border-radius: 25px;
+            cursor: pointer;
+            border: 3px solid $violet2;
+            
+            .checkbox {
+                position: absolute;
+                display: none;
+            }
+            
+            .slider {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 25px;
+                transition: 0.3s;
+                
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 5px;
+                    left: 10px;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    box-shadow: inset 12px -4px 0px 0px $blanc;
+                    background-color: $violet2;
+                    transition: 0.3s;
+                }
+            }
+            
+            .checkbox:checked ~ .slider {
+                background-color: $blanc;
+            }
+            
+            .checkbox:checked ~ .slider::before {
+                transform: translateX(50px);
+                background-color: $violet2;
+                box-shadow: none;
+            }
+        }
+    }    
 
     .user {
         display: flex;
         align-items: center;
-        .separateur {
-            padding-inline: 20px;
-            font-size: 1.25rem;
-            color: $background;
-        }
 
         i {
             font-size: 2.5rem;
@@ -223,11 +275,79 @@ header {
             border: 2px solid $violet2;
             border-radius: 50%;
             transition: all 0.2s;
+            cursor: pointer;
             object-fit: cover;
-            margin-inline-end: 20px;
             aspect-ratio: 16/9;
             &:hover {
                 transform: scale(0.95);
+            }
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            border-radius: 10px;
+            .dropdown-menu {
+                position: absolute;
+                border-radius: 10px;
+                top: 100%;
+                right: -20px;
+                z-index: 1;
+                opacity: 0;
+                padding: 0;
+                transition: all 0.3s;
+                margin: 0;
+                width: auto;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                ul {
+                    background: $blanc;
+                    border-radius: 10px;
+                    span{
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        flex-direction: row;
+                        padding: 15px 20px;
+                        text-decoration: none;
+                        color: $violet;
+                        font-weight: bold;
+                    }
+                    li {
+                        list-style: none;
+                        a {
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            flex-direction: row;
+                            padding: 15px 20px;
+                            text-decoration: none;
+                            color: $violet;
+                            &:hover {
+                                background-color: $violet2;
+                                color: $blanc;
+                                border-radius: 10px;
+                            }
+                            i {
+                                font-size: 1rem;
+                                padding-inline-end: 10px;
+                            }
+                        }
+                    }
+                    hr {
+
+                        display: block;
+                        width: 100%;
+                        height: 1px;
+                        border: 0;
+                        background-color: #e8e8e8;
+                    }
+                }
+
+            }
+
+            &:hover .dropdown-menu {
+                opacity: 1;
+                background: $background;
             }
         }
     }
@@ -275,4 +395,8 @@ header {
             }
         }
     }
+}
+
+.dark_mode_header {
+    background-color: $violet2;
 }

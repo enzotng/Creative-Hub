@@ -1,4 +1,5 @@
-<footer class="shadow-md">
+
+<footer class="shadow-md footer">
     <div class="reseaux_sociaux">
         <!-- <i class="bi bi-linkedin"></i>
             <i class="bi bi-twitter"></i>

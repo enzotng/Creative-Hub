@@ -1,8 +1,7 @@
-footer {
+.footer {
     height: 80px;
     background: $blanc;
     border-radius: 10px;
-    filter: drop-shadow(0 0 20px $background);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,10 +14,30 @@ footer {
             font-weight: bold;
             color: $violet;
             padding-inline-end: 10px;
-            &:hover{
+            &:hover {
                 color: $violet2;
                 transform: scale(0.95);
             }
         }
     }
 }
+
+
+.dark_mode_footer {
+    background-color: $violet2;
+    .reseaux_sociaux {
+        display: flex;
+        flex-direction: row;
+        a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: $blanc;
+            padding-inline-end: 10px;
+            &:hover {
+                color: $blanc;
+                transform: scale(0.95);
+            }
+        }
+    }
+}
+
