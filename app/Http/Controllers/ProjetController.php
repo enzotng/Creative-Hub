@@ -57,5 +57,9 @@ class ProjetController extends Controller
         return redirect('etudiant')->with('success', 'Le commentaire a été posté avec succès.');
 
     }
+    //get all projetcts
+    public function getProjet(){
+        return response()->json(Projet::all(),200);
+    }
 
 }
