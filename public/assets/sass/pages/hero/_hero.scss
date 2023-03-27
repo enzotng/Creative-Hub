@@ -49,6 +49,9 @@
     align-items: center;
     padding: 20px;
     margin-block: 3vw;
+    h1 {
+        color: $violet;
+    }
     .projets_box {
         width: 20vw;
         height: 75vh;
@@ -85,7 +88,8 @@
 
 .dark_mode_hero {
     background-color: $violet2;
-    h1, p {
-        color: $blanc;
+    h1,
+    p {
+        color: $background;
     }
 }

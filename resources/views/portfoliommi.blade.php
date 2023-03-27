@@ -15,7 +15,7 @@
     @include('includes.header')
 
     <main id="portfolioMMI">
-        <section class="sectionMMI bg-white shadow-md flex flex-col my-2">
+        <section class="sectionMMI w-full bg-white shadow-md flex flex-col my-2">
             <h1 class="mb-4">Portfolio MMI</h1>
             <div class="flex flex-wrap justify-between">
                 @forelse ($projets as $projet)

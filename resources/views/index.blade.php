@@ -64,7 +64,7 @@
         </section>
 
         <div class="projets shadow-md flex flex-col">
-            <h1 class="mb-4">Les derniers projets</h1>
+            <h1 class="text-3xl font-bold mb-4">Les derniers projets</h1>
             @php
             $projets = \App\Models\Projet::latest()->take(4)->get();
             @endphp
