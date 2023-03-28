@@ -41,8 +41,6 @@ class ProjetController extends Controller
             $projet->image_projet = $filename;
             $projet->save();
         }
-        
-        
         return redirect('etudiant')->with('success', 'Le projet a été enregistré avec succès.');
     }
 

@@ -73,7 +73,7 @@
                 @foreach ($projets as $projet)
                 <div class="projets_box flex flex-col items-center flex-grow mb-4 mr-4">
                     <img src="{{ asset('assets/images/png/'.$projet->image_projet) }}" alt="Image Projet" class="mb-2">
-                    <a href="" class="text-center">{{ $projet->titre_projet }}</a>
+                    <a href="{{ route('affichage.projet', ['id_projet' => $projet->id_projet]) }}">{{ $projet->titre_projet }}</a>
                 </div>
                 @endforeach
             </div>
@@ -87,6 +87,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
     <script src="./assets/js/projet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./assets/js/recherche.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/searchbar.js"></script>
 </body>

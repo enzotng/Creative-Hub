@@ -24,7 +24,7 @@
                     @csrf
                     <button class="boutonGeneral" type="submit">Déconnexion</button>
                 </form> -->
-                <a href="projets" class="boutonGeneral">Créer un nouveau projet</a>
+                <a href="creationProjet" class="boutonGeneral">Créer un nouveau projet</a>
                 @else
                 <h1>Travaux MMI</h1>
                 <a href="{{ route('connexion') }}" class="boutonGeneral">Se connecter</a>

@@ -10,17 +10,6 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\PortfolioMMIController;
 use App\Http\Controllers\CommentaireController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
-
-Route::get('/test-db', function () {
-    try {
-        DB::connection()->getPdo();
-        Debugbar::enable();
-        Debugbar::info('Connexion à la base de données réussie!');
-    } catch (\Exception $e) {
-        Debugbar::error('Erreur de connexion à la base de données: ' . $e->getMessage());
-    }
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -48,13 +37,9 @@ Route::post('/inscription', [InscriptionController::class, 'store'])->name('insc
 Route::get('/profil', [ProfilController::class, 'edit'])->name('profil.edit');
 Route::put('/profil', [ProfilController::class, 'update'])->name('profil.update');
 
-Route::get('/projets', [ProjetController::class, 'create'])->name('create');
-Route::post('/projets', [ProjetController::class, 'store'])->name('store');
+Route::get('/creationProjet', [ProjetController::class, 'create'])->name('create');
+Route::post('/creationProjet', [ProjetController::class, 'store'])->name('store');
 
 Route::get('/portfolio', [PortfolioMMIController::class, 'index'])->name('portfolio.index');
 
-Route::get('/projets', [ProjetController::class, 'create'])->name('create');
-Route::post('/projets', [ProjetController::class, 'store'])->name('store');
-
-Route::get('/projets/{id}', [ProjetController::class, 'showProjet'])->name('show');
-Route::post('/projets/{id}/commentaires', [CommentaireController::class, 'store'])->name('commentaire.store');
+Route::get('/portfolio/{id_projet}', [App\Http\Controllers\AffichageProjetController::class, 'show'])->name('affichage.projet');
