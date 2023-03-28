@@ -22,4 +22,10 @@ class Projet extends Model
     {
         return self::find($id);
     }
+
+    //Association projet/commentaire
+    public function commentaires()
+    {
+        return $this->hasMany(Commentaire::class);
+    }
 }

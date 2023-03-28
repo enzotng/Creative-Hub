@@ -12,17 +12,16 @@ class CommentaireController extends Controller
         return view('commentaire');
     }
 
-    public function stored(Request $request){
+    public function store(Request $request, $id)
+    {
+        $projet = Projet::findOrFail($id);
 
-        $validatedData = $request->validate([
-            'contenu_commentaire' => 'required',
-        ]);
+        $commentaire = new Commentaire;
+        $commentaire->contenu_commentaire = $request->input('contenu_commentaire');
+        $commentaire->date_commentaire = now();
+        $commentaire->projet()->associate($projet);
+        $commentaire->save();
 
-        $comm = new Commentaire;
-        $comm->contenu_commentaire = $validatedData['contenu_commentaire'];
-        $comm->save();
-
-        return redirect('etudiant')->with('success', 'Le commentaire a été poster avec succès.');
-
+    return redirect()->route('show', $id)->with('success', 'Commentaire ajouté avec succès.');
     }
 }

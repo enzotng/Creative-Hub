@@ -39,4 +39,4 @@ Route::get('/projets', [ProjetController::class, 'create'])->name('create');
 Route::post('/projets', [ProjetController::class, 'store'])->name('store');
 
 Route::get('/projets/{id}', [ProjetController::class, 'showProjet'])->name('show');
-Route::get('/projets/{id}/comment', [CommentaireController::class, 'stored'])->name('stored');
+Route::post('/projets/{id}/commentaires', [CommentaireController::class, 'store'])->name('commentaire.store');

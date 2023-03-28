@@ -1,27 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header></header>
-    
-    <h2>{{ $projet->titre }}</h2>
-    <img src="{{ $projet->image_projet }}" alt="{{ $projet->titre_projet }}">
-    <p>{{ $projet->description_projet }}</p>
-    <p>{{ $projet->date_projet }}</p>
-    
-<!-- <form action="{{ route('stored') }}" method="POST">
-    @csrf
-    <div>
-        <label for="text">Votre commentaire :</label>
-        <textarea name="contenu_commentaire" id="text" rows="3" required></textarea>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{ $projet->titre_projet }}</h1>
+            <p>{{ $projet->description_projet }}</p>
+            <img src="{{ $projet->image_projet }}" alt="{{ $projet->titre_projet }}" class="img-fluid">
+            <p>Date de publication : {{ $projet->date_projet }}</p>
+        </div>
     </div>
-    <button type="submit">Poster</button>
-</form> -->
-    <footer></footer>
-</body>
-</html>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h2>Commentaires</h2>
+            @foreach($projet->commentaires as $commentaire)
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <p class="card-text">{{ $commentaire->contenu_commentaire }}</p>
+                        <p class="card-subtitle text-muted">Publié le {{ $commentaire->date_commentaire }}</p>
+                    </div>
+                </div>
+            @endforeach
+            <form method="POST" action="{{ route('commentaire.store', $projet->id) }}">
+                @csrf
+                <div class="form-group">
+                    <label for="contenu_commentaire">Ajouter un commentaire</label>
+                    <textarea class="form-control" id="contenu_commentaire" name="contenu_commentaire" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection
