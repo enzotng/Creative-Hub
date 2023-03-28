@@ -164,5 +164,4 @@
     @include('includes.footer')
     <script src="./assets/js/inscription.js"></script>
 </body>
-
 </html>
