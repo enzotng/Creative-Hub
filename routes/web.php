@@ -40,7 +40,7 @@ Route::get('/etudiant', [EtudiantController::class, 'etudiantProfil'])->name('et
 Route::get('/connexion', [ConnexionController::class, 'showLoginForm'])->name('connexion');
 Route::post('/connexion', [ConnexionController::class, 'login'])->name('login');
 
-Route::post('/deconnexion', [DeconnexionController::class, 'deconnexion'])->name('deconnexion');
+Route::get('/deconnexion', [DeconnexionController::class, 'deconnexion'])->name('deconnexion');
 
 Route::get('/inscription', [InscriptionController::class, 'create'])->name('inscription.create');
 Route::post('/inscription', [InscriptionController::class, 'store'])->name('inscription.store');
