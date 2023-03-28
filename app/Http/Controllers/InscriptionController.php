@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 use App\Models\User;
 
 class InscriptionController extends Controller
@@ -30,19 +32,29 @@ class InscriptionController extends Controller
     {
         // Valider les données du formulaire
         $request->validate([
-            'nom_user' => 'required|string|max:255',
-            'prenom_user' => 'required|string|max:255',
-            'email_user' => 'required|string|email|max:255|unique:users_table,email_user',
-            'mdp_user' => 'required|string|min:8|confirmed',
+            'nom_user' => ['required', 'string', 'max:255'],
+            'prenom_user' => ['required', 'string', 'max:255'],
+            'email_user' => ['required', 'string', 'email', 'max:255', 'unique:users_table'],
+            'mdp_user' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+
+                // Génère un salt aléatoire de 16 caractères
+                $salt = Str::random(16);
+
+                // Génère un hash du mot de passe de l'utilisateur en utilisant le salt
+                $hashedPassword = hash('sha256', $salt . $request->input('mdp_user'));
 
         // Insérer les données remplies dans le formulaire dans la base de données
         $user = User::create([
             'nom_user' => $request->input('nom_user'),
             'prenom_user' => $request->input('prenom_user'),
             'email_user' => $request->input('email_user'),
-            'mdp_user' => bcrypt($request->input('mdp_user')),
+            'mdp_user' => $hashedPassword,
+            'salt_user' => $salt,
         ]);
+
+                // Enregistre l'utilisateur dans la base de données
+                $user->save();
 
         // Connecter directement l'utilisateur
         Auth::login($user);
