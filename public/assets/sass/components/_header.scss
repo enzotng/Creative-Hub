@@ -116,7 +116,6 @@ header {
 
     .separateur {
         padding-inline: 20px;
-        font-size: 1.25rem;
         color: $background;
     }
 
@@ -177,7 +176,6 @@ header {
                 padding: 0 15px;
                 font-size: 1rem;
                 background-color: $blanc;
-                border: 3px solid #1c1c48;
                 overflow-x: hidden;
                 &:placeholder {
                     color: $noir;
@@ -195,11 +193,20 @@ header {
                 align-items: center;
                 cursor: pointer;
                 i {
+                    background: $blanc;
                     position: absolute;
-                    right: 15px;
-                    padding-inline-start: 20px;
+                    right: 0;
+                    /* padding-inline-start: 20px; */
                     cursor: pointer;
                     transition: all 0.3s;
+                    border-radius: 0 50% 50% 0;
+                    height: 35px;
+                    width: 35px;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     &:hover {
                         color: $violet;
                         font-weight: bold;
@@ -222,7 +229,6 @@ header {
             background-color: $violet2;
             border-radius: 25px;
             cursor: pointer;
-            border: 3px solid #1c1c48;
             
             .checkbox {
                 position: absolute;
@@ -239,10 +245,11 @@ header {
                 &:before {
                     content: "";
                     position: absolute;
-                    top: 5px;
-                    left: 10px;
+                    top: 50%;
+                    left: 20px;
                     width: 20px;
                     height: 20px;
+                    transform: translate(-50%, -50%);
                     border-radius: 50%;
                     box-shadow: inset 12px -4px 0px 0px $blanc;
                     background-color: $violet2;
@@ -255,7 +262,8 @@ header {
             }
             
             .checkbox:checked ~ .slider::before {
-                transform: translateX(55px);
+                top: 50%;
+                transform: translate(50px, -50%);
                 background-color: $violet2;
                 box-shadow: none;
             }
@@ -268,6 +276,11 @@ header {
 
         i {
             font-size: 35px;
+            color: $blanc;
+            transition: all 0.3s;
+            &:hover {
+                color: #1c1c48;
+            }
         }
 
         img {
@@ -356,7 +369,6 @@ header {
     @media (max-width: 768px) {
         .logo {
             img {
-                width: 50px;
                 margin-right: 10px;
             }
         }
@@ -366,7 +378,7 @@ header {
         }
 
         .user {
-            span {
+            .separateur {
                 display: none;
             }
         }
@@ -400,4 +412,7 @@ header {
 
 .dark_mode_header {
     background-color: $violet2;
+    h1, a, span, p {
+        color: $background;
+    }
 }

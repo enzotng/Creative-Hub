@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Debugbar;
 
 class ConnexionController extends Controller
@@ -36,25 +37,21 @@ class ConnexionController extends Controller
             'mdp_user' => 'required',
         ]);
 
-        $credentials = $request->only('email_user', 'mdp_user');
-
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            Debugbar::info('Connexion réussie!'); // Ajoutez cet appel pour afficher un message de réussite dans Debugbar
-            dd("Test");
-            // Rediriger l'utilisateur vers la page étudiant
-            return redirect()->route('etudiant')->with('success', 'Connexion réussie.');
+        $user = DB::table('users_table')->where('email_user', $request->input('email_user'))->first();
+        
+        if (!$user || !Hash::check($request->input('mdp_user') . $user->salt_user, $user->mdp_user)) {
+            Debugbar::error('Mauvaise combinaison email/mot de passe');
+            throw ValidationException::withMessages([
+                'email_user' => __('Adresse mail ou mot de passe incorrect !'),
+            ]);
         }
-        
-        Debugbar::startMeasure('myMeasure', 'Time for my query');
-        $results = DB::select('SELECT * from users_table');
-        Debugbar::stopMeasure('myMeasure');
-        
-        Debugbar::info("Bruh");
-        throw ValidationException::withMessages([
-            'email_user' => __('Adresse mail non existante !'),
-            'mdp_user' => __('Mauvais mot de passe !')
-        ]);
-        dd("Bruh");
+
+        Auth::loginUsingId($user->id_user);
+        $request->session()->regenerate();
+
+        Debugbar::info('Connexion réussie!'); // Ajoutez cet appel pour afficher un message de réussite dans Debugbar
+            
+        // Rediriger l'utilisateur vers la page étudiant
+        return redirect()->route('etudiant')->with('success', 'Connexion réussie.');
     }
 }
