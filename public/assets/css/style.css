@@ -233,7 +233,6 @@ header .search form input[type=text] {
   padding: 0 15px;
   font-size: 1rem;
   background-color: #fff;
-  border: 3px solid #1c1c48;
   overflow-x: hidden;
 }
 header .search form input[type=text]:placeholder {
@@ -251,11 +250,20 @@ header .search form button[type=submit] {
   cursor: pointer;
 }
 header .search form button[type=submit] i {
+  background: #fff;
   position: absolute;
-  right: 15px;
-  padding-inline-start: 20px;
+  right: 0;
+  /* padding-inline-start: 20px; */
   cursor: pointer;
   transition: all 0.3s;
+  border-radius: 0 50% 50% 0;
+  height: 35px;
+  width: 35px;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 header .search form button[type=submit] i:hover {
   color: #444492;
@@ -274,7 +282,6 @@ header .toggle-switch .switch-label {
   background-color: #2f2f68;
   border-radius: 25px;
   cursor: pointer;
-  border: 3px solid #1c1c48;
 }
 header .toggle-switch .switch-label .checkbox {
   position: absolute;
@@ -290,10 +297,11 @@ header .toggle-switch .switch-label .slider {
 header .toggle-switch .switch-label .slider:before {
   content: "";
   position: absolute;
-  top: 5px;
-  left: 10px;
+  top: 50%;
+  left: 20px;
   width: 20px;
   height: 20px;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   box-shadow: inset 12px -4px 0px 0px #fff;
   background-color: #2f2f68;
@@ -303,7 +311,8 @@ header .toggle-switch .switch-label .checkbox:checked ~ .slider {
   background-color: #fff;
 }
 header .toggle-switch .switch-label .checkbox:checked ~ .slider::before {
-  transform: translateX(55px);
+  top: 50%;
+  transform: translate(50px, -50%);
   background-color: #2f2f68;
   box-shadow: none;
 }
@@ -314,6 +323,10 @@ header .user {
 header .user i {
   font-size: 35px;
   color: #fff;
+  transition: all 0.3s;
+}
+header .user i:hover {
+  color: #1c1c48;
 }
 header .user img {
   width: 35px;
