@@ -41,15 +41,6 @@ class ProjetController extends Controller
             $projet->image_projet = $filename;
             $projet->save();
         }
-        
-        
         return redirect('etudiant')->with('success', 'Le projet a été enregistré avec succès.');
     }
-
-    // Vue pour un projet spécifique
-    public function showProjet($id) {
-        $projet = Projet::find($id);
-        return view('projet')->with('projet', $projet);
-    }
-    
 }
