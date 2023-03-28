@@ -8,6 +8,7 @@ use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\PortfolioMMIController;
+use App\Http\Controllers\AffichageProjetController;
 use App\Http\Controllers\CommentaireController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,4 +43,5 @@ Route::post('/creationProjet', [ProjetController::class, 'store'])->name('store'
 
 Route::get('/portfolio', [PortfolioMMIController::class, 'index'])->name('portfolio.index');
 
-Route::get('/portfolio/{id_projet}', [App\Http\Controllers\AffichageProjetController::class, 'show'])->name('affichage.projet');
+Route::get('/portfolio/{id_projet}', [AffichageProjetController::class, 'show'])->name('affichage.projet');
+Route::post('/portfolio/{id_projet}', [CommentaireController::class, 'store'])->name('commentaire.projet');

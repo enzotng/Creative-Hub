@@ -25,10 +25,11 @@
             <p><i class="bi bi-card-text"></i>Description du projet : {{ $projet->description_projet }}</p>
             <p><i class="bi bi-calendar"></i>Date du projet : {{ $projet->date_projet }}</p>
 
-            <form class="formulaireCommentaire">
+            <form method="POST" action="{{ route('commentaire.projet', $projet->id_projet) }}" class="formulaireCommentaire">
+                @csrf
                 <div class="mb-4">
-                    <label for="message" class="input_label text-xl">Laissez un commentaire</label>
-                    <textarea name="message" id="message" rows="3" class="input_field" placeholder="Votre commentaire..."></textarea>
+                    <label for="contenu_commentaire" class="input_label text-xl">Laissez un commentaire</label>
+                    <textarea name="contenu_commentaire" id="message" rows="3" class="input_field" placeholder="Votre commentaire..."></textarea>
                 </div>
                 <button type="submit" class="boutonGeneral">Envoyer</button>
             </form>
