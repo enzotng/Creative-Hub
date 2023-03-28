@@ -23,36 +23,98 @@
         }
 
         p {
-            margin-block: 20px;
+            margin-block-end: 10px;
+            i {
+                padding-inline-end: 10px;
+                color: $violet;
+                font-weight: bold;
+            }
+        }
+
+        .boutonGeneral {
+            width: fit-content;
         }
 
         img {
             margin-block: 2rem;
             width: 100%;
-            height: 30vh;
+            height: 50vh;
             border-radius: 10px;
             object-fit: cover;
         }
 
         .formulaireCommentaire{
-            background: $blanc;
             margin-block: 3vw;
-            border-radius: 10px;
-            padding: 20px;
             height: auto;
             display: flex;
             justify-content: center;
             align-items: stretch;
             flex-direction: column;
             width: 100%;
+
+            .input_label {
+                color: $noir;
+                font-weight: bold;
+            }
+
+            .input_field {
+                margin-block-start: 20px;
+                width: 100%;
+                min-height: 150px;
+                padding: 10px;
+                border-radius: 7px;
+                outline: none;
+                border: 1px solid #e5e5e5;
+                filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+                transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+                &:focus {
+                    border: 1px solid transparent;
+                    box-shadow: 0px 0px 0px 2px #242424;
+                    background-color: transparent;
+                }
+            }
         }
 
-        .commentaire {
-            background: $background;
-            padding: 20px;
-            border-radius: 10px;
-            img {
-                border-radius: 50%;
+        .commentaireDiv {
+            h2 {
+                font-weight: bold;
+            }
+
+            .commentaire {
+                margin-block-start: 20px;
+                background: $background;
+                padding: 20px;
+                border-radius: 10px;
+                .headerCommentaire {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    flex-direction: row;
+                    width: 100%;
+                    height: 40px;
+                    img {
+                        width: 35px;
+                        height: 35px;
+                        border: 2px solid $violet2;
+                        border-radius: 50%;
+                        margin-inline-end: 20px;
+                        transition: all 0.2s;
+                        cursor: pointer;
+                        object-fit: cover;
+                        aspect-ratio: 16/9;
+                        &:hover {
+                            transform: scale(0.95);
+                        }
+                    }
+                }
+                hr {
+                    margin-block: 2vh;
+                    border: 1px solid $blanc;
+                }
+    
+                p {
+                    text-align: justify;
+                }
             }
         }
     }

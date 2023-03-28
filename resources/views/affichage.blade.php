@@ -19,27 +19,30 @@
             <h1 class="text-3xl font-bold mb-2">Titre du projet : {{ $projet->titre_projet }}</h1>
             <hr>
 
-            <img src="{{ asset('assets/images/png/'.$projet->image_projet) }}" alt="Image projet : {{ $projet->titre_projet }}">
+            <img src="{{ asset('assets/images/png/'.$projet->image_projet) }}"
+                alt="Image projet : {{ $projet->titre_projet }}">
 
-            <p>Description du projet : {{ $projet->description_projet }}</p>
-            <p>Date du projet : {{ $projet->date_projet }}</p>
+            <p><i class="bi bi-card-text"></i>Description du projet : {{ $projet->description_projet }}</p>
+            <p><i class="bi bi-calendar"></i>Date du projet : {{ $projet->date_projet }}</p>
 
-            <form class="formulaireCommentaire shadow-md">
-                <h2 class="text-xl font-bold text-gray-800 mb-4">Laissez un commentaire</h2>
+            <form class="formulaireCommentaire">
                 <div class="mb-4">
-                    <label for="message" class="block text-gray-700 font-bold mb-2">Commentaire</label>
-                    <textarea name="message" id="message" rows="3"
-                        class="form-textarea w-full border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                    <label for="message" class="input_label text-xl">Laissez un commentaire</label>
+                    <textarea name="message" id="message" rows="3" class="input_field" placeholder="Votre commentaire..."></textarea>
                 </div>
                 <button type="submit" class="boutonGeneral">Envoyer</button>
             </form>
 
             <div class="commentaireDiv">
-            <h2 class="text-xl font-bold text-gray-800 mb-4">Tous les commentaires</h2>
+                <h2 class="text-xl">Tous les commentaires</h2>
 
                 <div class="commentaire">
-                <img src="{{ asset('assets/images/png/' . Auth::user()->img_user) }}" alt="Photo {{ Auth::user()->prenom_user }} {{ Auth::user()->nom_user }}">
-                    <p class="mb-2"><strong>Jean Dupont</strong> - 10/05/2022</p>
+                    <div class="headerCommentaire">
+                        <img src="{{ asset('assets/images/png/' . Auth::user()->img_user) }}"
+                            alt="Photo {{ Auth::user()->prenom_user }} {{ Auth::user()->nom_user }}">
+                        <p class="mb-2"><strong>Jean Dupont</strong> - 10/05/2022</p>
+                    </div>
+                    <hr>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis, dui sed posuere
                         cursus, nulla nunc pretium massa, eget posuere purus dolor a risus.</p>
                 </div>

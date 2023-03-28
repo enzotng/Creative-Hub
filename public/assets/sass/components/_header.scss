@@ -215,13 +215,13 @@ header {
             }
         }
     }
-    
+
     .toggle-switch {
         position: relative;
         margin-inline-end: 20px;
         width: 100px;
         height: 35px;
-        
+
         .switch-label {
             position: absolute;
             width: 100%;
@@ -229,19 +229,19 @@ header {
             background-color: $violet2;
             border-radius: 25px;
             cursor: pointer;
-            
+
             .checkbox {
                 position: absolute;
                 display: none;
             }
-            
+
             .slider {
                 position: absolute;
                 width: 100%;
                 height: 100%;
                 border-radius: 25px;
                 transition: 0.3s;
-                
+
                 &:before {
                     content: "";
                     position: absolute;
@@ -256,11 +256,11 @@ header {
                     transition: 0.3s;
                 }
             }
-            
+
             .checkbox:checked ~ .slider {
                 background-color: $blanc;
             }
-            
+
             .checkbox:checked ~ .slider::before {
                 top: 50%;
                 transform: translate(50px, -50%);
@@ -268,7 +268,7 @@ header {
                 box-shadow: none;
             }
         }
-    }    
+    }
 
     .user {
         display: flex;
@@ -307,7 +307,9 @@ header {
                 top: 100%;
                 right: -20px;
                 z-index: 1;
+                display: none;
                 opacity: 0;
+                transition: opacity 0.3s ease-in-out;
                 padding: 0;
                 transition: all 0.3s;
                 margin: 0;
@@ -316,7 +318,7 @@ header {
                 ul {
                     background: $blanc;
                     border-radius: 10px;
-                    span{
+                    span {
                         display: flex;
                         justify-content: flex-start;
                         align-items: center;
@@ -339,7 +341,6 @@ header {
                             &:hover {
                                 background-color: $violet2;
                                 color: $blanc;
-                                border-radius: 10px;
                             }
                             i {
                                 font-size: 1rem;
@@ -349,7 +350,6 @@ header {
                         }
                     }
                     hr {
-
                         display: block;
                         width: 100%;
                         height: 1px;
@@ -357,12 +357,22 @@ header {
                         background-color: #e8e8e8;
                     }
                 }
-
             }
 
             &:hover .dropdown-menu {
+                display: block;
                 opacity: 1;
+                animation: fadeIn 0.3s ease-in-out;
                 background: $background;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
             }
         }
     }
@@ -413,7 +423,10 @@ header {
 
 .dark_mode_header {
     background-color: $violet2;
-    h1, a, span, p {
+    h1,
+    a,
+    span,
+    p {
         color: $background;
     }
 }

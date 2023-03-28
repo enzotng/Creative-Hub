@@ -170,8 +170,7 @@ a:hover {
 }
 
 .boutonGeneral {
-  width: 100%;
-  height: 40px;
+  padding: 15px 20px;
   border: 0;
   background: #444492;
   border-radius: 7px;
@@ -371,7 +370,9 @@ header .user .dropdown .dropdown-menu {
   top: 100%;
   right: -20px;
   z-index: 1;
+  display: none;
   opacity: 0;
+  transition: opacity 0.3s ease-in-out;
   padding: 0;
   transition: all 0.3s;
   margin: 0;
@@ -407,7 +408,6 @@ header .user .dropdown .dropdown-menu ul li a {
 header .user .dropdown .dropdown-menu ul li a:hover {
   background-color: #2f2f68;
   color: #fff;
-  border-radius: 10px;
 }
 header .user .dropdown .dropdown-menu ul li a i {
   font-size: 1rem;
@@ -422,8 +422,18 @@ header .user .dropdown .dropdown-menu ul hr {
   background-color: #e8e8e8;
 }
 header .user .dropdown:hover .dropdown-menu {
+  display: block;
   opacity: 1;
+  animation: fadeIn 0.3s ease-in-out;
   background: #f0f3f4;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @media (max-width: 768px) {
   header .logo img {
@@ -460,7 +470,10 @@ header .user .dropdown:hover .dropdown-menu {
 .dark_mode_header {
   background-color: #2f2f68;
 }
-.dark_mode_header h1, .dark_mode_header a, .dark_mode_header span, .dark_mode_header p {
+.dark_mode_header h1,
+.dark_mode_header a,
+.dark_mode_header span,
+.dark_mode_header p {
   color: #f0f3f4;
 }
 
@@ -1474,20 +1487,25 @@ header .user .dropdown:hover .dropdown-menu {
   border: 1px solid #2f2f68;
 }
 #affichageProjet .affichageSection p {
-  margin-block: 20px;
+  margin-block-end: 10px;
+}
+#affichageProjet .affichageSection p i {
+  padding-inline-end: 10px;
+  color: #444492;
+  font-weight: bold;
+}
+#affichageProjet .affichageSection .boutonGeneral {
+  width: fit-content;
 }
 #affichageProjet .affichageSection img {
   margin-block: 2rem;
   width: 100%;
-  height: 30vh;
+  height: 50vh;
   border-radius: 10px;
   object-fit: cover;
 }
 #affichageProjet .affichageSection .formulaireCommentaire {
-  background: #fff;
   margin-block: 3vw;
-  border-radius: 10px;
-  padding: 20px;
   height: auto;
   display: flex;
   justify-content: center;
@@ -1495,13 +1513,63 @@ header .user .dropdown:hover .dropdown-menu {
   flex-direction: column;
   width: 100%;
 }
-#affichageProjet .affichageSection .commentaire {
+#affichageProjet .affichageSection .formulaireCommentaire .input_label {
+  color: #000;
+  font-weight: bold;
+}
+#affichageProjet .affichageSection .formulaireCommentaire .input_field {
+  margin-block-start: 20px;
+  width: 100%;
+  min-height: 150px;
+  padding: 10px;
+  border-radius: 7px;
+  outline: none;
+  border: 1px solid #e5e5e5;
+  filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+  transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+#affichageProjet .affichageSection .formulaireCommentaire .input_field:focus {
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 0px 2px #242424;
+  background-color: transparent;
+}
+#affichageProjet .affichageSection .commentaireDiv h2 {
+  font-weight: bold;
+}
+#affichageProjet .affichageSection .commentaireDiv .commentaire {
+  margin-block-start: 20px;
   background: #f0f3f4;
   padding: 20px;
   border-radius: 10px;
 }
-#affichageProjet .affichageSection .commentaire img {
+#affichageProjet .affichageSection .commentaireDiv .commentaire .headerCommentaire {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 40px;
+}
+#affichageProjet .affichageSection .commentaireDiv .commentaire .headerCommentaire img {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #2f2f68;
   border-radius: 50%;
+  margin-inline-end: 20px;
+  transition: all 0.2s;
+  cursor: pointer;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+#affichageProjet .affichageSection .commentaireDiv .commentaire .headerCommentaire img:hover {
+  transform: scale(0.95);
+}
+#affichageProjet .affichageSection .commentaireDiv .commentaire hr {
+  margin-block: 2vh;
+  border: 1px solid #fff;
+}
+#affichageProjet .affichageSection .commentaireDiv .commentaire p {
+  text-align: justify;
 }
 
 /*# sourceMappingURL=style.css.map */
