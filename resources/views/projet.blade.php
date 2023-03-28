@@ -1,6 +1,6 @@
-@extends('layouts.app')
 
-@section('content')
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -12,7 +12,11 @@
     </div>
     <div class="row mt-4">
         <div class="col-md-12">
+
+
+
             <h2>Commentaires</h2>
+            @if($projet->commentaires)
             @foreach($projet->commentaires as $commentaire)
                 <div class="card mb-3">
                     <div class="card-body">
@@ -21,7 +25,8 @@
                     </div>
                 </div>
             @endforeach
-            <form method="POST" action="{{ route('commentaire.store', $projet->id) }}">
+            @endif
+            <form method="POST" action="{{ route('commentaire.store', $projet->id_projet) }}">
                 @csrf
                 <div class="form-group">
                     <label for="contenu_commentaire">Ajouter un commentaire</label>
@@ -32,4 +37,3 @@
         </div>
     </div>
 </div>
-@endsection

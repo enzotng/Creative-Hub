@@ -52,4 +52,6 @@ class ProjetController extends Controller
         return view('projet')->with('projet', $projet);
     }
     
+
+    
 }
