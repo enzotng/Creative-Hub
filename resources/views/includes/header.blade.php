@@ -19,7 +19,7 @@
         </nav>
     </div>
 </header> -->
-<script src="/resources/js/searchbar.js"></script>
+
 <header class="shadow-md">
     <div class="logo">
         <a href="home" title="Revenir à la page d'accueil"><img src="assets/images/ico/logo_blanc.ico" alt="Logo CreativeHub"></a>
@@ -29,11 +29,21 @@
             <li><a href="#">Portfolio</a></li>
         </ul>
     </nav>
-    <div class="search">
+    <div class="search" ng-app="myApp" ng-controller="myController">
         <form action="#" method="get">
-            <input type="text" name="search" placeholder="Rechercher..." ng-model="query">
-            <button type="submit"><i class="bi bi-search"></i></button>
+          <input type="text" name="search" placeholder="Rechercher..." ng-model="search" ng-change="getResults()">
+          <button type="submit"><i class="bi bi-search"></i></button>
         </form>
+        <ul ng-show="showResults">
+            <li><p>Projets</p></li>
+            <li ng-repeat="result in results">
+                [[result.titre_projet]]
+            </li>
+            <li>Profils</li>
+            <li ng-repeat="result in results">
+                [[result.nom_user]] [[result.prenom_user]]
+            </li>
+        </ul>
     </div>
     <div class="user">
         @if(Auth::check())
