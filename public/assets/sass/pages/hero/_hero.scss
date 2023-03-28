@@ -88,8 +88,7 @@
 
 .dark_mode_hero {
     background-color: $violet2;
-    h1,
-    p {
+    h1, a, span, p {
         color: $background;
     }
 }
