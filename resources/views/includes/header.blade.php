@@ -1,3 +1,5 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="./assets/js/searchbar.js"></script>
 <header class="shadow-md header">
     <div class="logo">
         <a href="/home" title="Revenir à la page d'accueil"><img src="{{ asset('assets/images/ico/logo_blanc.ico') }}" alt="Logo CreativeHub"></a>
@@ -14,15 +16,11 @@
           <input type="text" name="search" placeholder="Rechercher..." ng-model="search" ng-change="getResults()">
           <button type="submit"><i class="bi bi-search"></i></button>
         </form>
-        <ul ng-show="showResults">
+        <ul ng-show="showResults" class="header-search-result shadow-md">
             <li><p>Projets</p></li>
             <li ng-repeat="result in results">
-                [[result.titre_projet]]
-            </li>
-            <li>Profils</li>
-            <li ng-repeat="result in results">
-                [[result.nom_user]] [[result.prenom_user]]
-            </li>
+                <a href="/portfolio/[[result.id_projet]]">[[result.titre_projet]]</a>
+              </li>
         </ul>
     </div>
     <div class="user">

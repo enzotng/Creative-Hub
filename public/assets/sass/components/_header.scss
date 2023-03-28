@@ -154,6 +154,11 @@ header {
     }
 
     .search {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 15vw;
         flex: 1;
         form {
             display: flex;
@@ -210,6 +215,34 @@ header {
                     &:hover {
                         color: $violet;
                         font-weight: bold;
+                    }
+                }
+            }
+        }
+        .header-search-result{
+            position: absolute;
+            margin-top: 15vh;
+            border-radius: 10px;
+            color: #444492;
+            background-color: white;
+            width: 15vw;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            li{
+                p{
+                    margin-bottom: 5px;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    width: 100%;
+                    text-align: center;
+                }
+                a{
+                    color: $violet;
+                    font-weight: 400;
+                    transition: all .3s;
+                    &:hover{
+                        color: $violet2;
                     }
                 }
             }
