@@ -59,5 +59,8 @@ class ProjetController extends Controller
     }
     
 
-    
+    //get all projetcts
+    public function getProjet(){
+        return response()->json(Projet::all(),200);
+    }
 }
