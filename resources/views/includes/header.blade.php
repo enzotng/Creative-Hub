@@ -17,8 +17,9 @@
           <button type="submit"><i class="bi bi-search"></i></button>
         </form>
         <ul ng-show="showResults" class="header-search-result shadow-md">
-            <li><p>Projets</p></li>
-            <li ng-repeat="result in results">
+            <li class="titre-search"><p>Projets</p></li>
+            <hr>
+            <li ng-repeat="result in results" class="header-result">
                 <a href="/portfolio/[[result.id_projet]]">[[result.titre_projet]]</a>
               </li>
         </ul>

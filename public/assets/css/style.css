@@ -212,7 +212,7 @@ header nav ul li a:hover {
 header .search {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 15vw;
   flex: 1;
@@ -276,7 +276,7 @@ header .search form button[type=submit] i:hover {
 }
 header .search .header-search-result {
   position: absolute;
-  margin-top: 15vh;
+  margin-top: 6vh;
   border-radius: 10px;
   color: #444492;
   background-color: white;
@@ -285,8 +285,13 @@ header .search .header-search-result {
   flex-direction: column;
   padding: 10px;
 }
-header .search .header-search-result li p {
+header .search .header-search-result:not(:last-child) {
   margin-bottom: 5px;
+}
+header .search .header-search-result hr {
+  margin: 8px 0 8px 0;
+}
+header .search .header-search-result li p {
   text-transform: uppercase;
   font-weight: bold;
   width: 100%;
@@ -296,9 +301,13 @@ header .search .header-search-result li a {
   color: #444492;
   font-weight: 400;
   transition: all 0.3s;
+  text-transform: capitalize;
 }
 header .search .header-search-result li a:hover {
   color: #2f2f68;
+}
+header .search .header-search-result .titre-search {
+  margin: 0;
 }
 header .toggle-switch {
   position: relative;
@@ -436,6 +445,11 @@ header .user .dropdown .dropdown-menu ul hr {
 header .user .dropdown:hover .dropdown-menu {
   opacity: 1;
   background: #f0f3f4;
+}
+@media (max-width: 1024px) {
+  header .header-search-result {
+    width: 22vw;
+  }
 }
 @media (max-width: 768px) {
   header .logo img {
