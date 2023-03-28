@@ -19,8 +19,9 @@ class Commentaire extends Model
         return $this->belongsTo(Projet::class, 'id_projet');
     }
 
-    public function user()
+    // Association commentaire/utilisateur
+    public function utilisateur()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'utilisateur_id');
     }
 }

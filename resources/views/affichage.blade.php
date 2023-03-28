@@ -25,29 +25,38 @@
             <p><i class="bi bi-card-text"></i>Description du projet : {{ $projet->description_projet }}</p>
             <p><i class="bi bi-calendar"></i>Date du projet : {{ $projet->date_projet }}</p>
 
-            <form method="POST" action="{{ route('commentaire.projet', $projet->id_projet) }}" class="formulaireCommentaire">
+            <form method="POST" action="{{ route('commentaire.projet', $projet->id_projet) }}"
+                class="formulaireCommentaire">
                 @csrf
                 <div class="mb-4">
                     <label for="contenu_commentaire" class="input_label text-xl">Laissez un commentaire</label>
-                    <textarea name="contenu_commentaire" id="message" rows="3" class="input_field" placeholder="Votre commentaire..."></textarea>
+                    <textarea name="contenu_commentaire" id="message" rows="3" class="input_field"
+                        placeholder="Votre commentaire..."></textarea>
                 </div>
                 <button type="submit" class="boutonGeneral">Envoyer</button>
             </form>
 
+            @if($commentaires->count() > 0)
             <div class="commentaireDiv">
                 <h2 class="text-xl">Tous les commentaires</h2>
-
+                @foreach($commentaires as $commentaire)
                 <div class="commentaire">
                     <div class="headerCommentaire">
-                        <img src="{{ asset('assets/images/png/' . Auth::user()->img_user) }}"
-                            alt="Photo {{ Auth::user()->prenom_user }} {{ Auth::user()->nom_user }}">
-                        <p class="mb-2"><strong>Jean Dupont</strong> - 10/05/2022</p>
+                        <img src="{{ asset('assets/images/png/' . $commentaire->utilisateur->img_user) }}"
+                            alt="Photo {{ $commentaire->utilisateur->prenom_user }} {{ $commentaire->utilisateur->nom_user }}">
+                        <p class="mb-2"><strong>{{ $commentaire->utilisateur->prenom_user }}</strong> -
+                            {{ $commentaire->date_commentaire }}</p>
                     </div>
                     <hr>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis, dui sed posuere
-                        cursus, nulla nunc pretium massa, eget posuere purus dolor a risus.</p>
+                    <p>{{ $commentaire->contenu_commentaire }}</p>
                 </div>
+                @endforeach
             </div>
+            @else
+            <p>Aucun commentaire n'a été rédigé pour ce projet</p>
+            @endif
+
+
         </section>
     </main>
 

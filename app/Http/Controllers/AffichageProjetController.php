@@ -7,8 +7,10 @@ use App\Models\Projet;
 
 class AffichageProjetController extends Controller
 {
-    public function show($id_projet) {
+    public function show($id_projet)
+    {
         $projet = Projet::findOrFail($id_projet);
-        return view('affichage', ['projet' => $projet]);
+        $commentaires = $projet->commentaires;
+        return view('affichage', compact('projet', 'commentaires'));
     }
 }

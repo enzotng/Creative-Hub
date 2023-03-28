@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Commentaire;
 use App\Models\Projet;
 
 class ProjetController extends Controller
@@ -57,7 +58,6 @@ class ProjetController extends Controller
         return redirect('etudiant')->with('success', 'Le commentaire a été posté avec succès.');
 
     }
-    
 
     //get all projetcts
     public function getProjet(){

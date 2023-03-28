@@ -41,6 +41,7 @@
                 <div class="travaux">
                     <img src="assets/images/png/{{ $projet->image_projet }}" alt="Image Projet">
                     <p>{{ $projet->titre_projet }}</p>
+                    <a class="boutonGeneral" href="{{ route('affichage.projet', ['id_projet' => $projet->id_projet]) }}">{{ $projet->titre_projet }}</a>
                 </div>
                 @endforeach
                 @endif

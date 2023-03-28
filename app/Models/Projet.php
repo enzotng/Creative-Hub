@@ -24,10 +24,10 @@ class Projet extends Model
     }
 
     //Association projet/commentaire
-    // public function commentaires()
-    // {
-    //     return $this->hasMany(Commentaire::class);
-    // }
+    public function commentaires()
+    {
+        return $this->hasMany(Commentaire::class, 'id_commentaire');
+    }
 
     public function user()
     {

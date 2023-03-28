@@ -62,4 +62,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Projet::class, 'id_user');
     }
+
+    public function commentaires()
+    {
+        return $this->hasMany(Commentaire::class, 'id_user');
+    }
+
+
+
 }
