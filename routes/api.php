@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\ProfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //get all projects
 Route:: get('projet', [ProjetController::class, 'getProjet']);
+
+//get all users
+Route:: get('user', [ProfilController::class, 'getProfil']);

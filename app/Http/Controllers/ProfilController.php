@@ -35,4 +35,8 @@ class ProfilController extends Controller
 
         return redirect()->back()->with('success', 'Vos informations ont été mises à jour avec succès !');
     }
+    //get all users
+    public function getProfil(){
+        return response()->json(User::all(),200);
+    }
 }

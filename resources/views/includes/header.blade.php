@@ -19,7 +19,7 @@
         </nav>
     </div>
 </header> -->
-
+<script src="/resources/js/searchbar.js"></script>
 <header class="shadow-md">
     <div class="logo">
         <a href="home" title="Revenir à la page d'accueil"><img src="assets/images/ico/logo_blanc.ico" alt="Logo CreativeHub"></a>
@@ -31,7 +31,7 @@
     </nav>
     <div class="search">
         <form action="#" method="get">
-            <input type="text" name="search" placeholder="Rechercher...">
+            <input type="text" name="search" placeholder="Rechercher..." ng-model="query">
             <button type="submit"><i class="bi bi-search"></i></button>
         </form>
     </div>
