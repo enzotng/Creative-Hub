@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -35,6 +36,7 @@ class User extends Authenticatable
         'email_user',
         'mdp_user',
         'role_user',
+        'img_user',
     ];
 
     /**
@@ -55,4 +57,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function projets()
+    {
+        return $this->hasMany(Projet::class, 'id_user');
+    }
 }

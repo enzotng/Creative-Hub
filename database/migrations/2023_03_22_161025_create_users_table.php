@@ -15,8 +15,10 @@ return new class extends Migration
             $table->increments('id_user');
             $table->string('nom_user');
             $table->string('prenom_user');
-            $table->string('email_user');
+            $table->string('email_user')->unique();
             $table->string('mdp_user');
+            $table->string('role_user')->default('Utilisateur');
+            $table->string('img_user')->default('default_user.png');
             $table->timestamps();
         });
     }

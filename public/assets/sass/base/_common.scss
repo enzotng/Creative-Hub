@@ -8,6 +8,7 @@ body {
   background: $background;
   margin: 3vw;
   font-family: "Ubuntu", sans-serif;
+  transition: background-color 0.2s ease-in-out;
 }
 
 a {
@@ -19,3 +20,9 @@ a {
     color: #444492;
   }
 }
+
+.dark_mode {
+  background-color: #1f1f4d;
+  color: $blanc;
+}
+

@@ -1,144 +1,95 @@
 .hero {
     background: $blanc;
     margin-block: 3vw;
-    padding: 20px;
     border-radius: 10px;
+    height: auto;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    filter: drop-shadow(0 0 20px $background);
-    .hero_1 {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(1, 60vh);
-        text-align: center;
-        color: $blanc;
-        .sous_hero_1 {
-            background: $violet;
-            width: 100%;
-            height: 60vh;
-            border-radius: 20px;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            flex-direction: column;
-            p {
-                padding-inline: 3vw;
-                line-height: 1.5;
-            }
-        }
+    justify-content: center;
+    align-items: stretch;
+    h1 {
+        color: $violet;
     }
-
-    .hero_2 {
-        display: grid;
-        grid-template-columns: repeat(2, 40%);
-        grid-template-rows: repeat(2, 30vh);
-        flex-direction: column;
-        // gap: 3vw;
-        text-align: center;
-        font-weight: bold;
-        .sous_hero_1_1 {
-            background: $violet;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 30vh;
-            color: $blanc;
-            border-radius: 20px;
-            cursor: grab;
-            &:active {
-                cursor: grabbing;
-            }
-        }
-        .sous_hero_2 {
-            background: $background;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 30vh;
-            color: $violet;
-            border-radius: 20px;
-            cursor: grab;
-            &:active {
-                cursor: grabbing;
-            }
+    .box_hero {
+        width: 100%;
+        border-radius: 1.5rem 1rem 0 1rem;
+        border: 5px solid $violet;
+        height: 100%;
+        background-size: cover;
+        background-image: url("../../assets/images/jpg/pexels-guillaume-meurice-2808402.jpg");
+    }
+    .boutonGeneral {
+        margin-block-start: 20px;
+        width: fit-content;
+        padding: 15px 20px;
+        border: 0;
+        background: $violet;
+        border-radius: 7px;
+        outline: none;
+        color: $blanc;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s;
+        font-weight: normal;
+        &:hover {
+            background: $violet2;
         }
     }
 }
 
 .projets {
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
     background: $blanc;
-    height: 60vh;
-    margin-block: 3vw;
     border-radius: 10px;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    overflow-x: hidden;
+    justify-content: space-between;
     align-items: center;
-    filter: drop-shadow(0 0 20px $background);
-    position: relative;
-    .arrow_gauche {
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        color: black;
-        background: $background;
-        left: 2vw;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        filter: drop-shadow(0 0 20px $background);
-        z-index: 99;
+    padding: 20px;
+    margin-block: 3vw;
+    h1 {
+        color: $violet;
+    }
+    .projets_box {
+        width: 20vw;
+        height: 75vh;
+        background-position: center;
+        background-size: cover;
         display: flex;
         justify-content: center;
+        flex-direction: column;
         align-items: center;
         cursor: pointer;
-    }
-    .arrow_droite {
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        color: black;
-        background: $background;
-        right: 2vw;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        filter: drop-shadow(0 0 20px $background);
-        z-index: 99;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-    }
-    .projets_section {
-        display: flex;
-        gap: 3vw;
-        overflow: hidden;
-        transition: all 0.3s;
-        .projets_item {
-            flex-shrink: 0;
-            width: 300px;
-            height: 300px;
+        img {
+            object-fit: cover;
             border-radius: 10px;
-            box-shadow: 0px 15px 20px rgb(0 0 0 / 10%);
-            cursor: grab;
-            background-image: url("../../assets/images/jpg/pexels-guillaume-meurice-2808402.jpg");
-            background-size: 50vw;
-            &:active {
-                cursor: grabbing;
-            }
-            .projets_1 {
-                background-image: url("../../assets/images/jpg/pexels-guillaume-meurice-2808402.jpg");
-                background-size: 50vw;
-            }
-            .projets_2 {
-                background-image: url("../../assets/images/jpg/pexels-fauxels-3183153.jpg");
-                background-size: 50vw;
+            aspect-ratio: 16/9;
+            height: 100%;
+            position: relative;
+        }
+        a {
+            position: absolute;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            color: $blanc;
+            background: $violet2;
+            padding: 15px 20px;
+            border-radius: 30px;
+            &:hover {
+                background: $violet;
+                transform: scale(0.95);
             }
         }
+    }
+}
+
+.dark_mode_hero {
+    background-color: $violet2;
+    h1,
+    p {
+        color: $background;
     }
 }

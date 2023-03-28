@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Creative Hub - Plateforme en ligne</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -19,10 +20,11 @@
 
                 @if (Auth::check())
                 <h1>Bonjour, {{ Auth::user()->prenom_user }} {{ Auth::user()->nom_user }} !</h1>
-                <form action="{{ route('deconnexion') }}" method="POST">
+                <!-- <form action="{{ route('deconnexion') }}" method="POST">
                     @csrf
                     <button class="boutonGeneral" type="submit">Déconnexion</button>
-                </form>
+                </form> -->
+                <a href="projets" class="boutonGeneral">Créer un nouveau projet</a>
                 @else
                 <h1>Travaux MMI</h1>
                 <a href="{{ route('connexion') }}" class="boutonGeneral">Se connecter</a>
@@ -32,54 +34,16 @@
             <hr>
 
             <div class="gridTravaux">
+                @if ($projets->isEmpty())
+                <p class="mt-5">Vous n'avez encore aucun projets.</p>
+                @else
+                @foreach ($projets as $projet)
                 <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : 3
-                    </p>
+                    <img src="assets/images/png/{{ $projet->image_projet }}" alt="Image Projet">
+                    <p>{{ $projet->titre_projet }}</p>
                 </div>
-                <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
-                    </p>
-                </div>
-                <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
-                    </p>
-                </div>
-                <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
-                    </p>
-                </div>
-                <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
-                    </p>
-                </div>
-                <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
-                    </p>
-                </div>
-                <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
-                    </p>
-                </div>
-                <div class="travaux">
-                    <img src="./assets/images/jpg/pexels-fauxels-3183153.jpg" alt="Image Travaux">
-                    <p>
-                        <i class="bi bi-youtube"></i>SAE 301 : Darknet
-                    </p>
-                </div>
+                @endforeach
+                @endif
             </div>
             <div id="pagination-container"></div>
         </section>
@@ -138,7 +102,6 @@
         integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
-    <script src="./assets/js/main.js"></script>
     <script src="./assets/js/etudiant.js"></script>
 </body>
 

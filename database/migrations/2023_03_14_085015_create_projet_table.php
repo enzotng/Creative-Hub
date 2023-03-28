@@ -12,9 +12,9 @@ return new class extends Migration
     public function up()
 {
     Schema::create('projet_table', function (Blueprint $table) {
-        $table->id();
+        $table->increments('id_projet');
         $table->string('titre_projet');
-        $table->string('image_projet');
+        $table->string('image_projet')->default('default_image_projet.png');
         $table->text('description_projet');
         $table->dateTime('date_projet');
         $table->timestamps();

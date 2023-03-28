@@ -2,10 +2,10 @@ window.onload = function () {
     var xValues = ["SAE 302", "Darknet", "SAE 301", "SAE Leclerc"];
     var yValues = [55, 49, 44, 24];
     var barColors = [
-        "#111192",
         "#444492",
-        "#777792",
-        "#0e0e0e"
+        "#3ba99c",
+        "#69d1c5",
+        "#7ebce6"
     ];
 
     new Chart("myChart", {
@@ -21,6 +21,15 @@ window.onload = function () {
             title: {
                 display: false,
                 text: "Compétences"
+            },
+            legend: {
+                display: true,
+                position: "left",
+                labels: {
+                    fontSize: 16,
+                    fontColor: "#000000",
+                    fontFamily: "Ubuntu",
+                }
             }
         }
     });
