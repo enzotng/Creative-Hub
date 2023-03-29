@@ -294,7 +294,7 @@ header .search form button[type=submit] i:hover {
 }
 header .search .header-search-result {
   position: absolute;
-  margin-top: 10vh;
+  top: 16.5vh;
   border-radius: 20px;
   color: #444492;
   background-color: white;
@@ -302,6 +302,7 @@ header .search .header-search-result {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  z-index: 999;
 }
 header .search .header-search-result:not(:last-child) {
   margin-bottom: 5px;
@@ -478,6 +479,9 @@ header .user .dropdown:hover .dropdown-menu {
 @media (max-width: 1024px) {
   header .header-search-result {
     width: 22vw;
+  }
+  header .header-search-result .ng-binding {
+    font-size: 13px;
   }
 }
 @media (max-width: 768px) {
