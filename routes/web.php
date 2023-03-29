@@ -25,8 +25,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/home', [HelloController::class, 'index'])->name('home');
 
-Route::get('/etudiant', [EtudiantController::class, 'etudiantProfil'])->name('etudiant')->middleware('auth');
-// Route::get('/etudiant/{domaine?}', [EtudiantController::class, 'etudiantProfil'])->name('etudiant')->middleware('auth');
+Route::middleware('App\Http\Middleware\PreventEtudiantAccess')->group(function () {
+    Route::get('/etudiant', [EtudiantController::class, 'index'])->name('etudiant');
+});
+
+Route::get('/unauthorized-access', [EtudiantController::class, 'unauthorizedAccess'])->name('unauthorized.access');
 
 Route::get('/connexion', [ConnexionController::class, 'showLoginForm'])->name('connexion');
 Route::post('/connexion', [ConnexionController::class, 'login'])->name('login');

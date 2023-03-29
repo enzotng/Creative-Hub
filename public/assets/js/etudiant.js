@@ -40,53 +40,55 @@ window.onload = function () {
         }
     });
 
-    // récupère les données à partir de la route /projets/domaine
-    $.ajax({
-        url: '/projets/domaine',
-        type: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            // récupère les données de la réponse JSON
-            var labels = [];
-            var dataValues = [];
+    $(document).ready(function () {
+        // crée un graphique à secteurs pour afficher le nombre de projets par domaine
+        $.ajax({
+            url: '/projets/domaine',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                // récupère les données de la réponse JSON
+                var labels = [];
+                var dataValues = [];
 
-            data.forEach(function (item) {
-                labels.push(item.domaine_projet);
-                dataValues.push(item.total);
-            });
+                data.forEach(function (item) {
+                    labels.push(item.domaine_projet);
+                    dataValues.push(item.total);
+                });
 
-            // crée un graphique à secteurs avec les données spécifiées
-            var myChart = new Chart(document.getElementById("myChart"), {
-                type: "doughnut",
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        backgroundColor: [
-                            "#444492",
-                            "#3ba99c",
-                            "#69d1c5",
-                            "#7ebce6"
-                        ],
-                        data: dataValues
-                    }]
-                },
-                options: {
-                    title: {
-                        display: false, // pas de titre
-                        text: "Nombre de projets par domaine"
+                // crée un graphique à secteurs avec les données spécifiées
+                var myChart = new Chart(document.getElementById("myChart"), {
+                    type: "doughnut",
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            backgroundColor: [
+                                "#444492",
+                                "#3ba99c",
+                                "#69d1c5",
+                                "#7ebce6"
+                            ],
+                            data: dataValues
+                        }]
                     },
-                    legend: {
-                        display: true, // afficher la légende
-                        position: "bottom", // position de la légende sur la gauche
-                        labels: {
-                            fontSize: 14,
-                            fontColor: "#000000",
-                            fontFamily: "Ubuntu", // police spécifique pour la légende
-                            padding: 20 // ajouter une marge en haut de 10 pixels
+                    options: {
+                        title: {
+                            display: false, // pas de titre
+                            text: "Nombre de projets par domaine"
+                        },
+                        legend: {
+                            display: true, // afficher la légende
+                            position: "bottom", // position de la légende en bas
+                            labels: {
+                                fontSize: 14,
+                                fontColor: "#000000",
+                                fontFamily: "Ubuntu", // police spécifique pour la légende
+                                paddingTop: 10 // padding top de 10 pixels
+                            }
                         }
                     }
-                }
-            });
-        }
+                });
+            }
+        });
     });
 }

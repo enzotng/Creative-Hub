@@ -1798,4 +1798,23 @@ header .user .dropdown:hover .dropdown-menu {
   text-align: justify;
 }
 
+#professeurMain {
+  margin-block: 5vh;
+}
+#professeurMain .erreurProfesseur {
+  background: #fff;
+  margin-block: 3vw;
+  height: 63vh;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+#professeurMain .erreurProfesseur h1, #professeurMain .erreurProfesseur p {
+  color: #444492;
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=style.css.map */

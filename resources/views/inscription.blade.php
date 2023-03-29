@@ -130,13 +130,16 @@
 
                     <div class="input_container mb-4">
                         <label class="input_label" for="role_user">
-                            Rôle (par défaut)
+                            Rôle
                         </label>
                         <div class="relative">
                             <i class="bi bi-person-circle icon text-gray-400 hover:text-gray-500"></i>
-                            <input id="role_user" type="text"
-                                class="input_field @error('role_user') is-invalid @enderror" disabled placeholder="Utilisateur"
-                                name="role_user" value="{{ old('role_user') }}" required title="Contactez un administrateur pour changer votre rôle">
+                            <div class="radio_group">
+                                <input type="radio" id="etudiant" name="role_user" value="Etudiant" checked>
+                                <label for="etudiant">Etudiant</label>
+                                <input type="radio" id="professeur" name="role_user" value="Professeur">
+                                <label for="professeur">Professeur</label>
+                            </div>
                             @error('role_user')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -164,4 +167,5 @@
     @include('includes.footer')
     <script src="./assets/js/inscription.js"></script>
 </body>
+
 </html>

@@ -12,11 +12,21 @@ use Illuminate\Support\Facades\DB;
 
 class EtudiantController extends BaseController
 {
-    public function etudiantProfil()
+    public function etudiantProfil(Request $request)
     {
         $user = Auth::user();
-        $projets = DB::table('projet_table')->where('user_id', $user->id_user)->get();
-        return view('etudiant', ['user' => $user, 'projets' => $projets]);
+        $domaine = $request->input('domaine', 'default');
+
+        if ($domaine == 'default') {
+            $projets = DB::table('projet_table')->where('user_id', $user->id_user)->get();
+        } else {
+            $projets = DB::table('projet_table')->where([
+                ['user_id', '=', $user->id_user],
+                ['domaine_projet', '=', $domaine]
+            ])->get();
+        }
+
+        return view('etudiant', ['user' => $user, 'projets' => $projets, 'domaine' => $domaine]);
     }
 
     public function supprimerProjet($id)
@@ -37,21 +47,9 @@ class EtudiantController extends BaseController
         DB::table('projet_table')->where('id_projet', $id)->delete();
         return redirect()->back()->with('success', 'Projet supprimé avec succès.');
     }
-    
-    public function filtrerProjets(Request $request)
-{
-    $user = Auth::user();
-    $domaine = $request->input('domaine');
 
-    if ($domaine == 'default') {
-        $projets = DB::table('projet_table')->where('user_id', $user->id_user)->get();
-    } else {
-        $projets = DB::table('projet_table')->where([
-            ['user_id', '=', $user->id_user],
-            ['domaine_projet', '=', $domaine]
-        ])->get();
+    public function unauthorizedAccess()
+    {
+        return view('errors.unauthorized-access');
     }
-
-    return view('partials.projets', ['projets' => $projets]);
-}
 }

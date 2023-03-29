@@ -116,6 +116,4 @@ public function projetsDomaine()
 
     return response()->json($projetsDomaine);
 }
-
-
 }
