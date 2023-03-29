@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Commentaire;
 use App\Models\Projet;
+use Illuminate\Support\Facades\DB;
 
 class ProjetController extends Controller
 {
@@ -16,7 +17,6 @@ class ProjetController extends Controller
     }
 
     // Enregitrement du projet dans la BDD
-    // Enregistrement du projet dans la BDD
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -105,6 +105,16 @@ class ProjetController extends Controller
     $projet->save();
 
     return redirect()->back()->with('success', 'Le projet a été modifié avec succès.');
+}
+
+public function projetsDomaine()
+{
+    $projetsDomaine = DB::table('projet_table')
+        ->select(DB::raw('count(*) as total, domaine_projet'))
+        ->groupBy('domaine_projet')
+        ->get();
+
+    return response()->json($projetsDomaine);
 }
 
 

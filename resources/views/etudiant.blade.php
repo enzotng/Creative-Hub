@@ -43,11 +43,14 @@
 
                     <hr>
                     <div class="boutonDiv">
-                        <a class="boutonGeneral" href="{{ route('affichage.projet', ['id_projet' => $projet->id_projet]) }}">Voir le projet</a>
+                        <a class="boutonGeneral"
+                            href="{{ route('affichage.projet', ['id_projet' => $projet->id_projet]) }}">Voir le
+                            projet</a>
                         <div class="popup-wrapper">
                             <div class="popup" id="modifierProjetPopup">
                                 <h1>Modifier le projet : {{ $projet->titre_projet }}</h1>
-                                <form action="{{ route('projets.modifier', ['id' => $projet->id_projet]) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('projets.modifier', ['id' => $projet->id_projet]) }}"
+                                    method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <label for="titre_projet">Titre :</label>
@@ -63,7 +66,7 @@
                                     <input type="date" name="date_projet" value="{{ $projet->date_projet }}">
 
                                     <div class="flex justify-between">
-                                        <button type="button" class="boutonGeneral">Annuler</button>
+                                        <button type="button" id="cancelBtn" class="boutonGeneral">Annuler</button>
                                         <button type="submit" class="boutonGeneral">Enregistrer</button>
                                     </div>
                                 </form>
@@ -101,44 +104,16 @@
 
             <label for="nomProgress">Votre progression</label>
 
-            <!-- <p>Développement web</p>
-            <div class="boxProgression">
-                <div class="skills html">
-                    <span>90%</span>
-                </div>
-            </div>
-
-            <p>Graphisme</p>
-            <div class="boxProgression">
-                <div class="skills css">
-                    <span>80%</span>
-                </div>
-            </div>
-
-            <p>Communication</p>
-            <div class="boxProgression">
-                <div class="skills js">
-                    <span>65%</span>
-                </div>
-            </div>
-
-            <p>Audiovisuel</p>
-            <div class="boxProgression">
-                <div class="skills php">
-                    <span>60%</span>
-                </div>
-            </div> -->
-
             <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
         </aside>
     </main>
     @include('includes.footer')
-    <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
-        integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
     <script src="./assets/js/etudiant.js"></script>
+    <script src="./assets/js/filtreDomaine.js"></script>
 </body>
 
 </html>
