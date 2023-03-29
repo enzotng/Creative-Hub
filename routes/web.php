@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\PortfolioMMIController;
 use App\Http\Controllers\AffichageProjetController;
 use App\Http\Controllers\CommentaireController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,3 +48,5 @@ Route::get('/portfolio/{id_projet}', [AffichageProjetController::class, 'show'])
 Route::post('/portfolio/{id_projet}', [CommentaireController::class, 'store'])->name('commentaire.projet');
 Route::delete('/projets/{id}', [EtudiantController::class, 'supprimerProjet'])->name('projets.supprimer');
 Route::put('/projets/{id}', [ProjetController::class, 'update'])->name('projets.modifier');
+
+Route::get('/admin', [AdminController::class, 'show'])->name('affichage.projet');

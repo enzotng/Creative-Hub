@@ -1798,4 +1798,10 @@ header .user .dropdown:hover .dropdown-menu {
   text-align: justify;
 }
 
+.admin form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 /*# sourceMappingURL=style.css.map */
