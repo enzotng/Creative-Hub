@@ -1418,7 +1418,7 @@ header .user .dropdown:hover .dropdown-menu {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   height: 100px;
   width: 100px;
   border-radius: 0.5rem;
