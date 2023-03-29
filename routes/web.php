@@ -10,24 +10,25 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\PortfolioMMIController;
 use App\Http\Controllers\AffichageProjetController;
 use App\Http\Controllers\CommentaireController;
-use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\PreventEtudiantAccess;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| Here is where you can register web routes for your application.
+| These routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
 |
 */
 
 Route::get('/home', [HelloController::class, 'index'])->name('home');
 
-Route::middleware('App\Http\Middleware\PreventEtudiantAccess')->group(function () {
-    Route::get('/etudiant', [EtudiantController::class, 'index'])->name('etudiant');
+Route::middleware([PreventEtudiantAccess::class])->group(function () {
+    Route::get('/etudiant', [EtudiantController::class, 'etudiantProfil'])->name('etudiant');
+    Route::get('/etudiant/erreur404', [EtudiantController::class, 'erreur404'])->name('etudiant.erreur404');
 });
 
 Route::get('/unauthorized-access', [EtudiantController::class, 'unauthorizedAccess'])->name('unauthorized.access');
@@ -50,10 +51,7 @@ Route::get('/portfolio', [PortfolioMMIController::class, 'index'])->name('portfo
 
 Route::get('/portfolio/{id_projet}', [AffichageProjetController::class, 'show'])->name('affichage.projet');
 Route::post('/portfolio/{id_projet}', [CommentaireController::class, 'store'])->name('commentaire.projet');
-Route::get('/portfolio/{id_projet}/comment', [CommentaireController::class, 'showComment'])->name('affichage.commentaire');
 
 Route::delete('/projets/{id}', [EtudiantController::class, 'supprimerProjet'])->name('projets.supprimer');
 Route::put('/projets/{id}', [ProjetController::class, 'update'])->name('projets.modifier');
-
-Route::get('/admin', [AdminController::class, 'show'])->name('affichage.projet');
 Route::get('/projets/domaine', [ProjetController::class, 'projetsDomaine'])->name('projets.domaine');
