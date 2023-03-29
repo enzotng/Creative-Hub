@@ -115,7 +115,7 @@ header {
         }
         .header-search-result {
             position: absolute;
-            margin-top: 10vh;
+            top: 16.5vh;
             border-radius: 20px;
             color: #444492;
             background-color: white;
@@ -123,6 +123,7 @@ header {
             display: flex;
             flex-direction: column;
             padding: 10px;
+            z-index: 999;
             &:not(:last-child) {
                 margin-bottom: 5px;
             }
@@ -315,6 +316,9 @@ header {
     @media (max-width: 1024px) {
         .header-search-result {
             width: 22vw;
+            .ng-binding{
+                font-size: 13px;
+            }
         }
     }
 
