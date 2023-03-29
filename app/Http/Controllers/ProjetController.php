@@ -74,7 +74,7 @@ class ProjetController extends Controller
         public function edit($id)
         {
             $projet = Projet::findOrFail($id);
-            return view('edit', compact('projet'));
+            return view('edit', ['projet' => $projet]);
         }
     
         public function update(Request $request, $id)

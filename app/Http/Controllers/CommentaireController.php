@@ -31,6 +31,23 @@ class CommentaireController extends Controller
         $commentaire->projet()->associate($projet);
         $commentaire->save();
 
-        return redirect()->back()->with('success', 'Commentaire ajouté avec succès.');
+        return redirect()->route('affichage.commentaire', $projet_id)->with('success', 'Commentaire ajouté avec succès.');
+    }
+
+
+    public function index()
+    {
+        $commentaires = Commentaire::all();
+        return view('affichage', compact('commentaires'));
+    }
+
+    public function showComment($id_projet)
+    {
+        $projet = Projet::findOrFail($id_projet);
+        $commentaires = Commentaire::whereHas('projet', function($query) use($id_projet) {
+            $query->where('id_projet', $id_projet);
+        })->get();
+
+        return view('affichage', compact('commentaires', 'projet'));
     }
 }
