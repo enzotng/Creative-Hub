@@ -60,7 +60,9 @@ class ProjetController extends Controller
     }
 
     //get all projetcts
-    public function getProjet(){
-        return response()->json(Projet::all(),200);
+    public function getProjet(Request $request) {
+        $q = $request->input('q');
+        $projets = Projet::where('titre_projet', 'like', "%$q%")->get();
+        return response()->json($projets, 200);
     }
 }
