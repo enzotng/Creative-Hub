@@ -67,48 +67,39 @@
             <label class="input_label" for="domaine_projet">Domaine du projet</label>
             <div class="radio-inputs">
                 <label>
-                    <input class="radio-input" type="radio" name="domaine" value="Développer">
+                    <input class="radio-input" type="radio" name="domaine_projet" value="Web" required>
                     <span class="radio-tile">
                         <span class="radio-icon">
-                            <i class="bi bi-code-slash"></i>
+                            <i class="bi bi-globe2"></i>
                         </span>
-                        <span class="radio-label">Développer</span>
+                        <span class="radio-label">Web</span>
                     </span>
                 </label>
                 <label>
-                    <input class="radio-input" type="radio" name="domaine" value="Concevoir">
+                    <input class="radio-input" type="radio" name="domaine_projet" value="Communication" required>
                     <span class="radio-tile">
                         <span class="radio-icon">
-                            <i class="bi bi-pencil"></i>
+                            <i class="bi bi-chat-right"></i>
                         </span>
-                        <span class="radio-label">Concevoir</span>
+                        <span class="radio-label">Communication</span>
                     </span>
                 </label>
                 <label>
-                    <input class="radio-input" type="radio" name="domaine" value="Entreprendre">
+                    <input class="radio-input" type="radio" name="domaine_projet" value="Audiovisuel" required>
                     <span class="radio-tile">
                         <span class="radio-icon">
-                            <i class="bi bi-briefcase-fill"></i>
+                            <i class="bi bi-camera-video-fill"></i>
                         </span>
-                        <span class="radio-label">Entreprendre</span>
+                        <span class="radio-label">Audiovisuel</span>
                     </span>
                 </label>
                 <label>
-                    <input class="radio-input" type="radio" name="domaine" value="Exprimer">
+                    <input class="radio-input" type="radio" name="domaine_projet" value="Graphisme" required>
                     <span class="radio-tile">
                         <span class="radio-icon">
-                            <i class="bi bi-megaphone-fill"></i>
+                            <i class="bi bi-palette-fill"></i>
                         </span>
-                        <span class="radio-label">Exprimer</span>
-                    </span>
-                </label>
-                <label>
-                    <input class="radio-input" type="radio" name="domaine" value="Comprendre">
-                    <span class="radio-tile">
-                        <span class="radio-icon">
-                            <i class="bi bi-book-half"></i>
-                        </span>
-                        <span class="radio-label">Comprendre</span>
+                        <span class="radio-label">Graphisme</span>
                     </span>
                 </label>
             </div>

@@ -971,7 +971,7 @@ header .user .dropdown:hover .dropdown-menu {
   gap: 20px;
 }
 #portfolio .portfolioSection .gridTravaux .travaux {
-  margin-block-start: 3vh;
+  margin-block: 60px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -1418,7 +1418,7 @@ header .user .dropdown:hover .dropdown-menu {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   height: 100px;
   width: 100px;
   border-radius: 0.5rem;

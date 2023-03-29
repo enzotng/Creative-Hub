@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Commentaire;
 use App\Models\Projet;
+use Illuminate\Support\Facades\DB;
 
 class ProjetController extends Controller
 {
@@ -20,20 +21,22 @@ class ProjetController extends Controller
     {
         $validatedData = $request->validate([
             'titre_projet' => 'required',
-            'image_projet' => 'required',
+            'image_projet' => 'required|image',
             'description_projet' => 'required',
             'date_projet' => 'required',
+            'domaine_projet' => 'required', // Correction de la validation pour le champ "domaine_projet"
         ]);
-    
+
         $user = Auth::user();
         $projet = new Projet;
         $projet->user_id = $user->id_user;
         $projet->titre_projet = $validatedData['titre_projet'];
         $projet->description_projet = $validatedData['description_projet'];
         $projet->date_projet = $validatedData['date_projet'];
+        $projet->domaine_projet = $validatedData['domaine_projet'];
         $projet->save();
-    
-        // Vérifier si une nouvelle image a été envoyée
+
+        // Enregistrement de l'image
         if ($request->hasFile('image_projet')) {
             $image = $request->file('image_projet');
             $filename = $image->getClientOriginalName();
@@ -42,6 +45,7 @@ class ProjetController extends Controller
             $projet->image_projet = $filename;
             $projet->save();
         }
+
         return redirect('etudiant')->with('success', 'Le projet a été enregistré avec succès.');
     }
 
@@ -101,6 +105,16 @@ class ProjetController extends Controller
     $projet->save();
 
     return redirect()->back()->with('success', 'Le projet a été modifié avec succès.');
+}
+
+public function projetsDomaine()
+{
+    $projetsDomaine = DB::table('projet_table')
+        ->select(DB::raw('count(*) as total, domaine_projet'))
+        ->groupBy('domaine_projet')
+        ->get();
+
+    return response()->json($projetsDomaine);
 }
 
 
