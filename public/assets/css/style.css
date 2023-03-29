@@ -229,8 +229,8 @@ header nav ul li a:hover {
 }
 header .search {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
   width: 15vw;
   flex: 1;
@@ -243,7 +243,7 @@ header .search form {
 header .search form input[type=text] {
   border-radius: 20px;
   height: 35px;
-  width: 100%;
+  width: 15vw;
   max-width: 25vw;
   color: #8b8e98;
   box-shadow: 0 2px 6px 0 rgba(61, 2, 74, 0.2), 0 24px 20px -24px rgba(71, 82, 107, 0.1);
@@ -294,8 +294,8 @@ header .search form button[type=submit] i:hover {
 }
 header .search .header-search-result {
   position: absolute;
-  margin-top: 6vh;
-  border-radius: 10px;
+  margin-top: 10vh;
+  border-radius: 20px;
   color: #444492;
   background-color: white;
   width: 15vw;
@@ -466,6 +466,14 @@ header .user .dropdown:hover .dropdown-menu {
   opacity: 1;
   animation: fadeIn 0.3s ease-in-out;
   background: #f0f3f4;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @media (max-width: 1024px) {
   header .header-search-result {
