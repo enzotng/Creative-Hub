@@ -40,8 +40,43 @@
                 @foreach ($projets as $projet)
                 <div class="travaux">
                     <img src="assets/images/png/{{ $projet->image_projet }}" alt="Image Projet">
-                    <p>{{ $projet->titre_projet }}</p>
-                    <a class="boutonGeneral" href="{{ route('affichage.projet', ['id_projet' => $projet->id_projet]) }}">{{ $projet->titre_projet }}</a>
+
+                    <hr>
+                    <div class="boutonDiv">
+                        <a class="boutonGeneral" href="{{ route('affichage.projet', ['id_projet' => $projet->id_projet]) }}">Voir le projet</a>
+                        <div class="popup-wrapper">
+                            <div class="popup" id="modifierProjetPopup">
+                                <h1>Modifier le projet : {{ $projet->titre_projet }}</h1>
+                                <form action="{{ route('projets.modifier', ['id' => $projet->id_projet]) }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                    <label for="titre_projet">Titre :</label>
+                                    <input type="text" name="titre_projet" value="{{ $projet->titre_projet }}">
+
+                                    <label for="image_projet">Image :</label>
+                                    <input type="file" name="image_projet">
+
+                                    <label for="description_projet">Description :</label>
+                                    <textarea name="description_projet">{{ $projet->description_projet }}</textarea>
+
+                                    <label for="date_projet">Date :</label>
+                                    <input type="date" name="date_projet" value="{{ $projet->date_projet }}">
+
+                                    <div class="flex justify-between">
+                                        <button type="button" class="boutonGeneral">Annuler</button>
+                                        <button type="submit" class="boutonGeneral">Enregistrer</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <button class="boutonGeneral" id="btnModifierProjet">Modifier le projet</button>
+                        <form action="{{ route('projets.supprimer', ['id' => $projet->id_projet]) }}" method="POST"
+                            class="formDelete">
+                            @csrf
+                            @method('DELETE')
+                            <button class="boutonGeneral" type="submit">Supprimer le projet</button>
+                        </form>
+                    </div>
                 </div>
                 @endforeach
                 @endif

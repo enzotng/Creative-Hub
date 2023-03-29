@@ -45,3 +45,5 @@ Route::get('/portfolio', [PortfolioMMIController::class, 'index'])->name('portfo
 
 Route::get('/portfolio/{id_projet}', [AffichageProjetController::class, 'show'])->name('affichage.projet');
 Route::post('/portfolio/{id_projet}', [CommentaireController::class, 'store'])->name('commentaire.projet');
+Route::delete('/projets/{id}', [EtudiantController::class, 'supprimerProjet'])->name('projets.supprimer');
+Route::put('/projets/{id}', [ProjetController::class, 'update'])->name('projets.modifier');

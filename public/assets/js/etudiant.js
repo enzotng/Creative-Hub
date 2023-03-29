@@ -36,6 +36,26 @@ window.onload = function () {
             }
         }
     });
+
+    // sélectionne le bouton "Modifier le projet"
+    var modifierProjetBtn = document.getElementById("btnModifierProjet");
+
+    // sélectionne la popup et le bouton "Annuler"
+    var popup = document.querySelector(".popup-wrapper");
+    var cancelBtn = document.querySelector(".cancel-btn");
+
+    // ajoute un écouteur d'événement pour le clic sur le bouton "Modifier le projet"
+    modifierProjetBtn.addEventListener("click", function () {
+        // affiche la popup
+        popup.style.display = "block";
+    });
+
+    // ajoute un écouteur d'événement pour le clic sur le bouton "Annuler"
+    cancelBtn.addEventListener("click", function () {
+        // cache la popup
+        popup.style.display = "none";
+    });
+
 }
 
 // définit les éléments de la page nécessaires pour la pagination
@@ -58,3 +78,4 @@ $('#pagination-container').pagination({
         items.hide().slice(showFrom, showTo).show();
     }
 });
+

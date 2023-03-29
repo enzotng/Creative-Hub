@@ -15,7 +15,9 @@
         border: 5px solid $violet;
         height: 100%;
         background-size: cover;
-        background-image: url("../../assets/images/jpg/pexels-guillaume-meurice-2808402.jpg");
+        aspect-ratio: 16/9;
+        background-position: center;
+        background-image: url("../../assets/images/webp/butmmi.webp");
     }
     .boutonGeneral {
         margin-block-start: 20px;
@@ -76,8 +78,7 @@
             overflow: hidden;
             color: $blanc;
             background: $violet2;
-            padding: 15px 20px;
-            border-radius: 30px;
+            padding: 20px 35px;
             &:hover {
                 background: $violet;
                 transform: scale(0.95);

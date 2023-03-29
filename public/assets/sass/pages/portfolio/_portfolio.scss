@@ -44,7 +44,7 @@
                 align-items: center;
                 transition: all 0.3s;
                 font-weight: normal;
-                &:hover{
+                &:hover {
                     background: $violet2;
                 }
             }
@@ -64,43 +64,137 @@
                 height: 30vh;
                 cursor: pointer;
                 transition: all 0.5s;
-                &:hover {
-                    transform: scale(0.95);
-                }
-                p {
-                    text-align: center;
-                    background: $blanc;
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                    border-radius: 5px;
-                    width: 70%;
-                    padding: 10px;
-                    filter: drop-shadow(0 0 50px $noir);
-                    i {
-                        padding-inline-end: 5px;
-                    }
-                }
+
                 img {
                     width: 100%;
                     border-radius: 5px;
                     height: 30vh;
+                    aspect-ratio: 16/9;
+                    object-fit: cover;
+                }
+
+                .boutonDiv {
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-direction: row;
+                    margin-block-start: 20px;
+                    .boutonGeneral {
+                        background: $violet;
+                        &:hover {
+                            transform: scale(0.95);
+                            color: $violet2;
+                        }
+                    }
+
+                    .popup-wrapper {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        display: none;
+                        z-index: 100;
+                        background-color: rgba(0, 0, 0, 0.5);
+                    }
+
+                    .popup {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 80%;
+                        max-width: 600px;
+                        background-color: #fff;
+                        padding: 20px;
+                        border-radius: 5px;
+                        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                    }
+
+                    .popup h1 {
+                        color: $violet;
+                        font-weight: bold;
+                    }
+
+                    .popup label {
+                        display: block;
+                        margin-block: 20px;
+                        font-weight: bold;
+                        color: $gris;
+                    }
+
+                    .popup input[type="text"],
+                    .popup input[type="date"],
+                    .popup textarea {
+                        width: 100%;
+                        height: 40px;
+                        padding: 10px;
+                        border-radius: 7px;
+                        outline: none;
+                        border: 1px solid #e5e5e5;
+                        filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+                        transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+                        margin-block-end: 20px;
+
+                        &:focus {
+                            border: 1px solid transparent;
+                            box-shadow: 0px 0px 0px 2px #242424;
+                            background-color: transparent;
+                        }
+                    }
+
+                    .popup .button-container {
+                        text-align: right;
+                        margin-top: 20px;
+                    }
+
+                    .popup button {
+                        padding: 10px 20px;
+                        border-radius: 5px;
+                        border: none;
+                        background-color: $violet;
+                        color: #fff;
+                        font-size: 16px;
+                        cursor: pointer;
+                        transition: all 0.2s ease-in-out;
+                    }
+
+                    .popup button:hover {
+                        background-color: $violet2;
+                    }
+
+                    .cancel-btn {
+                        background-color: #ccc;
+                        color: #fff;
+                        margin-left: 10px;
+                    }
+
+                    .popup-wrapper.active {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+
+                hr {
+                    margin-block-start: 20px;
+                    border: 2px solid $background;
                 }
             }
         }
         .simple-pagination ul {
-            margin-block: 50px 30px;
+            margin-block: 80px 30px;
             padding: 0;
             list-style: none;
             text-align: center;
         }
-        
+
         .simple-pagination li {
             display: inline-block;
             margin-right: 5px;
         }
-        
+
         .simple-pagination li a,
         .simple-pagination li span {
             color: $noir;
@@ -110,13 +204,13 @@
             background-color: $blanc;
             box-shadow: 0px 15px 20px rgb(0 0 0 / 10%);
         }
-        
+
         .simple-pagination .current {
             color: $blanc;
             background-color: $violet;
             border-color: $violet;
         }
-        
+
         .simple-pagination .prev.current,
         .simple-pagination .next.current {
             background: $violet;
