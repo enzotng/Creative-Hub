@@ -6,7 +6,7 @@
         <ul>
             <span class="separateur">|</span>
             <li><a href="/portfolio">Portfolio MMI</a></li>
-            <!-- <li><a href="/contact">Contact</a></li> -->
+            <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
     <div class="search" ng-app="myApp" ng-controller="myController">

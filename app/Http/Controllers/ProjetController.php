@@ -63,4 +63,43 @@ class ProjetController extends Controller
     public function getProjet(){
         return response()->json(Projet::all(),200);
     }
+
+        // Affichage du formulaire d'édition du projet
+        public function edit($id)
+        {
+            $projet = Projet::findOrFail($id);
+            return view('edit', compact('projet'));
+        }
+    
+        public function update(Request $request, $id)
+{
+    $validatedData = $request->validate([
+        'titre_projet' => 'required',
+        'description_projet' => 'required',
+        'date_projet' => 'required',
+    ]);
+
+    $projet = Projet::findOrFail($id);
+    $projet->titre_projet = $validatedData['titre_projet'];
+    $projet->description_projet = $validatedData['description_projet'];
+    $projet->date_projet = $validatedData['date_projet'];
+
+    if ($request->hasFile('image_projet')) {
+        $image = $request->file('image_projet');
+        $filename = $image->getClientOriginalName();
+        $path = public_path('assets/images/png/');
+        $image->move($path, $filename);
+        if (!empty($projet->image_projet)) {
+            // Supprimer l'ancienne image si elle existe
+            unlink(public_path('assets/images/png/') . $projet->image_projet);
+        }
+        $projet->image_projet = $filename;
+    }
+
+    $projet->save();
+
+    return redirect()->back()->with('success', 'Le projet a été modifié avec succès.');
+}
+
+
 }

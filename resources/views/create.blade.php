@@ -15,7 +15,8 @@
     @include('includes.header')
 
     <main id="projets">
-        <form method="POST" action="{{ route('store') }}" class="form_container bg-white shadow-md px-8 pt-6 pb-8 flex flex-col my-2" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('store') }}"
+            class="form_container bg-white shadow-md px-8 pt-6 pb-8 flex flex-col my-2" enctype="multipart/form-data">
             @csrf
 
             <div class="title_container">
@@ -40,6 +41,7 @@
                             <input type="file" name="image_projet" class="input_field" accept="image/*" required>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="md:w-1/2 px-3">
@@ -55,10 +57,60 @@
                         <label class="input_label" for="date_projet">Date du projet</label>
                         <div class="relative">
                             <i class="bi bi-calendar-event icon text-gray-400 hover:text-gray-500"></i>
-                            <input type="date" name="date_projet" class="input_field" value="<?php echo date('Y-m-d'); ?>" required>
+                            <input type="date" name="date_projet" class="input_field"
+                                value="<?php echo date('Y-m-d'); ?>" required>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <label class="input_label" for="domaine_projet">Domaine du projet</label>
+            <div class="radio-inputs">
+                <label>
+                    <input class="radio-input" type="radio" name="domaine" value="Développer">
+                    <span class="radio-tile">
+                        <span class="radio-icon">
+                            <i class="bi bi-code-slash"></i>
+                        </span>
+                        <span class="radio-label">Développer</span>
+                    </span>
+                </label>
+                <label>
+                    <input class="radio-input" type="radio" name="domaine" value="Concevoir">
+                    <span class="radio-tile">
+                        <span class="radio-icon">
+                            <i class="bi bi-pencil"></i>
+                        </span>
+                        <span class="radio-label">Concevoir</span>
+                    </span>
+                </label>
+                <label>
+                    <input class="radio-input" type="radio" name="domaine" value="Entreprendre">
+                    <span class="radio-tile">
+                        <span class="radio-icon">
+                            <i class="bi bi-briefcase-fill"></i>
+                        </span>
+                        <span class="radio-label">Entreprendre</span>
+                    </span>
+                </label>
+                <label>
+                    <input class="radio-input" type="radio" name="domaine" value="Exprimer">
+                    <span class="radio-tile">
+                        <span class="radio-icon">
+                            <i class="bi bi-megaphone-fill"></i>
+                        </span>
+                        <span class="radio-label">Exprimer</span>
+                    </span>
+                </label>
+                <label>
+                    <input class="radio-input" type="radio" name="domaine" value="Comprendre">
+                    <span class="radio-tile">
+                        <span class="radio-icon">
+                            <i class="bi bi-book-half"></i>
+                        </span>
+                        <span class="radio-label">Comprendre</span>
+                    </span>
+                </label>
             </div>
 
             <button type="submit" class="boutonGeneral">Enregistrer</button>
@@ -66,4 +118,5 @@
     </main>
     @include('includes.footer')
 </body>
+
 </html>

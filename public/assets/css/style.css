@@ -537,7 +537,9 @@ header .user .dropdown:hover .dropdown-menu {
   border: 5px solid #444492;
   height: 100%;
   background-size: cover;
-  background-image: url("../../assets/images/jpg/pexels-guillaume-meurice-2808402.jpg");
+  aspect-ratio: 16/9;
+  background-position: center;
+  background-image: url("../../assets/images/webp/butmmi.webp");
 }
 .hero .boutonGeneral {
   margin-block-start: 20px;
@@ -599,8 +601,7 @@ header .user .dropdown:hover .dropdown-menu {
   overflow: hidden;
   color: #fff;
   background: #2f2f68;
-  padding: 15px 20px;
-  border-radius: 30px;
+  padding: 20px 35px;
 }
 .projets .projets_box a:hover {
   background: #444492;
@@ -639,7 +640,7 @@ header .user .dropdown:hover .dropdown-menu {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 10px;
+  gap: 15px;
 }
 #inscription .form_container .title_container .title {
   margin: 0;
@@ -695,7 +696,7 @@ header .user .dropdown:hover .dropdown-menu {
 #inscription .form_container .input_container .invalid-feedback strong {
   position: absolute;
   left: 0;
-  top: 50px;
+  top: 60px;
 }
 #inscription .boutonGeneral {
   width: 100%;
@@ -936,31 +937,113 @@ header .user .dropdown:hover .dropdown-menu {
   cursor: pointer;
   transition: all 0.5s;
 }
-#portfolio .portfolioSection .gridTravaux .travaux:hover {
-  transform: scale(0.95);
-}
-#portfolio .portfolioSection .gridTravaux .travaux p {
-  text-align: center;
-  background: #fff;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 5px;
-  width: 70%;
-  padding: 10px;
-  filter: drop-shadow(0 0 50px #000);
-}
-#portfolio .portfolioSection .gridTravaux .travaux p i {
-  padding-inline-end: 5px;
-}
 #portfolio .portfolioSection .gridTravaux .travaux img {
   width: 100%;
   border-radius: 5px;
   height: 30vh;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin-block-start: 20px;
+}
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .boutonGeneral {
+  background: #444492;
+}
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .boutonGeneral:hover {
+  transform: scale(0.95);
+  color: #2f2f68;
+}
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .popup-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .popup h1 {
+  color: #444492;
+  font-weight: bold;
+}
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .popup label {
+  display: block;
+  margin-block: 20px;
+  font-weight: bold;
+  color: #8b8e98;
+}
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .popup input[type=text],
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .popup input[type=date],
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .popup textarea {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border-radius: 7px;
+  outline: none;
+  border: 1px solid #e5e5e5;
+  filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+  transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+  margin-block-end: 20px;
+}
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .popup input[type=text]:focus,
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .popup input[type=date]:focus,
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .popup textarea:focus {
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 0px 2px #242424;
+  background-color: transparent;
+}
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .popup .button-container {
+  text-align: right;
+  margin-top: 20px;
+}
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .popup button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  background-color: #444492;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .popup button:hover {
+  background-color: #2f2f68;
+}
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .cancel-btn {
+  background-color: #ccc;
+  color: #fff;
+  margin-left: 10px;
+}
+#portfolio .portfolioSection .gridTravaux .travaux .boutonDiv .popup-wrapper.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#portfolio .portfolioSection .gridTravaux .travaux hr {
+  margin-block-start: 20px;
+  border: 2px solid #f0f3f4;
 }
 #portfolio .portfolioSection .simple-pagination ul {
-  margin-block: 50px 30px;
+  margin-block: 80px 30px;
   padding: 0;
   list-style: none;
   text-align: center;
@@ -1275,6 +1358,104 @@ header .user .dropdown:hover .dropdown-menu {
   position: absolute;
   left: 0;
   top: 50px;
+}
+#projets .form_container label {
+  color: #8b8e98;
+  font-weight: bold;
+}
+#projets .form_container .radio-inputs {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  user-select: none;
+}
+#projets .form_container .radio-inputs label .radio-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 0.5rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.15s ease;
+  cursor: pointer;
+  position: relative;
+}
+#projets .form_container .radio-inputs label .radio-tile:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 0.25rem;
+  left: 0.25rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.25s ease;
+}
+#projets .form_container .radio-inputs label .radio-tile:hover, #projets .form_container .radio-inputs label .radio-tile:focus {
+  border-color: #444492;
+}
+#projets .form_container .radio-inputs label .radio-tile:hover:before {
+  transform: scale(1);
+  opacity: 1;
+}
+#projets .form_container .radio-inputs label .radio-tile:focus:before {
+  transform: scale(1);
+  opacity: 1;
+}
+#projets .form_container .radio-inputs label .radio-tile:hover .radio-icon svg {
+  fill: #2260ff;
+}
+#projets .form_container .radio-inputs label .radio-tile:focus .radio-icon svg {
+  fill: #2260ff;
+}
+#projets .form_container .radio-inputs label .radio-tile .radio-icon svg {
+  width: 2rem;
+  height: 2rem;
+  fill: #494949;
+  transition: 0.375s ease;
+}
+#projets .form_container .radio-inputs label .radio-tile .radio-label {
+  color: #707070;
+  transition: 0.375s ease;
+  text-align: center;
+  font-size: 13px;
+}
+#projets .form_container .radio-inputs label .radio-tile .radio-label:hover, #projets .form_container .radio-inputs label .radio-tile .radio-label:focus {
+  color: #2260ff;
+}
+#projets .form_container .radio-inputs label .radio-tile .radio-input {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+#projets .form_container .radio-inputs label .radio-tile .radio-input:checked + .radio-tile {
+  border-color: #2260ff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #2260ff;
+}
+#projets .form_container .radio-inputs label .radio-tile .radio-input:checked + .radio-tile:before {
+  transform: scale(1);
+  opacity: 1;
+  background-color: #2260ff;
+  border-color: #2260ff;
+}
+#projets .form_container .radio-inputs label .radio-tile .radio-input:checked + .radio-tile .radio-icon svg {
+  fill: #2260ff;
+}
+#projets .form_container .radio-inputs label .radio-tile .radio-input:checked + .radio-tile .radio-label {
+  color: #2260ff;
 }
 #projets .boutonGeneral {
   width: 100%;
