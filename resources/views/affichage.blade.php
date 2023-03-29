@@ -24,6 +24,7 @@
 
             <p><i class="bi bi-card-text"></i>Description du projet : {{ $projet->description_projet }}</p>
             <p><i class="bi bi-calendar"></i>Date du projet : {{ $projet->date_projet }}</p>
+            <p><i class="bi bi-gear-fill"></i>Domaine du projet : {{ $projet->domaine_projet }}</p>
 
             <form method="POST" action="{{ route('commentaire.projet', $projet->id_projet) }}"
                 class="formulaireCommentaire">

@@ -67,7 +67,7 @@
             <label class="input_label" for="domaine_projet">Domaine du projet</label>
             <div class="radio-inputs">
                 <label>
-                    <input class="radio-input" type="radio" name="domaine" value="Web" required>
+                    <input class="radio-input" type="radio" name="domaine_projet" value="Web" required>
                     <span class="radio-tile">
                         <span class="radio-icon">
                             <i class="bi bi-globe2"></i>
@@ -76,7 +76,7 @@
                     </span>
                 </label>
                 <label>
-                    <input class="radio-input" type="radio" name="domaine" value="Communication" required>
+                    <input class="radio-input" type="radio" name="domaine_projet" value="Communication" required>
                     <span class="radio-tile">
                         <span class="radio-icon">
                             <i class="bi bi-chat-right"></i>
@@ -85,7 +85,7 @@
                     </span>
                 </label>
                 <label>
-                    <input class="radio-input" type="radio" name="domaine" value="Audiovisuel" required>
+                    <input class="radio-input" type="radio" name="domaine_projet" value="Audiovisuel" required>
                     <span class="radio-tile">
                         <span class="radio-icon">
                             <i class="bi bi-camera-video-fill"></i>
@@ -94,7 +94,7 @@
                     </span>
                 </label>
                 <label>
-                    <input class="radio-input" type="radio" name="domaine" value="Graphisme" required>
+                    <input class="radio-input" type="radio" name="domaine_projet" value="Graphisme" required>
                     <span class="radio-tile">
                         <span class="radio-icon">
                             <i class="bi bi-palette-fill"></i>

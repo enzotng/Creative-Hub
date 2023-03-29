@@ -38,4 +38,20 @@ class EtudiantController extends BaseController
         return redirect()->back()->with('success', 'Projet supprimé avec succès.');
     }
     
+    public function filtrerProjets(Request $request)
+{
+    $user = Auth::user();
+    $domaine = $request->input('domaine');
+
+    if ($domaine == 'default') {
+        $projets = DB::table('projet_table')->where('user_id', $user->id_user)->get();
+    } else {
+        $projets = DB::table('projet_table')->where([
+            ['user_id', '=', $user->id_user],
+            ['domaine_projet', '=', $domaine]
+        ])->get();
+    }
+
+    return view('partials.projets', ['projets' => $projets]);
+}
 }
