@@ -25,10 +25,10 @@
                 <div class="travaux">
                     <hr class="mb-4">
                     <div class="boutonDiv">
-                        <div class="popup-wrapper">
-                            <div class="popup mb-5">
+                        <div>
+                            <div class="mb-5">
                                 <h1 class="mb-4">Utilisateurs :</h1>
-                                <form action="" method="POST" enctype="multipart/form-data">
+                                <form action="" enctype="multipart/form-data" class="form420">
                                     <label for="titre_projet" class="mr-2">Sélectionnez un utilisateur :</label>
                                     <div class="select mr-4">
                                         <select name="domaine" id="domaine">
@@ -39,19 +39,21 @@
                                             <option value="audiovisuel">Audiovisuel</option>
                                         </select>
                                     </div>
-                                    <button class="boutonGeneral mr-4">
+                                </form>
+                                <div class="button420 mt-2">
+                                    <button class="boutonGeneral mr-4" id="modif-user">
                                         Modifier
                                     </button>
-                                    <button class="boutonGeneral">
+                                    <button class="boutonGeneral" id="suppr-user">
                                         supprimer
                                     </button>
-                                </form>
+                                </div>
                             </div>
                         </div>
-                        <div class="popup-wrapper">
-                            <div class="popup">
+                        <div>
+                            <div>
                                 <h1 class="mb-4">Projet :</h1>
-                                <form action="" method="POST" enctype="multipart/form-data">
+                                <form action="" enctype="multipart/form-data" class="form420">
                                     <label for="titre_projet" class="mr-2">Sélectionnez un projet :</label>
                                     <div class="select mr-4">
                                         <select name="domaine" id="domaine">
@@ -62,35 +64,36 @@
                                             <option value="audiovisuel">Audiovisuel</option>
                                         </select>
                                     </div>
-                                    <button class="boutonGeneral mr-4">
-                                        Modifier
-                                    </button>
-                                    <button class="boutonGeneral">
-                                        supprimer
-                                    </button>
                                 </form>
+                                <div class="button420 mt-2">
+                                    <button class="boutonGeneral mr-4" id="modif-projet">
+                                    Modifier
+                                </button>
+                                <button class="boutonGeneral" id="modif-projet">
+                                    supprimer
+                                </button>
+                            </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <div class="popup-wrapper">
-            <div class="popup" id="modifierProjetPopup">
-                <h1>Modifier le projet : </h1>
-                <form action=""
+            <div class="popup-wrapper" id="popup-modif-user">
+                <div class="popup" id="modifierProjetPopup">
+                    <h1>Modifier l'utilisateur : </h1>
+                    <form action=""
                     method="POST" enctype="multipart/form-data">
-                    <label for="titre_projet">Titre :</label>
-                    <input type="text" name="titre_projet" value="">
+                    <label for="nom">Nom :</label>
+                    <input type="text" name="nom" value="">
 
-                    <label for="image_projet">Image :</label>
-                    <input type="file" name="image_projet">
+                    <label for="prenom">Prenom :</label>
+                    <textarea name="prenom"></textarea>
 
-                    <label for="description_projet">Description :</label>
-                    <textarea name="description_projet"></textarea>
+                    <label for="email">Email :</label>
+                    <textarea name="email"></textarea>
 
-                    <label for="date_projet">Date :</label>
-                    <input type="date" name="date_projet" value="">
+                    <label for="password">Mot de passe :</label>
+                    <textarea name="password"></textarea>
 
                     <div class="flex justify-between">
                         <button type="button" id="cancelBtn" class="boutonGeneral">Annuler</button>
@@ -99,11 +102,37 @@
                 </form>
             </div>
         </div>
+        <div class="popup-wrapper" id="popup-modif-projet">
+            <div class="popup" id="modifierProjetPopup">
+                <h1>Modifier le projet : </h1>
+                <form action=""
+                method="POST" enctype="multipart/form-data">
+                <label for="titre_projet">Titre :</label>
+                <input type="text" name="titre_projet" value="">
+
+                <label for="image_projet">Image :</label>
+                <input type="file" name="image_projet">
+
+                <label for="description_projet">Description :</label>
+                <textarea name="description_projet"></textarea>
+
+                <label for="date_projet">Date :</label>
+                <input type="date" name="date_projet" value="">
+
+                <div class="flex justify-between">
+                    <button type="button" id="cancelBtn1" class="boutonGeneral">Annuler</button>
+                    <button type="submit" class="boutonGeneral">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+        </section>
         
     </main>
     @include('includes.footer')
     <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
         integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+        <script src="./assets/js/admin.js"></script>
     <!-- <script src="./assets/js/profil.js"></script> -->
 </body>
 
