@@ -77,11 +77,12 @@ window.onload = function () {
                     },
                     legend: {
                         display: true, // afficher la légende
-                        position: "left", // position de la légende sur la gauche
+                        position: "bottom", // position de la légende sur la gauche
                         labels: {
-                            fontSize: 16,
+                            fontSize: 14,
                             fontColor: "#000000",
                             fontFamily: "Ubuntu", // police spécifique pour la légende
+                            padding: 20 // ajouter une marge en haut de 10 pixels
                         }
                     }
                 }
