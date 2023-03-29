@@ -41,6 +41,8 @@
     </main>
 
     @include('includes.footer')
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="./assets/js/searchbar.js"></script>
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
     <script src="./assets/js/portfoliommi.js"></script>
     <script src="./assets/js/main.js"></script>

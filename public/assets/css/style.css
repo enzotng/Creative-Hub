@@ -231,7 +231,7 @@ header .search {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-end;
   width: 15vw;
   flex: 1;
 }
@@ -239,6 +239,7 @@ header .search form {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  width: 15vw;
 }
 header .search form input[type=text] {
   border-radius: 20px;
@@ -466,6 +467,14 @@ header .user .dropdown:hover .dropdown-menu {
   opacity: 1;
   animation: fadeIn 0.3s ease-in-out;
   background: #f0f3f4;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @media (max-width: 1024px) {
   header .header-search-result {

@@ -1,6 +1,3 @@
-
-
-
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -37,3 +34,5 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="/assets/js/searchbar.js"></script>

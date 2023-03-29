@@ -1,5 +1,3 @@
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-<script src="./assets/js/searchbar.js"></script>
 <header class="shadow-md header">
     <div class="logo">
         <a href="/home" title="Revenir à la page d'accueil"><img src="{{ asset('assets/images/ico/logo_blanc.ico') }}" alt="Logo CreativeHub"></a>
