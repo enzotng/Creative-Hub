@@ -28,10 +28,8 @@ Route::get('/home', [HelloController::class, 'index'])->name('home');
 
 Route::middleware([PreventEtudiantAccess::class])->group(function () {
     Route::get('/etudiant', [EtudiantController::class, 'etudiantProfil'])->name('etudiant');
-    Route::get('/etudiant/erreur404', [EtudiantController::class, 'erreur404'])->name('etudiant.erreur404');
+    Route::get('/unauthorized-access', [EtudiantController::class, 'unauthorizedAccess'])->name('unauthorized.access');
 });
-
-Route::get('/unauthorized-access', [EtudiantController::class, 'unauthorizedAccess'])->name('unauthorized.access');
 
 Route::get('/connexion', [ConnexionController::class, 'showLoginForm'])->name('connexion');
 Route::post('/connexion', [ConnexionController::class, 'login'])->name('login');
