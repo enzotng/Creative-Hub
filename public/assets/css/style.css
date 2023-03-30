@@ -1909,4 +1909,36 @@ header .user .dropdown:hover .dropdown-menu {
   font-weight: bold;
 }
 
+.preloader {
+  height: 100vh;
+  position: absolute;
+}
+.preloader .loader {
+  background: #2f2f68;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.preloader .loader .imgLoader {
+  animation: animationLoader 3.5s ease-in infinite alternate-reverse both;
+  transform: scale(0.2);
+  filter: drop-shadow(0px 0px 30px #2f2f68);
+}
+@keyframes animationLoader {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

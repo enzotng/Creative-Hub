@@ -14,35 +14,13 @@
 
     @include('includes.header')
 
+    <div class="preloader">
+        <span class="loader">
+            <img class="imgLoader" src="assets/images/ico/logo_blanc.ico" alt="Logo MMI">
+        </span>
+    </div>
+
     <main>
-        <!-- <section class="hero shadow-md">
-            <div class="hero_1">
-                <div class="sous_hero_1">
-                    <h1>Notre parcours MMI</h1>
-                    <p>Le département forme en trois ans des professionnel·le·s de la conception et de la réalisation de
-                        projets multimédias.
-                        Il propose deux parcours :
-                        “Création numérique” et “Développement web et dispositifs interactifs.”
-                        À la fois créatif·ve·s et compétent.e.s techniquement, les diplômé·e·s de notre département sont
-                        polyvalent·e·s dans le domaine des médias, du web et des nouvelles technologies.
-                    </p>
-                </div>
-            </div>
-            <div class="hero_2">
-                <div class="sous_hero_1_1">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <div class="sous_hero_2">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <div class="sous_hero_2">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-                <div class="sous_hero_1_1">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-            </div>
-        </section> -->
 
         <section class="hero shadow-md flex flex-wrap items-center">
             <div class="w-full md:w-3/5 p-5 flex-col justify-between items-stretch">
@@ -57,7 +35,8 @@
                     polyvalent·e·s dans le domaine des médias, du web et des nouvelles technologies.
                 </p>
                 <br>
-                <p class="leading-loose text-justify">La SAE403 MMI2 consiste en la réalisation d'un site complexe pour le portfolio, mettant en œuvre des
+                <p class="leading-loose text-justify">La SAE403 MMI2 consiste en la réalisation d'un site complexe pour
+                    le portfolio, mettant en œuvre des
                     utilisateurs ayant des droits différents, tels que les utilisateurs non authentifiés, les étudiants,
                     les professeurs et les administrateurs. Les étudiants doivent pouvoir renseigner et visualiser leur
                     propre portfolio personnel, les professeurs peuvent consulter les différents portfolios, et les
@@ -82,7 +61,8 @@
                 @foreach ($projets as $projet)
                 <div class="projets_box flex flex-col items-center flex-grow mb-4 mr-4">
                     <img src="{{ asset('assets/images/png/'.$projet->image_projet) }}" alt="Image Projet" class="mb-2">
-                    <a href="{{ route('affichage.projet', ['id_projet' => $projet->id_projet]) }}" title="Accéder au projet">{{ $projet->titre_projet }}</a>
+                    <a href="{{ route('affichage.projet', ['id_projet' => $projet->id_projet]) }}"
+                        title="Accéder au projet">{{ $projet->titre_projet }}</a>
                 </div>
                 @endforeach
             </div>
@@ -93,6 +73,10 @@
 
     </main>
     @include('includes.footer')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
     <script src="./assets/js/projet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
@@ -100,6 +84,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/js/recherche.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/searchbar.js"></script>
 </body>
 
 </html>

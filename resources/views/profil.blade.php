@@ -26,7 +26,9 @@
                         <p class="title">Vos informations personnelles : {{ $user->prenom_user }} {{ $user->nom_user }}
                         </p>
                     </div>
+                    @if(Auth::user()->role_user == 'Etudiant')
                     <a href="{{ route('etudiant') }}">Voir mes projets</a>
+                    @endif
                 </div>
 
                 <div class="-mx-3 md:flex mb-6">
@@ -103,24 +105,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <!-- <div class="input_container mb-4">
-                        <label class="input_label" for="role_user">
-                            Rôle (par défaut)
-                        </label>
-                        <div class="relative">
-                            <i class="bi bi-person-circle icon text-gray-400 hover:text-gray-500"></i>
-                            <input id="role_user" type="text"
-                                class="input_field @error('role_user') is-invalid @enderror" disabled placeholder="User"
-                                name="role_user" value="{{ $user->role_user }}"
-                                title="Contactez un administrateur pour changer votre rôle">
-                            @error('role_user')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div> -->
 
                         <div class="input_container mb-4">
                             <label class="input_label" for="img_user">
