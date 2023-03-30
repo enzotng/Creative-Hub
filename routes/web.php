@@ -28,7 +28,7 @@ Route::get('/home', [HelloController::class, 'index'])->name('home');
 
 Route::middleware([PreventEtudiantAccess::class])->group(function () {
     Route::get('/etudiant', [EtudiantController::class, 'etudiantProfil'])->name('etudiant');
-    Route::get('/unauthorized-access', [EtudiantController::class, 'unauthorizedAccess'])->name('unauthorized.access');
+    Route::get('/etudiant/erreur404', [EtudiantController::class, 'erreur404'])->name('erreur.etudiant');
 });
 
 Route::get('/connexion', [ConnexionController::class, 'showLoginForm'])->name('connexion');
@@ -49,6 +49,7 @@ Route::get('/portfolio', [PortfolioMMIController::class, 'index'])->name('portfo
 
 Route::get('/portfolio/{id_projet}', [AffichageProjetController::class, 'show'])->name('affichage.projet');
 Route::post('/portfolio/{id_projet}', [CommentaireController::class, 'store'])->name('commentaire.projet');
+Route::get('/portfolio/{id_projet}/comment', [CommentaireController::class, 'showComment'])->name('affichage.commentaire');
 
 Route::delete('/projets/{id}', [EtudiantController::class, 'supprimerProjet'])->name('projets.supprimer');
 Route::put('/projets/{id}', [ProjetController::class, 'update'])->name('projets.modifier');

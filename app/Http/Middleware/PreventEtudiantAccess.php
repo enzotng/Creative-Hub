@@ -18,7 +18,7 @@ class PreventEtudiantAccess
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check() && Auth::user()->role_user == 'Professeur') {
-            return redirect()->route('unauthorized.access');
+            return redirect()->route('erreur.etudiant');
         }
     
         return $next($request);

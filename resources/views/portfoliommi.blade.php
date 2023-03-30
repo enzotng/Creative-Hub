@@ -24,7 +24,7 @@
                     <a href="" class="titre_projet"><b class="font-bold">Titre du projet :
                         </b>{{ $projet->titre_projet }}</a>
                     <p><b class="font-bold">Description du projet : </b>{{ $projet->description_projet }} [...]</p>
-                    <a href="" class="lire_projet">Lire la suite <svg width="34" height="34" viewBox="0 0 74 74"
+                    <a href="{{ route('affichage.projet', ['id_projet' => $projet->id_projet]) }}" title="Accéder au projet" class="lire_projet">Lire la suite <svg width="34" height="34" viewBox="0 0 74 74"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="37" cy="37" r="35.5" stroke="white" stroke-width="3"></circle>
                             <path

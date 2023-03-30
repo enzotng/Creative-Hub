@@ -48,8 +48,8 @@ class EtudiantController extends BaseController
         return redirect()->back()->with('success', 'Projet supprimé avec succès.');
     }
 
-    public function unauthorizedAccess()
+    public function erreur404()
     {
-        return view('unauthorized.access');
+        return view('erreur.etudiant');
     }
 }

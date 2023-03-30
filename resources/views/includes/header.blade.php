@@ -9,7 +9,6 @@
         <ul>
             <span class="separateur">|</span>
             <li><a href="/portfolio">Portfolio MMI</a></li>
-            <li><a href="/contact">Contact</a></li>
         </ul>
     </nav>
     <div class="search" ng-app="myApp" ng-controller="myController">
@@ -44,7 +43,9 @@
                     <span>{{ Auth::user()->prenom_user }} {{ Auth::user()->nom_user }}</span>
                     <hr>
                     <li><a href="/profil"><i class="bi bi-person-circle"></i>Profil</a></li>
+                    @if(Auth::user()->role_user == 'Etudiant')
                     <li><a href="/etudiant"><i class="bi bi-card-text"></i>Projets</a></li>
+                    @endif
                     <hr>
                     <li><a href="/deconnexion"><i class="bi bi-box-arrow-right"></i>Déconnexion</a></li>
                 </ul>
