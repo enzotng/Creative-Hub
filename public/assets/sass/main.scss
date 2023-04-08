@@ -37,18 +37,22 @@
 
 @import "./pages/portfolioMMI/portfolioMMI";
 
-// PortfolioMMI
+// Page Projet
 
 @import "./pages/affichageProjet/affichageProjet";
 
-// PortfolioMMI
+// Administration
 
 @import "./pages/admin/admin.scss";
 
-// PortfolioMMI
+// Page Professeur
 
 @import "./pages/erreurProfesseur/sectionProf.scss";
 
-// PortfolioMMI
+// Loader
 
 @import "./pages/preloader/loader.scss";
+
+// Conditions Générales d'Utilisation
+
+@import "./pages/conditions/conditionsStyle.scss";

@@ -1,0 +1,45 @@
+ #conditionsMain {
+
+    .conditions {
+        background: $blanc;
+        margin-block: 3vw;
+        border-radius: 10px;
+        display: flex;
+        padding: 20px;
+        justify-content: center;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 20px;
+        h1, h2, h3, h4, h5, h6 {
+            font-size: clamp(1rem, 0.8165rem + 0.9174vw, 1.5rem);
+            font-weight: bold;
+            color: $violet;
+        }
+
+        p {
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        ul {
+            padding-inline-start: 20px;
+            li {
+                list-style: inside;
+            }
+        }
+
+        .headerConditions {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            p {
+                background: $violet;
+                font-weight: bold;
+                color: $blanc;
+                padding: 10px;
+                border-radius: 10px;
+            }
+        }
+    }
+ }

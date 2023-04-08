@@ -20,6 +20,20 @@
             }
         }
     }
+
+    .footer_right {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        color: $violet;
+        font-weight: bold;
+        a{
+            color: $violet;
+            &:hover {
+                color: $violet2;
+            }
+        }
+    }
 }
 
 

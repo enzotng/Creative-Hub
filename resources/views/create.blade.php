@@ -42,9 +42,6 @@
                         </div>
                     </div>
 
-                </div>
-
-                <div class="md:w-1/2 px-3">
                     <div class="input_container mb-4">
                         <label class="input_label" for="description_projet">Description du projet</label>
                         <div class="relative">
@@ -52,6 +49,10 @@
                             <textarea name="description_projet" class="input_field" rows="3" required></textarea>
                         </div>
                     </div>
+
+                </div>
+
+                <div class="md:w-1/2 px-3">
 
                     <div class="input_container mb-4">
                         <label class="input_label" for="date_projet">Date du projet</label>
@@ -61,6 +62,31 @@
                                 value="<?php echo date('Y-m-d'); ?>" required>
                         </div>
                     </div>
+
+                    <div class="input_container mb-4">
+                        <label class="input_label" for="competences_projet">Compétences</label>
+                        <div class="relative">
+                            <i class="bi bi-pencil-square icon text-gray-400 hover:text-gray-500"></i>
+                            <select name="competences_projet" class="input_field" required>
+                                <option value="" disabled selected>Choisissez une compétence</option>
+                                <option value="Entreprendre">Entreprendre</option>
+                                <option value="Développer">Développer</option>
+                                <option value="Exprimer">Exprimer</option>
+                                <option value="Concevoir">Concevoir</option>
+                                <option value="Comprendre">Comprendre</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input_container mb-4">
+                        <label class="input_label" for="note_projet">Note sur 20</label>
+                        <div class="relative">
+                            <i class="bi bi-star-fill icon text-gray-400 hover:text-gray-500"></i>
+                            <input type="number" name="note_projet" class="input_field" min="0" max="20" step="0.1"
+                                required>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

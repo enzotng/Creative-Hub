@@ -91,7 +91,7 @@
             <h1>Informations complémentaires</h1>
             <hr>
 
-            <!-- <label for="nomDomaine">Choisissez votre domaine</label>
+            <label for="nomDomaine">Choisissez votre domaine</label>
             <div class="select">
                 <select name="domaine" id="domaine">
                     <option value="default">Tous les projets</option>
@@ -100,7 +100,7 @@
                     <option value="graphisme">Graphisme</option>
                     <option value="audiovisuel">Audiovisuel</option>
                 </select>
-            </div> -->
+            </div>
 
             <label for="nomProgress">Nombre de projets par domaine</label>
 
