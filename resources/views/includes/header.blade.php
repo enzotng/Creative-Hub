@@ -18,11 +18,18 @@
         </form>
         <ul ng-show="showResults" class="header-search-result shadow-md">
             <li class="titre-search">
-                <p>Résultat pour : [[result.titre_projet]]</p>
+                <p>Projet : [[result.titre_projet]]</p>
             </li>
             <hr>
             <li ng-repeat="result in results" class="header-result">
                 <a href="/portfolio/[[result.id_projet]]">[[result.titre_projet]]</a>
+            </li>
+            <li class="titre-search">
+                <p>Domaine : [[result.domaine_projet]]</p>
+            </li>
+            <hr>
+            <li ng-repeat="result in results" class="header-result">
+                <a href="/portfolio/[[result.id_projet]]">[[result.domaine_projet]]</a>
             </li>
         </ul>
     </div>
