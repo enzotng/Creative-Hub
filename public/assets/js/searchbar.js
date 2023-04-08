@@ -21,7 +21,7 @@ app.controller("myController", function($scope, $http, $q) {
           results = results.concat(responses[i].data.slice(0, 3));
         }
         $scope.results = results;
-        $scope.showResults = true;
+        $scope.showResults = true; 
       });
     } else {
       $scope.showResults = false;
