@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Competence;
 use App\Models\Commentaire;
 use App\Models\Projet;
+use App\Http\Controllers\ApprentissageCritiqueController as ACController;
 use Illuminate\Support\Facades\DB;
 
 class ProjetController extends Controller
@@ -13,8 +15,10 @@ class ProjetController extends Controller
     // Page d'enregistrement du projet
     public function create()
     {
-        return view('create');
+        $competences = Competence::all(); // récupérer toutes les compétences depuis la base de données
+        return view('create', ['competences' => $competences]); // passer les compétences au template
     }
+    
 
     // Enregitrement du projet dans la BDD
     public function store(Request $request)
@@ -24,16 +28,21 @@ class ProjetController extends Controller
             'image_projet' => 'required|image',
             'description_projet' => 'required',
             'date_projet' => 'required',
-            'domaine_projet' => 'required', // Correction de la validation pour le champ "domaine_projet"
+            'domaine_projet' => 'required',
+            'competence' => 'required',
+            'ac' => 'required',
+            'note_projet' => 'required',
         ]);
 
         $user = Auth::user();
+
         $projet = new Projet;
         $projet->user_id = $user->id_user;
         $projet->titre_projet = $validatedData['titre_projet'];
         $projet->description_projet = $validatedData['description_projet'];
         $projet->date_projet = $validatedData['date_projet'];
         $projet->domaine_projet = $validatedData['domaine_projet'];
+        $projet->note_projet = $validatedData['note_projet'];
         $projet->save();
 
         // Enregistrement de l'image
@@ -45,6 +54,12 @@ class ProjetController extends Controller
             $projet->image_projet = $filename;
             $projet->save();
         }
+
+        // Association des compétences et des apprentissages critiques avec le projet
+        $competence = Competence::find($validatedData['competence']);
+        $ac = ApprentissageCritique::findOrFail($validatedData['ac']);
+        $projet->competences()->attach($competence);
+        $projet->apprentissagesCritiques()->attach($ac);
 
         return redirect('etudiant')->with('success', 'Le projet a été enregistré avec succès.');
     }

@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('competence_table', function (Blueprint $table) {
             $table->increments('id_competence');
             $table->string('nom_competence');
-            $table->string('niveau_competence');
         });
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HelloController;
+use App\Http\Controllers\CompetenceController;
 use App\Http\Controllers\ConditionsController;
 use App\Http\Controllers\DeconnexionController;
 use App\Http\Controllers\EtudiantController;
@@ -57,3 +58,5 @@ Route::get('/portfolio/{id_projet}/comment', [CommentaireController::class, 'sho
 Route::delete('/projets/{id}', [EtudiantController::class, 'supprimerProjet'])->name('projets.supprimer');
 Route::put('/projets/{id}', [ProjetController::class, 'update'])->name('projets.modifier');
 Route::get('/projets/domaine', [ProjetController::class, 'projetsDomaine'])->name('projets.domaine');
+
+Route::get('/api/apprentissages-critiques/{id}', [CompetenceController::class, 'getApprentissagesCritiques']);

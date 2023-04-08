@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\CompetenceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,7 @@ Route:: get('projet', [ProjetController::class, 'getProjet']);
 
 //get all users
 Route:: get('user', [ProfilController::class, 'getProfil']);
+
+Route::get('/ac/{id}', [CompetenceController::class, 'getApprentissagesCritiques'])->name('ac.byId');
+
+

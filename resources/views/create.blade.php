@@ -44,10 +44,8 @@
 
                     <div class="input_container mb-4">
                         <label class="input_label" for="description_projet">Description du projet</label>
-                        <div class="relative">
-                            <i class="bi bi-card-text icon text-gray-400 hover:text-gray-500"></i>
-                            <textarea name="description_projet" class="input_field" rows="3" required></textarea>
-                        </div>
+                        <textarea name="description_projet" class="input_textarea" rows="3"
+                            placeholder="Écrivez la description du projet..." required></textarea>
                     </div>
 
                 </div>
@@ -64,30 +62,37 @@
                     </div>
 
                     <div class="input_container mb-4">
-                        <label class="input_label" for="competences_projet">Compétences</label>
+                        <label for="competence">Compétence :</label>
                         <div class="relative">
-                            <i class="bi bi-pencil-square icon text-gray-400 hover:text-gray-500"></i>
-                            <select name="competences_projet" class="input_field" required>
-                                <option value="" disabled selected>Choisissez une compétence</option>
-                                <option value="Entreprendre">Entreprendre</option>
-                                <option value="Développer">Développer</option>
-                                <option value="Exprimer">Exprimer</option>
-                                <option value="Concevoir">Concevoir</option>
-                                <option value="Comprendre">Comprendre</option>
+                            <i class="bi bi-book icon text-gray-400 hover:text-gray-500"></i>
+                            <select name="competence" id="competence">
+                                <option value="">Sélectionner une compétence</option>
+                                @foreach($competences as $competence)
+                                <option value="{{ $competence->id_competence }}">{{ $competence->nom_competence }}
+                                </option>
+                                @endforeach
                             </select>
                         </div>
-                    </div>
 
-                    <div class="input_container mb-4">
+                        <label for="ac">Apprentissage critique :</label>
+                        <div class="relative">
+                            <i class="bi bi-lightbulb icon text-gray-400 hover:text-gray-500"></i>
+                            <select name="ac" id="ac">
+                                <option value="">Sélectionner une compétence d'abord</option>
+                            </select>
+                        </div>
+
                         <label class="input_label" for="note_projet">Note sur 20</label>
                         <div class="relative">
                             <i class="bi bi-star-fill icon text-gray-400 hover:text-gray-500"></i>
-                            <input type="number" name="note_projet" class="input_field" min="0" max="20" step="0.1"
-                                required>
+                            <input type="number" name="note_projet" class="input_field" min="0" max="20" step="1"
+                                placeholder="Exemple : 10/20" required>
                         </div>
+
                     </div>
 
                 </div>
+
             </div>
 
             <label class="input_label" for="domaine_projet">Domaine du projet</label>
@@ -134,6 +139,8 @@
         </form>
     </main>
     @include('includes.footer')
+    <script src="./assets/js/searchbar.js"></script>
+    <script src="./assets/js/selectCompetence.js"></script>
 </body>
 
 </html>

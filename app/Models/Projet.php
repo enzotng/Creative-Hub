@@ -33,6 +33,15 @@ class Projet extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function competences()
+    {
+        return $this->belongsToMany(Competence::class, 'competence_projet', 'projet_id', 'competence_id');
+    }
+
+    public function apprentissagesCritiques()
+    {
+        return $this->belongsToMany(ApprentissageCritique::class, 'ac_projet', 'projet_id', 'ac_id');
+    }
 }
-    
     

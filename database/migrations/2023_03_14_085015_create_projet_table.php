@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('description_projet');
             $table->dateTime('date_projet');
             $table->string('domaine_projet');
+            $table->unsignedInteger('note_projet');
             $table->timestamps();
         });
     }
