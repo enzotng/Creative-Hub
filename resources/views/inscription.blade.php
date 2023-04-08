@@ -133,8 +133,8 @@
                             Rôle
                         </label>
                         <div class="relative">
-                            <i class="bi bi-person-circle icon text-gray-400 hover:text-gray-500"></i>
                             <div class="radio_group">
+                            <i class="bi bi-person-circle icon text-gray-400 hover:text-gray-500"></i>
                                 <input type="radio" id="etudiant" name="role_user" value="Etudiant" checked>
                                 <label for="etudiant">Etudiant</label>
                                 <input type="radio" id="professeur" name="role_user" value="Professeur">

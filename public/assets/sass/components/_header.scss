@@ -1,7 +1,10 @@
 header {
+    position: sticky;
+    top: 3vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 99;
     height: 80px;
     background-color: $violet;
     border-radius: 10px;

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HelloController;
+use App\Http\Controllers\ConditionsController;
 use App\Http\Controllers\DeconnexionController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\ConnexionController;
@@ -25,6 +26,8 @@ use App\Http\Middleware\PreventEtudiantAccess;
 */
 
 Route::get('/home', [HelloController::class, 'index'])->name('home');
+
+Route::get('/conditions', [ConditionsController::class, 'affichageController'])->name('conditions');
 
 Route::middleware([PreventEtudiantAccess::class])->group(function () {
     Route::get('/etudiant', [EtudiantController::class, 'etudiantProfil'])->name('etudiant');
