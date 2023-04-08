@@ -63,13 +63,6 @@ class ProjetController extends Controller
 
     }
 
-    //get all projetcts
-    public function getProjet(Request $request) {
-        $q = $request->input('q');
-        $projets = Projet::where('titre_projet', 'like', "%$q%")->get();
-        return response()->json($projets, 200);
-    }
-
         // Affichage du formulaire d'édition du projet
         public function edit($id)
         {
@@ -106,6 +99,18 @@ class ProjetController extends Controller
 
     return redirect()->back()->with('success', 'Le projet a été modifié avec succès.');
 }
+
+//get titre projetcts
+public function getProjet(Request $request) {
+    $q = $request->input('q');
+    $projetTitre = Projet::where('titre_projet', 'like', "%$q%")
+                         ->distinct('titre_projet', 'id_projet');
+    $projetDomaine = Projet::where('domaine_projet', 'like', "%$q%")
+                          ->distinct('domaine_projet', 'id_projet');
+    $projets = $projetTitre->union($projetDomaine)->get();
+    return response()->json($projets, 200);
+}
+
 
 public function projetsDomaine()
 {
