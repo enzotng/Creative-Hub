@@ -14,11 +14,11 @@
 
     @include('includes.header')
 
-    <div class="preloader">
+    <!-- <div class="preloader">
         <span class="loader">
             <img class="imgLoader" src="assets/images/ico/logo_blanc.ico" alt="Logo MMI">
         </span>
-    </div>
+    </div> -->
 
     <main>
 
@@ -44,7 +44,7 @@
                     critiques.
 
                 </p>
-                <a href="https://www.mmi-velizy.fr/" target="_blank" class="boutonGeneral">En savoir plus</a>
+                <a href="https://www.mmi-velizy.fr/" target="_blank" class="boutonGeneral">En savoir plus <i class="bi bi-arrow-right"></i></a>
             </div>
             <div class="w-full md:w-2/5 p-5 flex justify-center items-end">
                 <div class="box_hero"></div>
@@ -73,17 +73,7 @@
 
     </main>
     @include('includes.footer')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
-    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
     <script src="./assets/js/projet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"
-        integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./assets/js/main.js"></script>
-    <script src="./assets/js/searchbar.js"></script>
 </body>
 
 </html>

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Competence;
 use App\Models\Commentaire;
 use App\Models\Projet;
+use App\Models\ApprentissageCritique;
 use App\Http\Controllers\ApprentissageCritiqueController as ACController;
 use Illuminate\Support\Facades\DB;
 
@@ -78,15 +79,19 @@ class ProjetController extends Controller
 
     }
 
-        // Affichage du formulaire d'édition du projet
-        public function edit($id)
-        {
+    // Affichage du formulaire d'édition du projet
+
+    public function edit($id)
+    {
             $projet = Projet::findOrFail($id);
-            return view('edit', ['projet' => $projet]);
-        }
+            $competences = Competence::all();
+            $apprentissagesCritiques = ApprentissageCritique::all(); // récupérer tous les apprentissages critiques depuis la base de données
+            return view('edit', ['projet' => $projet, 'competences' => $competences, 'apprentissagesCritiques' => $apprentissagesCritiques]);
+    }
     
-        public function update(Request $request, $id)
-{
+    public function update(Request $request, $id)
+
+    {
     $validatedData = $request->validate([
         'titre_projet' => 'required',
         'description_projet' => 'required',
@@ -101,11 +106,11 @@ class ProjetController extends Controller
     if ($request->hasFile('image_projet')) {
         $image = $request->file('image_projet');
         $filename = $image->getClientOriginalName();
-        $path = public_path('assets/images/png/');
+        $path = public_path('assets/images/projets/');
         $image->move($path, $filename);
         if (!empty($projet->image_projet)) {
-            // Supprimer l'ancienne image si elle existe
-            unlink(public_path('assets/images/png/') . $projet->image_projet);
+        // Supprimer l'ancienne image si elle existe
+            unlink(public_path('assets/images/projets/') . $projet->image_projet);
         }
         $projet->image_projet = $filename;
     }

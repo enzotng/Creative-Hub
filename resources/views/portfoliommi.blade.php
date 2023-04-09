@@ -42,8 +42,6 @@
 
     @include('includes.footer')
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
-    <script src="./assets/js/portfoliommi.js"></script>
-    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>

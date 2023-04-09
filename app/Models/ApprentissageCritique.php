@@ -22,4 +22,9 @@ class ApprentissageCritique extends Model
     {
         return $this->belongsTo(Competence::class, 'competence_id');
     }
+
+    public function projets()
+    {
+        return $this->belongsToMany(Projet::class, 'ac_projet', 'ac_id', 'projet_id');
+    }
 }

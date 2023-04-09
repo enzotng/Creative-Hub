@@ -20,6 +20,10 @@ class PreventEtudiantAccess
         if (Auth::check() && Auth::user()->role_user == 'Professeur') {
             return redirect()->route('erreur.etudiant');
         }
+
+        if (Auth::check() && Auth::user()->role_user == 'Administrateur') {
+            return redirect()->route('admin');
+        }
     
         return $next($request);
     }

@@ -37,11 +37,8 @@ class InscriptionController extends Controller
             'role_user' => ['required', Rule::in(['Etudiant', 'Professeur'])],
         ]);
 
-                // Génère un salt aléatoire de 16 caractères
-                $salt = Str::random(16);
-
-                // Génère un hash du mot de passe de l'utilisateur en utilisant le salt
-                $hashedPassword = hash('sha256', $salt . $request->input('mdp_user'));
+        // Génère un hash du mot de passe de l'utilisateur en utilisant le salt
+        $hashedPassword = bcrypt($request->input('mdp_user'));
 
         // Insérer les données remplies dans le formulaire dans la base de données
         $user = User::create([
@@ -49,12 +46,11 @@ class InscriptionController extends Controller
             'prenom_user' => $request->input('prenom_user'),
             'email_user' => $request->input('email_user'),
             'mdp_user' => $hashedPassword,
-            'salt_user' => $salt,
             'role_user' => $request->input('role_user'),
         ]);
 
-                // Enregistre l'utilisateur dans la base de données
-                $user->save();
+        // Enregistre l'utilisateur dans la base de données
+        $user->save();
 
         // Connecter directement l'utilisateur
         Auth::login($user);

@@ -70,13 +70,14 @@
                     border-radius: 5px;
                     height: 30vh;
                     aspect-ratio: 16/9;
-                    object-fit: cover;
+                    object-fit: contain;
                 }
 
                 .boutonDiv {
                     display: flex;
                     width: 100%;
                     justify-content: space-between;
+                    gap: 20px;
                     align-items: center;
                     flex-direction: row;
                     margin-block-start: 20px;
@@ -302,6 +303,57 @@
                 width: 60%;
                 background: $violet;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #portfolio {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column-reverse;
+        margin-block: 5vh;
+        .portfolioSection {
+            width: 100%;
+            padding: 20px;
+            margin-inline-end: 0;
+            .headerPortfolio {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+                margin-block-end: 5vh;
+                .boutonGeneral {
+                    width: 100%;
+                }
+            }
+            .gridTravaux {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                .travaux {
+                    .boutonDiv {
+                        display: flex;
+                        width: 100%;
+                        justify-content: space-between;
+                        align-items: stretch;
+                        flex-direction: column;
+                        gap: 20px;
+                        margin-block-start: 20px;
+                        .boutonGeneral {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .etudiantAside {
+            width: 100%;
+            padding: 20px;
+            position: initial;
+            top: 0;
         }
     }
 }

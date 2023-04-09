@@ -278,3 +278,17 @@
         font-weight: normal;
     }
 }
+
+@media screen and (max-width: 768px) {
+    #projets {
+        .form_container {
+            .radio-inputs {
+                display: flex;
+                justify-content: space-between;
+                user-select: none;
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    }
+}

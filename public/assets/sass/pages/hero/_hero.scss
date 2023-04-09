@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: stretch;
+    position: relative;
     h1 {
         color: $violet;
     }
@@ -20,6 +21,8 @@
         background-image: url("../../assets/images/webp/butmmi.webp");
     }
     .boutonGeneral {
+        position: absolute;
+        bottom: 20px;
         margin-block-start: 20px;
         width: fit-content;
         padding: 15px 20px;
@@ -34,6 +37,7 @@
         align-items: center;
         transition: all 0.3s;
         font-weight: normal;
+        gap: 10px;
         &:hover {
             background: $violet2;
         }
@@ -56,7 +60,7 @@
     }
     .projets_box {
         width: 20vw;
-        height: 75vh;
+        height: 50vh;
         background-position: center;
         background-size: cover;
         display: flex;
@@ -65,7 +69,7 @@
         align-items: center;
         cursor: pointer;
         img {
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 10px;
             aspect-ratio: 16/9;
             height: 100%;
@@ -87,9 +91,23 @@
     }
 }
 
-.dark_mode_hero {
-    background-color: $violet2;
-    h1, a, span, p {
-        color: $background;
+@media screen and (max-width: 1280px) {
+    .hero {
+        position: initial;
+
+        .boutonGeneral {
+            position: initial;
+            bottom: 0;
+        }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .hero {
+        .box_hero {
+            display: none;
+            padding: 0;
+        }
+    }
+}
+

@@ -6,6 +6,7 @@ use App\Http\Controllers\ConditionsController;
 use App\Http\Controllers\DeconnexionController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\ConnexionController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\ProfilController;
@@ -32,8 +33,11 @@ Route::get('/conditions', [ConditionsController::class, 'affichageController'])-
 
 Route::middleware([PreventEtudiantAccess::class])->group(function () {
     Route::get('/etudiant', [EtudiantController::class, 'etudiantProfil'])->name('etudiant');
+    Route::get('/admin', [AdminController::class, 'pageAdmin'])->name('admin');
     Route::get('/etudiant/erreur404', [EtudiantController::class, 'erreur404'])->name('erreur.etudiant');
 });
+
+Route::get('/admin', [AdminController::class, 'pageAdmin'])->name('admin');
 
 Route::get('/connexion', [ConnexionController::class, 'showLoginForm'])->name('connexion');
 Route::post('/connexion', [ConnexionController::class, 'login'])->name('login');

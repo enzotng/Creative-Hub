@@ -36,12 +36,12 @@
     <div class="user">
         @if(Auth::check())
         <span class="separateur">|</span>
-        <div class="toggle-switch">
+        <!-- <div class="toggle-switch">
             <label class="switch-label">
                 <input type="checkbox" class="checkbox">
                 <span class="slider"></span>
             </label>
-        </div>
+        </div> -->
         <div class="dropdown">
             <img src="{{ asset('assets/images/png/' . Auth::user()->img_user) }}"
                 alt="Photo {{ Auth::user()->prenom_user }} {{ Auth::user()->nom_user }}">
@@ -61,12 +61,12 @@
         <!-- <span>{{ Auth::user()->prenom_user }} {{ Auth::user()->nom_user }}</span> -->
         @else
         <span class="separateur">|</span>
-        <div class="toggle-switch">
+        <!-- <div class="toggle-switch">
             <label class="switch-label">
                 <input type="checkbox" class="checkbox">
                 <span class="slider"></span>
             </label>
-        </div>
+        </div> -->
         <a href="/connexion" title="Se connecter à son compte"><i class="bi bi-person-circle"></i></a>
         @endif
     </div>

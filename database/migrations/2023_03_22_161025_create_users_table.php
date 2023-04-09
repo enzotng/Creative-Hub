@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('prenom_user');
             $table->string('email_user')->unique();
             $table->string('mdp_user');
-            $table->string('salt_user')->default('');
             $table->string('role_user')->default('Etudiant')->comment('Etudiant ou Professeur');
             $table->string('img_user')->default('default_user.png');
             $table->timestamps();

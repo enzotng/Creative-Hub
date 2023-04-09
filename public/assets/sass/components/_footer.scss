@@ -36,6 +36,33 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+    .footer {
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        padding: 20px;
+        gap: 20px;
+        flex-direction: column;
+        .reseaux_sociaux {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer_right {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            color: #444492;
+            font-weight: bold;
+            align-items: center;
+        }
+    }
+}
+
 
 .dark_mode_footer {
     background-color: $violet2;

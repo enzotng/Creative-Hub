@@ -13,127 +13,96 @@
 
     @include('includes.header')
 
-    <main id="profil">
+    <main id="mainAdmin">
 
-        <section class="profil bg-white shadow-md admin">
-            <div class="headerPortfolio mb-4">
-                <h1>Bonjour, test !</h1>
+        <section class="adminSection shadow-md">
+            <h1>Admin Dashboard</h1>
+            <div class="headerSection mb-4">
+                <nav>
+                    <ul>
+                        <li>Utilisateurs</li>
+                        <li>Projets</li>
+                        <li>Commentaires</li>
+                        <li>Paramètres du site</li>
+                    </ul>
+                </nav>
             </div>
-            <hr>
 
-            <div class="gridTravaux">
-                <div class="travaux">
-                    <hr class="mb-4">
-                    <div class="boutonDiv">
-                        <div>
-                            <div class="mb-5">
-                                <h1 class="mb-4">Utilisateurs :</h1>
-                                <form action="" enctype="multipart/form-data" class="form420">
-                                    <label for="titre_projet" class="mr-2">Sélectionnez un utilisateur :</label>
-                                    <div class="select mr-4">
-                                        <select name="domaine" id="domaine">
-                                            <option value="default">-- selectionnez --</option>
-                                            <option value="web">Web</option>
-                                            <option value="communication">Communication</option>
-                                            <option value="graphisme">Graphisme</option>
-                                            <option value="audiovisuel">Audiovisuel</option>
-                                        </select>
-                                    </div>
-                                </form>
-                                <div class="button420 mt-2">
-                                    <button class="boutonGeneral mr-4" id="modif-user">
-                                        Modifier
-                                    </button>
-                                    <button class="boutonGeneral" id="suppr-user">
-                                        supprimer
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <h1 class="mb-4">Projet :</h1>
-                                <form action="" enctype="multipart/form-data" class="form420">
-                                    <label for="titre_projet" class="mr-2">Sélectionnez un projet :</label>
-                                    <div class="select mr-4">
-                                        <select name="domaine" id="domaine">
-                                            <option value="default">-- selectionnez --</option>
-                                            <option value="web">Web</option>
-                                            <option value="communication">Communication</option>
-                                            <option value="graphisme">Graphisme</option>
-                                            <option value="audiovisuel">Audiovisuel</option>
-                                        </select>
-                                    </div>
-                                </form>
-                                <div class="button420 mt-2">
-                                    <button class="boutonGeneral mr-4" id="modif-projet">
-                                    Modifier
-                                </button>
-                                <button class="boutonGeneral" id="modif-projet">
-                                    supprimer
-                                </button>
-                            </div>
-                            </div>
-                        </div>
+            <section class="filterBar">
+                <div class="search-ui">
+                    <label for="search">Search</label>
+                    <div class="search-container">
+                        <form action="/action_page.php">
+                            <input type="text" placeholder="Search by user name or email address..." name="search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
                     </div>
                 </div>
-            </div>
-            <div class="popup-wrapper" id="popup-modif-user">
-                <div class="popup" id="modifierProjetPopup">
-                    <h1>Modifier l'utilisateur : </h1>
-                    <form action=""
-                    method="POST" enctype="multipart/form-data">
-                    <label for="nom">Nom :</label>
-                    <input type="text" name="nom" value="">
-
-                    <label for="prenom">Prenom :</label>
-                    <textarea name="prenom"></textarea>
-
-                    <label for="email">Email :</label>
-                    <textarea name="email"></textarea>
-
-                    <label for="password">Mot de passe :</label>
-                    <textarea name="password"></textarea>
-
-                    <div class="flex justify-between">
-                        <button type="button" id="cancelBtn" class="boutonGeneral">Annuler</button>
-                        <button type="submit" class="boutonGeneral">Enregistrer</button>
+                <div class="filter-ui">
+                    <label for="filters">Show me</label>
+                    <div class="styled-select">
+                        <select name="accountStatus" id="filters">
+                            <option value="active">Everyone</option>
+                            <optgroup label="Audience">
+                                <option value="commenters">Commenters</option>
+                            </optgroup>
+                            <optgroup label="Organization">
+                                <option value="admins">Admins</option>
+                                <option value="moderators">Moderators</option>
+                                <option value="banned">Staff</option>
+                            </optgroup>
+                        </select>
                     </div>
-                </form>
-            </div>
-        </div>
-        <div class="popup-wrapper" id="popup-modif-projet">
-            <div class="popup" id="modifierProjetPopup">
-                <h1>Modifier le projet : </h1>
-                <form action=""
-                method="POST" enctype="multipart/form-data">
-                <label for="titre_projet">Titre :</label>
-                <input type="text" name="titre_projet" value="">
+                </div>
+            </section>
 
-                <label for="image_projet">Image :</label>
-                <input type="file" name="image_projet">
+            <table>
+                <tr class="table-header">
+                    <th class="statusHead">Id Utilisateur</th>
+                    <th>Nom</th>
+                    <th>Adresse email</th>
+                    <th>Mot de passe</th>
+                    <th>Date de création</th>
+                    <th class="roleHead">Rôle</th>
+                </tr>
+                @foreach ($users as $user)
+                <tr>
+                    <td>{{ $user->id_user }}</td>
+                    <td class="username">{{ $user->nom_user }} {{ $user->prenom_user }}</td>
+                    <td class="email"><a href="mailto:email@email.com">coffee@mail.com</a></td>
+                    <td>{{ $user->mdp_user }}</td>
+                    <td class="commenter">{{ $user->created_at }}<i class="fas fa-angle-down"></i></td>
+                    <td class="activeUser">{{ $user->role_user }}<i class="fas fa-angle-down"></i></td>
+                </tr>
+                @endforeach
+            </table>
 
-                <label for="description_projet">Description :</label>
-                <textarea name="description_projet"></textarea>
-
-                <label for="date_projet">Date :</label>
-                <input type="date" name="date_projet" value="">
-
-                <div class="flex justify-between">
-                    <button type="button" id="cancelBtn1" class="boutonGeneral">Annuler</button>
-                    <button type="submit" class="boutonGeneral">Enregistrer</button>
+            <!-- <h1 class="mb-4">Projet :</h1>
+            <form action="" enctype="multipart/form-data" class="form420">
+                <label for="projet_id" class="mr-2">Sélectionnez un projet :</label>
+                <div class="select mr-4">
+                    <select name="projet_id" id="projet_id">
+                        <option value="default">-- Sélectionnez --</option>
+                        @foreach ($projets as $projet)
+                        <option value="{{ $projet->id_projet }}">{{ $projet->titre_projet }}
+                        </option>
+                        @endforeach
+                    </select>
                 </div>
             </form>
-        </div>
-    </div>
+            <div class="button420 mt-2">
+                <button class="boutonGeneral mr-4" id="modif-projet">
+                    Modifier
+                </button>
+                <button class="boutonGeneral" id="modif-projet">
+                    Supprimer
+                </button>
+            </div> -->
         </section>
-        
+
     </main>
     @include('includes.footer')
-    <script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
-        integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
-        <script src="./assets/js/admin.js"></script>
-    <!-- <script src="./assets/js/profil.js"></script> -->
+    <script src="./assets/js/admin.js"></script>
 </body>
 
 </html>

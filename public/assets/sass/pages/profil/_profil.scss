@@ -133,3 +133,21 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    #profil {
+        .profil {
+            .form_container {
+                .header_profil {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: stretch;
+                    flex-direction: column;
+                    gap: 20px;
+                    text-align: center;
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+}

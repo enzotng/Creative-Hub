@@ -139,7 +139,6 @@
         </form>
     </main>
     @include('includes.footer')
-    <script src="./assets/js/searchbar.js"></script>
     <script src="./assets/js/selectCompetence.js"></script>
 </body>
 

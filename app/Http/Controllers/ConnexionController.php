@@ -36,21 +36,22 @@ class ConnexionController extends Controller
             'email_user' => ['required', 'email'],
             'mdp_user' => 'required',
         ]);
-
+    
         $user = DB::table('users_table')->where('email_user', $request->input('email_user'))->first();
-        
-        if (!$user || !Hash::check($request->input('mdp_user') . $user->salt_user, $user->mdp_user)) {
+        if (!$user || !Hash::check($request->input('mdp_user'), $user->mdp_user)) {
             Debugbar::error('Mauvaise combinaison email/mot de passe');
+            // dd($user); // Ajouter cette ligne
             throw ValidationException::withMessages([
-                'email_user' => __('Adresse mail ou mot de passe incorrect !'),
+                'email_user' => __('Adresse mail incorrect !'),
+                'mdp_user' => __('Mot de passe incorrect !'),
             ]);
         }
-
+    
         Auth::loginUsingId($user->id_user);
         $request->session()->regenerate();
-
+    
         Debugbar::info('Connexion réussie!'); // Ajoutez cet appel pour afficher un message de réussite dans Debugbar
-            
+    
         // Rediriger l'utilisateur vers la page étudiant
         return redirect()->route('etudiant')->with('success', 'Connexion réussie.');
     }
