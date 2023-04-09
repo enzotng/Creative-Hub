@@ -15,9 +15,9 @@
     @include('includes.header')
 
     <main id="portfolioMMI">
-        <section class="sectionMMI w-full bg-white shadow-md flex flex-col my-2">
-            <h1 class="mb-4">Portfolio MMI</h1>
-            <div class="flex flex-wrap justify-between">
+        <section class="sectionMMI shadow-md">
+            <h1 class="mb-4 mt-4">Portfolio MMI</h1>
+            <div class="containerMMI" id="projets">
                 @forelse ($projets as $projet)
                 <div class="box_mmi shadow-md">
                     <img src="{{ asset('assets/images/png/'.$projet->image_projet) }}" alt="Image Projet">
@@ -37,11 +37,13 @@
                 <p class="text-center">Il n'y a pas de projets pour le moment.</p>
                 @endforelse
             </div>
+            <div id="pagination-container"></div>
         </section>
     </main>
 
     @include('includes.footer')
-    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
+    <script src="./assets/js/portfoliommi.js"></script>
 </body>
 
 </html>

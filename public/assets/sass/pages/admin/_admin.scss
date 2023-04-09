@@ -12,13 +12,8 @@
         align-items: stretch;
         gap: 20px;
 
-        h1 {
-            color: $violet;
-            text-transform: uppercase;
-        }
-
         .headerSection {
-            background: $background;
+            background: $violet;
             padding: 20px;
             border-radius: 10px;
             nav {
@@ -31,19 +26,37 @@
                     gap: 20px;
                     li {
                         display: flex;
+                        color: $blanc;
                         flex-direction: row;
                         gap: 5px;
                         cursor: pointer;
                         transition: all 0.3s;
+                        font-weight: bold;
+                        text-transform: uppercase;
                         &:hover {
                             font-weight: bold;
-                            color: $violet;
-                            border-bottom: 2px solid $violet;
+                            color: $violet2;
+                            border-bottom: 2px solid $blanc;
                         }
                     }
                     .active {
                         padding-bottom: 5px;
-                        border-bottom: 2px solid $violet;
+                        border-bottom: 2px solid $blanc;
+                    }
+                }
+                .titre_nav {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 20px;
+                    i {
+                        color: $blanc;
+                        font-size: 2rem;
+                    }
+
+                    h1 {
+                        color: $blanc;
+                        text-transform: uppercase;
                     }
                 }
             }
@@ -55,37 +68,51 @@
             justify-content: space-between;
             .barreRechercheWrapper {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
+                justify-content: space-between;
                 width: 100%;
-                label {
-                    display: none;
-                }
-                .barreRechercheContainer {
-                    display: flex;
-                    flex-direction: row;
-                    width: 10vw;
-                    input[type="search"] {
-                        width: 100%;
-                        height: 40px;
-                        padding: 10px;
-                        border-radius: 7px;
-                        outline: none;
-                        border: 1px solid #e5e5e5;
-                        filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
-                        transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
-                    }
 
-                    input[type="search"]::-webkit-search-cancel-button {
+                .rechercherContainer {
+                    display: flex;
+                    flex-direction: column;
+                    label {
                         display: none;
                     }
+                    .barreRechercheContainer {
+                        display: flex;
+                        flex-direction: row;
+                        width: 10vw;
+                        input[type="search"] {
+                            width: 100%;
+                            height: 40px;
+                            padding: 10px;
+                            border-radius: 7px;
+                            outline: none;
+                            border: 1px solid #e5e5e5;
+                            filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+                            transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+                        }
 
+                        input[type="search"]::-webkit-search-cancel-button {
+                            display: none;
+                        }
+                    }
                 }
             }
+        }
+
+        p {
+            border-radius: 7px;
+            padding: 15px;
+            width: fit-content;
+            color: $blanc;
+            background: $violet;
         }
 
         table {
             width: 100%;
             border-radius: 10px;
+
             tr {
                 border-radius: 10px;
                 &:nth-child(odd) {
@@ -117,24 +144,19 @@
 
                 .tdUtilisateur {
                     width: 20%;
-                    color: $violet;
-                    &:hover {
-                        color: $violet;
-                        cursor: pointer;
-                        text-decoration: underline;
-                    }
                 }
 
                 .tdEmail {
                     width: 20%;
                     a {
+                        color: $violet;
+                        text-decoration: none;
+                        transition: all 0.3s;
                         &:hover {
-                            color: $violet;
+                            color: $violet2;
                             cursor: pointer;
                             text-decoration: underline;
                         }
-                        color: $violet;
-                        text-decoration: none;
                     }
                 }
 
@@ -170,7 +192,7 @@
                 }
 
                 .tdCreationProjet {
-                    width: 15%;
+                    width: 10%;
                 }
 
                 .tdNote {
@@ -181,7 +203,7 @@
                     display: flex;
                     justify-content: space-between;
                     flex-direction: row;
-                    gap: 5px;
+                    gap: 10px;
                     i {
                         font-size: 1rem;
                         color: $blanc;
@@ -193,8 +215,59 @@
                             background: $violet2;
                         }
                     }
-                }
 
+                    .edit-user-form {
+                        form {
+                            display: flex;
+                            justify-content: stretch;
+                            align-items: stretch;
+                            flex-direction: column;
+                            gap: 20px;
+                            padding: 10px;
+                            border-radius: 10px;
+                            background: $background;
+                            select {
+                                width: 100%;
+                                height: 40px;
+                                padding: 10px;
+                                border-radius: 7px;
+                                outline: none;
+                                border: 1px solid #e5e5e5;
+                                filter: drop-shadow(0px 1px 0px #efefef)
+                                    drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+                                transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+                            }
+                        }
+                    }
+
+                    .edit-projet-form {
+                        form {
+                            display: flex;
+                            justify-content: stretch;
+                            align-items: stretch;
+                            flex-direction: column;
+                            gap: 20px;
+                            padding: 20px;
+                            border-radius: 10px;
+                            background: $background;
+                            input {
+                                width: 100%;
+                                height: 40px;
+                                padding: 10px;
+                                border-radius: 7px;
+                                outline: none;
+                                border: 1px solid #e5e5e5;
+                                filter: drop-shadow(0px 1px 0px #efefef)
+                                    drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+                                transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+                            }
+                            textarea {
+                                padding: 10px;
+                                min-height: 150px;
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -228,6 +301,62 @@
             font-weight: normal;
             &:hover {
                 background: $violet2;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #mainAdmin {
+        .adminSection {
+            .headerSection {
+                nav {
+                    display: flex;
+                    flex-direction: column-reverse;
+                    align-items: stretch;
+                    gap: 20px;
+                    ul {
+                        display: flex;
+                        gap: 20px;
+                        align-items: stretch;
+                        justify-content: space-between;
+                        flex-direction: row;
+                    }
+
+                    .titre_nav {
+                        justify-content: center;
+                        text-align: center;
+                    }
+                }
+            }
+            .barreRecherche {
+                .barreRechercheWrapper {
+                    flex-direction: column-reverse;
+                    gap: 20px;
+                    .rechercherContainer {
+                        display: flex;
+                        flex-direction: column;
+                        .barreRechercheContainer {
+                            display: flex;
+                            flex-direction: row;
+                            width: 100%;
+                        }
+                    }
+
+                }
+            }
+            table {
+                display: block;
+                max-width: -moz-fit-content;
+                max-width: fit-content;
+                margin: 0 auto;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            p {
+                width: 100%;
+                text-align: center;
             }
         }
     }
