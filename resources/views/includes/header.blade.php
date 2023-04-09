@@ -29,7 +29,7 @@
             </li>
             <hr>
             <li ng-repeat="result in results" class="header-result">
-                <a href="/portfolio/[[result.id_projet]]">[[result.domaine_projet]]</a>
+                <a href="/[[result.domaine_projet]]">[[result.domaine_projet]]</a>
             </li>
         </ul>
     </div>

@@ -22,7 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //get all projects
-Route:: get('projet', [ProjetController::class, 'getProjet']);
+Route:: get('projet', [ProjetController::class, 'searchByTitreProjet']);
+//get all projects
+Route:: get('domaine', [ProjetController::class, 'searchByDomaineProjet']);
 
 //get all users
 Route:: get('user', [ProfilController::class, 'getProfil']);
