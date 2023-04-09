@@ -23,4 +23,18 @@ class AdminController extends Controller
     
         return view('admin', ['users' => $users, 'projets' => $projets]);
     }
+    
+    public function editUser(Request $request)
+    {
+        $userId = $request->input('user_id');
+        $newRole = $request->input('role');
+        DB::table('users_table')->where('id_user', $userId)->update(['role_user' => $newRole]);
+        return redirect()->back()->with('success', 'Les informations de l\'utilisateur ont été mises à jour.');
+    }
+
+    public function deleteUser(Request $request, $id)
+    {
+        DB::table('users_table')->where('id_user', $id)->delete();
+        return redirect()->back()->with('success', 'L\'utilisateur a été supprimé.');
+    }
 }

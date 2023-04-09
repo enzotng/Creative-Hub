@@ -12,225 +12,203 @@
         align-items: stretch;
         gap: 20px;
 
+        h1 {
+            color: $violet;
+            text-transform: uppercase;
+        }
+
         .headerSection {
             background: $background;
             padding: 20px;
             border-radius: 10px;
             nav {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
                 ul {
                     display: flex;
                     flex-direction: row;
                     gap: 20px;
-                }
-            }
-        }
-
-        .secondHeader {
-            display: flex;
-            justify-content: space-between;
-            .rechercheAdmin {
-                display: flex;
-                flex-direction: row;
-                gap: 10px;
-                label {
-                    display: none;
-                }
-                input {
-                    width: 100%;
-                    height: 40px;
-                    padding: 10px;
-                    border-radius: 7px;
-                    outline: none;
-                    border: 1px solid #e5e5e5;
-                    filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
-                    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
-
-                    &:focus {
-                        border: 1px solid transparent;
-                        box-shadow: 0px 0px 0px 2px #242424;
-                        background-color: transparent;
+                    li {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 5px;
+                        cursor: pointer;
+                        transition: all 0.3s;
+                        &:hover {
+                            font-weight: bold;
+                            color: $violet;
+                            border-bottom: 2px solid $violet;
+                        }
+                    }
+                    .active {
+                        padding-bottom: 5px;
+                        border-bottom: 2px solid $violet;
                     }
                 }
             }
         }
 
-        .filterBar {
-            margin: 20px 0px;
-        }
-        label {
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        table {
-            width: 100%;
-        }
-        th {
-            padding-top: 15px;
-            padding-bottom: 15px;
-            padding-left: 15px;
-            text-align: left;
-            background-color: $background;
-            color: $noir;
-        }
-        td {
-            padding-top: 15px;
-            padding-bottom: 15px;
-            padding-left: 15px;
-        }
-        tr {
-            &:nth-child(odd) {
-                background: #f9f9f9;
-                border-top: 1px solid transparent;
-                border-left: 1px solid transparent;
-            }
-            &:nth-child(even) {
-                background: #fff;
-                border-top: 1px solid transparent;
-                border-left: 1px solid transparent;
-            }
-            &:hover {
-                background-color: $violet;
-                cursor: default;
-                border: 1px solid #67b2e4;
-            }
-        }
-        .username {
-            color: $violet;
-            &:hover {
-                color: $violet;
-                cursor: pointer;
-                text-decoration: underline;
-            }
-        }
-        a {
-            &:hover {
-                color: $violet;
-                cursor: pointer;
-                text-decoration: underline;
-            }
-            color: $violet;
-            text-decoration: none;
-        }
+        .barreRecherche {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .barreRechercheWrapper {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                label {
+                    display: none;
+                }
+                .barreRechercheContainer {
+                    display: flex;
+                    flex-direction: row;
+                    width: 10vw;
+                    input[type="search"] {
+                        width: 100%;
+                        height: 40px;
+                        padding: 10px;
+                        border-radius: 7px;
+                        outline: none;
+                        border: 1px solid #e5e5e5;
+                        filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
+                        transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+                    }
 
-        nav {
-            padding-left: 20px;
-            padding-right: 20px;
-            border-bottom: 1px solid #e9e9e9;
-            ul {
-                li {
-                    display: inline-block;
-                    font-weight: 600;
-                    font-size: 16px;
-                    text-transform: uppercase;
-                    text-align: center;
-                    padding: 20px 16px;
-                    text-decoration: none;
+                    input[type="search"]::-webkit-search-cancel-button {
+                        display: none;
+                    }
+
                 }
             }
         }
-        .talk {
-            text-transform: uppercase;
-            font-size: 24px;
+
+        table {
+            width: 100%;
+            border-radius: 10px;
+            tr {
+                border-radius: 10px;
+                &:nth-child(odd) {
+                    background: #f9f9f9;
+                    border-top: 1px solid transparent;
+                    border-left: 1px solid transparent;
+                }
+                &:nth-child(even) {
+                    background: $blanc;
+                    border-top: 1px solid transparent;
+                    border-left: 1px solid transparent;
+                }
+                th {
+                    padding: 20px;
+                    text-align: left;
+                    background-color: $background;
+                    color: $noir;
+                }
+
+                td {
+                    padding: 20px;
+                }
+
+                // Table Utilisateur
+
+                .tdIdentifiantUser {
+                    width: 5%;
+                }
+
+                .tdUtilisateur {
+                    width: 20%;
+                    color: $violet;
+                    &:hover {
+                        color: $violet;
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+                }
+
+                .tdEmail {
+                    width: 20%;
+                    a {
+                        &:hover {
+                            color: $violet;
+                            cursor: pointer;
+                            text-decoration: underline;
+                        }
+                        color: $violet;
+                        text-decoration: none;
+                    }
+                }
+
+                .tdMotDePasse {
+                    width: 40%;
+                }
+
+                .tdDateCreation {
+                    width: 10%;
+                }
+
+                // Table Projet
+
+                .tdIdentifiantProjet {
+                    width: 5%;
+                }
+
+                .tdCreateur {
+                    width: 5%;
+                }
+
+                .tdTitreProjet {
+                    width: 20%;
+                }
+
+                .tdDescription {
+                    width: 40%;
+                    text-align: justify;
+                }
+
+                .tdImage {
+                    width: 10%;
+                }
+
+                .tdCreationProjet {
+                    width: 15%;
+                }
+
+                .tdNote {
+                    width: 25%;
+                }
+
+                .tdActions {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: row;
+                    gap: 5px;
+                    i {
+                        font-size: 1rem;
+                        color: $blanc;
+                        border-radius: 50%;
+                        padding: 7px;
+                        background: $violet;
+                        transition: all 0.3s;
+                        &:hover {
+                            background: $violet2;
+                        }
+                    }
+                }
+
+            }
         }
 
-        .roleHead {
-            width: 115px;
-        }
-        .statusHead {
-            width: 115px;
-        }
-
-        i {
-            float: right;
-            padding: 0px 15px;
-            color: $violet;
-            font-size: 12px;
-        }
-        td.activeUser {
-            &:hover {
-                cursor: pointer;
-            }
-        }
-        td.suspendedUser {
-            &:hover {
-                cursor: pointer;
-            }
-        }
-        td.bannedUser {
-            &:hover {
-                cursor: pointer;
-            }
-        }
-        td.commenter {
-            cursor: pointer;
-        }
-        td.staff {
-            cursor: pointer;
-        }
-        td.admin {
-            cursor: pointer;
-        }
-        td.moderator {
-            cursor: pointer;
-        }
-        tr.table-header {
-            border: 1px solid #bbbebf;
-        }
-        .styled-select {
-            select {
-                background: transparent;
-                border: none;
-                font-size: 14px;
-                height: 29px;
-                padding: 5px;
-                width: 100%;
-            }
-            margin-top: 5px;
-            width: 200px;
-            border-radius: 2px;
-            border: 1px solid #9a9da0;
-            color: $violet;
-        }
-        .filter-ui {
-            display: inline-block;
-        }
-        .search-ui {
-            display: inline-block;
-        }
-        input[type="text"] {
-            padding: 6px;
-            margin-top: 5px;
-            font-size: 14px;
-            width: 300px;
-            border: 1px solid #9a9da0;
-            border-radius: 2px;
-        }
-        .search-container {
-            button {
-                padding: 10px 5px;
-                margin-right: 16px;
-                background: #ddd;
-                font-size: 17px;
-                border: none;
-                border-radius: 2px;
-                cursor: pointer;
-            }
-        }
         &::-webkit-input-placeholder {
             color: $violet;
-            font-size: 13px;
         }
         &::-moz-placeholder {
             color: $violet;
-            font-size: 13px;
         }
         &:-ms-input-placeholder {
             color: $violet;
-            font-size: 13px;
         }
         &::placeholder {
             color: $violet;
-            font-size: 13px;
         }
 
         .boutonGeneral {
@@ -251,99 +229,6 @@
             &:hover {
                 background: $violet2;
             }
-        }
-
-        .form420 {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        .popup-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: none;
-            z-index: 100;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .popup {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 600px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .popup h1 {
-            color: $violet;
-            font-weight: bold;
-        }
-
-        .popup label {
-            display: block;
-            margin-block: 20px;
-            font-weight: bold;
-            color: $gris;
-        }
-
-        .popup input[type="text"],
-        .popup input[type="date"],
-        .popup textarea {
-            width: 100%;
-            height: 40px;
-            padding: 10px;
-            border-radius: 7px;
-            outline: none;
-            border: 1px solid #e5e5e5;
-            filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
-            transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
-            margin-block-end: 20px;
-
-            &:focus {
-                border: 1px solid transparent;
-                box-shadow: 0px 0px 0px 2px #242424;
-                background-color: transparent;
-            }
-        }
-
-        .popup .button-container {
-            text-align: right;
-            margin-top: 20px;
-        }
-
-        .popup button {
-            padding: 10px 20px;
-            border-radius: 5px;
-            border: none;
-            background-color: $violet;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-        }
-
-        .popup button:hover {
-            background-color: $violet2;
-        }
-
-        .cancel-btn {
-            background-color: #ccc;
-            color: #fff;
-            margin-left: 10px;
-        }
-
-        .popup-wrapper.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
     }
 }

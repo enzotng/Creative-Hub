@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Creative Hub - Plateforme en ligne</title>
+    <title>Creative Hub - Admin Dashboard</title>
+    <link rel="icon" type="image/png" href="assets/images/ico/logo_blanc.ico">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -20,84 +22,86 @@
             <div class="headerSection mb-4">
                 <nav>
                     <ul>
-                        <li>Utilisateurs</li>
-                        <li>Projets</li>
+                        <li class="active" onclick="showTable('tableUtilisateur')">Utilisateurs</li>
+                        <li onclick="showTable('tableProjet')">Projets</li>
                         <li>Commentaires</li>
-                        <li>Paramètres du site</li>
                     </ul>
+                    <a href="home" class="boutonGeneral">Revenir à l'accueil</a>
                 </nav>
             </div>
 
-            <section class="filterBar">
-                <div class="search-ui">
-                    <label for="search">Search</label>
-                    <div class="search-container">
-                        <form action="/action_page.php">
-                            <input type="text" placeholder="Search by user name or email address..." name="search">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
+            <div class="barreRecherche">
+                <div class="barreRechercheWrapper">
+                    <label for="search">Rechercher un utilisateur</label>
+                    <div class="barreRechercheContainer">
+                        <input type="search" id="search" placeholder="Rechercher un utilisateur..."
+                            class="searchUtilisateur" onkeyup="filterTable('tableUtilisateur', this.value)">
                     </div>
-                </div>
-                <div class="filter-ui">
-                    <label for="filters">Show me</label>
-                    <div class="styled-select">
-                        <select name="accountStatus" id="filters">
-                            <option value="active">Everyone</option>
-                            <optgroup label="Audience">
-                                <option value="commenters">Commenters</option>
-                            </optgroup>
-                            <optgroup label="Organization">
-                                <option value="admins">Admins</option>
-                                <option value="moderators">Moderators</option>
-                                <option value="banned">Staff</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                </div>
-            </section>
 
-            <table>
-                <tr class="table-header">
-                    <th class="statusHead">Id Utilisateur</th>
+                    <label for="searchProjet">Rechercher un projet</label>
+                    <div class="barreRechercheContainer">
+                        <input type="search" id="searchProjet" placeholder="Rechercher un projet..."
+                            class="searchProjet hidden" onkeyup="filterTable('tableProjet', this.value)">
+                    </div>
+                </div>
+            </div>
+
+
+            <table id="tableUtilisateur">
+                <tr class="headerTable">
+                    <th>ID User</th>
                     <th>Nom</th>
                     <th>Adresse email</th>
                     <th>Mot de passe</th>
                     <th>Date de création</th>
-                    <th class="roleHead">Rôle</th>
+                    <th>Rôle</th>
+                    <th>Actions</th>
                 </tr>
                 @foreach ($users as $user)
                 <tr>
-                    <td>{{ $user->id_user }}</td>
-                    <td class="username">{{ $user->nom_user }} {{ $user->prenom_user }}</td>
-                    <td class="email"><a href="mailto:email@email.com">coffee@mail.com</a></td>
-                    <td>{{ $user->mdp_user }}</td>
-                    <td class="commenter">{{ $user->created_at }}<i class="fas fa-angle-down"></i></td>
-                    <td class="activeUser">{{ $user->role_user }}<i class="fas fa-angle-down"></i></td>
+                    <td class="tdIdentifiantUser">{{ $user->id_user }}</td>
+                    <td class="tdUtilisateur">{{ $user->prenom_user }} {{ $user->nom_user }}</td>
+                    <td class="tdEmail"><a href="mailto:{{ $user->email_user }}">{{ $user->email_user }}</a></td>
+                    <td class="tdMotDePasse">{{ $user->mdp_user }}</td>
+                    <td class="tdDateCreation">{{ $user->created_at }}</td>
+                    <td class="tdRole">{{ $user->role_user }}</td>
+                    <td class="tdActions">
+                        <a href="{{ route('admin.edit-user', $user->id_user) }}" title="Modifier"><i
+                                class="bi bi-pencil"></i></a>
+                        <form method="POST" action="{{ route('admin.delete-user', $user->id_user) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" title="Supprimer"
+                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')"><i
+                                    class="bi bi-trash"></i></button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </table>
 
-            <!-- <h1 class="mb-4">Projet :</h1>
-            <form action="" enctype="multipart/form-data" class="form420">
-                <label for="projet_id" class="mr-2">Sélectionnez un projet :</label>
-                <div class="select mr-4">
-                    <select name="projet_id" id="projet_id">
-                        <option value="default">-- Sélectionnez --</option>
-                        @foreach ($projets as $projet)
-                        <option value="{{ $projet->id_projet }}">{{ $projet->titre_projet }}
-                        </option>
-                        @endforeach
-                    </select>
-                </div>
-            </form>
-            <div class="button420 mt-2">
-                <button class="boutonGeneral mr-4" id="modif-projet">
-                    Modifier
-                </button>
-                <button class="boutonGeneral" id="modif-projet">
-                    Supprimer
-                </button>
-            </div> -->
+            <table id="tableProjet" class="hidden">
+                <tr class="headerTable">
+                    <th>ID Projet</th>
+                    <th>Créateur du projet</th>
+                    <th>Titre du projet</th>
+                    <th>Description projet</th>
+                    <th>Image projet</th>
+                    <th>Date de création</th>
+                    <th>Note projet</th>
+                </tr>
+                @foreach ($projets as $projet)
+                <tr>
+                    <td class="tdIdentifiantProjet">{{ $projet->id_projet }}</td>
+                    <td class="tdCreateur">{{ $projet->user_id }}</td>
+                    <td class="tdTitreProjet">{{ $projet->titre_projet }}</td>
+                    <td class="tdDescription">{{ $projet->description_projet }}</td>
+                    <td class="tdImage">{{ $projet->image_projet }}</td>
+                    <td class="tdCreationProjet">{{ $projet->created_at }}</td>
+                    <td class="tdNote">{{ $projet->note_projet }} / 20</td>
+                </tr>
+                @endforeach
+            </table>
         </section>
 
     </main>

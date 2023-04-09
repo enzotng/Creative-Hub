@@ -1985,29 +1985,60 @@ header .user .dropdown:hover .dropdown-menu {
   align-items: stretch;
   gap: 20px;
 }
+#mainAdmin .adminSection h1 {
+  color: #444492;
+  text-transform: uppercase;
+}
 #mainAdmin .adminSection .headerSection {
   background: #f0f3f4;
   padding: 20px;
   border-radius: 10px;
+}
+#mainAdmin .adminSection .headerSection nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 #mainAdmin .adminSection .headerSection nav ul {
   display: flex;
   flex-direction: row;
   gap: 20px;
 }
-#mainAdmin .adminSection .secondHeader {
-  display: flex;
-  justify-content: space-between;
-}
-#mainAdmin .adminSection .secondHeader .rechercheAdmin {
+#mainAdmin .adminSection .headerSection nav ul li {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
-#mainAdmin .adminSection .secondHeader .rechercheAdmin label {
+#mainAdmin .adminSection .headerSection nav ul li:hover {
+  font-weight: bold;
+  color: #444492;
+  border-bottom: 2px solid #444492;
+}
+#mainAdmin .adminSection .headerSection nav ul .active {
+  padding-bottom: 5px;
+  border-bottom: 2px solid #444492;
+}
+#mainAdmin .adminSection .barreRecherche {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#mainAdmin .adminSection .barreRecherche .barreRechercheWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#mainAdmin .adminSection .barreRecherche .barreRechercheWrapper label {
   display: none;
 }
-#mainAdmin .adminSection .secondHeader .rechercheAdmin input {
+#mainAdmin .adminSection .barreRecherche .barreRechercheWrapper .barreRechercheContainer {
+  display: flex;
+  flex-direction: row;
+  width: 10vw;
+}
+#mainAdmin .adminSection .barreRecherche .barreRechercheWrapper .barreRechercheContainer input[type=search] {
   width: 100%;
   height: 40px;
   padding: 10px;
@@ -2017,173 +2048,115 @@ header .user .dropdown:hover .dropdown-menu {
   filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
   transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
 }
-#mainAdmin .adminSection .secondHeader .rechercheAdmin input:focus {
-  border: 1px solid transparent;
-  box-shadow: 0px 0px 0px 2px #242424;
-  background-color: transparent;
-}
-#mainAdmin .adminSection .filterBar {
-  margin: 20px 0px;
-}
-#mainAdmin .adminSection label {
-  font-weight: 600;
-  text-transform: uppercase;
+#mainAdmin .adminSection .barreRecherche .barreRechercheWrapper .barreRechercheContainer input[type=search]::-webkit-search-cancel-button {
+  display: none;
 }
 #mainAdmin .adminSection table {
   width: 100%;
+  border-radius: 10px;
 }
-#mainAdmin .adminSection th {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 15px;
-  text-align: left;
-  background-color: #f0f3f4;
-  color: #000;
+#mainAdmin .adminSection table tr {
+  border-radius: 10px;
 }
-#mainAdmin .adminSection td {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 15px;
-}
-#mainAdmin .adminSection tr:nth-child(odd) {
+#mainAdmin .adminSection table tr:nth-child(odd) {
   background: #f9f9f9;
   border-top: 1px solid transparent;
   border-left: 1px solid transparent;
 }
-#mainAdmin .adminSection tr:nth-child(even) {
+#mainAdmin .adminSection table tr:nth-child(even) {
   background: #fff;
   border-top: 1px solid transparent;
   border-left: 1px solid transparent;
 }
-#mainAdmin .adminSection tr:hover {
-  background-color: #444492;
-  cursor: default;
-  border: 1px solid #67b2e4;
+#mainAdmin .adminSection table tr th {
+  padding: 20px;
+  text-align: left;
+  background-color: #f0f3f4;
+  color: #000;
 }
-#mainAdmin .adminSection .username {
+#mainAdmin .adminSection table tr td {
+  padding: 20px;
+}
+#mainAdmin .adminSection table tr .tdIdentifiantUser {
+  width: 5%;
+}
+#mainAdmin .adminSection table tr .tdUtilisateur {
+  width: 20%;
   color: #444492;
 }
-#mainAdmin .adminSection .username:hover {
+#mainAdmin .adminSection table tr .tdUtilisateur:hover {
   color: #444492;
   cursor: pointer;
   text-decoration: underline;
 }
-#mainAdmin .adminSection a {
+#mainAdmin .adminSection table tr .tdEmail {
+  width: 20%;
+}
+#mainAdmin .adminSection table tr .tdEmail a {
   color: #444492;
   text-decoration: none;
 }
-#mainAdmin .adminSection a:hover {
+#mainAdmin .adminSection table tr .tdEmail a:hover {
   color: #444492;
   cursor: pointer;
   text-decoration: underline;
 }
-#mainAdmin .adminSection nav {
-  padding-left: 20px;
-  padding-right: 20px;
-  border-bottom: 1px solid #e9e9e9;
+#mainAdmin .adminSection table tr .tdMotDePasse {
+  width: 40%;
 }
-#mainAdmin .adminSection nav ul li {
-  display: inline-block;
-  font-weight: 600;
-  font-size: 16px;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 20px 16px;
-  text-decoration: none;
+#mainAdmin .adminSection table tr .tdDateCreation {
+  width: 10%;
 }
-#mainAdmin .adminSection .talk {
-  text-transform: uppercase;
-  font-size: 24px;
+#mainAdmin .adminSection table tr .tdIdentifiantProjet {
+  width: 5%;
 }
-#mainAdmin .adminSection .roleHead {
-  width: 115px;
+#mainAdmin .adminSection table tr .tdCreateur {
+  width: 5%;
 }
-#mainAdmin .adminSection .statusHead {
-  width: 115px;
+#mainAdmin .adminSection table tr .tdTitreProjet {
+  width: 20%;
 }
-#mainAdmin .adminSection i {
-  float: right;
-  padding: 0px 15px;
-  color: #444492;
-  font-size: 12px;
+#mainAdmin .adminSection table tr .tdDescription {
+  width: 40%;
+  text-align: justify;
 }
-#mainAdmin .adminSection td.activeUser:hover {
-  cursor: pointer;
+#mainAdmin .adminSection table tr .tdImage {
+  width: 10%;
 }
-#mainAdmin .adminSection td.suspendedUser:hover {
-  cursor: pointer;
+#mainAdmin .adminSection table tr .tdCreationProjet {
+  width: 15%;
 }
-#mainAdmin .adminSection td.bannedUser:hover {
-  cursor: pointer;
+#mainAdmin .adminSection table tr .tdNote {
+  width: 25%;
 }
-#mainAdmin .adminSection td.commenter {
-  cursor: pointer;
+#mainAdmin .adminSection table tr .tdActions {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 5px;
 }
-#mainAdmin .adminSection td.staff {
-  cursor: pointer;
+#mainAdmin .adminSection table tr .tdActions i {
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 50%;
+  padding: 7px;
+  background: #444492;
+  transition: all 0.3s;
 }
-#mainAdmin .adminSection td.admin {
-  cursor: pointer;
-}
-#mainAdmin .adminSection td.moderator {
-  cursor: pointer;
-}
-#mainAdmin .adminSection tr.table-header {
-  border: 1px solid #bbbebf;
-}
-#mainAdmin .adminSection .styled-select {
-  margin-top: 5px;
-  width: 200px;
-  border-radius: 2px;
-  border: 1px solid #9a9da0;
-  color: #444492;
-}
-#mainAdmin .adminSection .styled-select select {
-  background: transparent;
-  border: none;
-  font-size: 14px;
-  height: 29px;
-  padding: 5px;
-  width: 100%;
-}
-#mainAdmin .adminSection .filter-ui {
-  display: inline-block;
-}
-#mainAdmin .adminSection .search-ui {
-  display: inline-block;
-}
-#mainAdmin .adminSection input[type=text] {
-  padding: 6px;
-  margin-top: 5px;
-  font-size: 14px;
-  width: 300px;
-  border: 1px solid #9a9da0;
-  border-radius: 2px;
-}
-#mainAdmin .adminSection .search-container button {
-  padding: 10px 5px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  border-radius: 2px;
-  cursor: pointer;
+#mainAdmin .adminSection table tr .tdActions i:hover {
+  background: #2f2f68;
 }
 #mainAdmin .adminSection::-webkit-input-placeholder {
   color: #444492;
-  font-size: 13px;
 }
 #mainAdmin .adminSection::-moz-placeholder {
   color: #444492;
-  font-size: 13px;
 }
 #mainAdmin .adminSection:-ms-input-placeholder {
   color: #444492;
-  font-size: 13px;
 }
 #mainAdmin .adminSection::placeholder {
   color: #444492;
-  font-size: 13px;
 }
 #mainAdmin .adminSection .boutonGeneral {
   height: 40px;
@@ -2203,90 +2176,6 @@ header .user .dropdown:hover .dropdown-menu {
 }
 #mainAdmin .adminSection .boutonGeneral:hover {
   background: #2f2f68;
-}
-#mainAdmin .adminSection .form420 {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-#mainAdmin .adminSection .popup-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  z-index: 100;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-#mainAdmin .adminSection .popup {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 600px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-#mainAdmin .adminSection .popup h1 {
-  color: #444492;
-  font-weight: bold;
-}
-#mainAdmin .adminSection .popup label {
-  display: block;
-  margin-block: 20px;
-  font-weight: bold;
-  color: #8b8e98;
-}
-#mainAdmin .adminSection .popup input[type=text],
-#mainAdmin .adminSection .popup input[type=date],
-#mainAdmin .adminSection .popup textarea {
-  width: 100%;
-  height: 40px;
-  padding: 10px;
-  border-radius: 7px;
-  outline: none;
-  border: 1px solid #e5e5e5;
-  filter: drop-shadow(0px 1px 0px #efefef) drop-shadow(0px 1px 0.5px rgba(239, 239, 239, 0.5));
-  transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
-  margin-block-end: 20px;
-}
-#mainAdmin .adminSection .popup input[type=text]:focus,
-#mainAdmin .adminSection .popup input[type=date]:focus,
-#mainAdmin .adminSection .popup textarea:focus {
-  border: 1px solid transparent;
-  box-shadow: 0px 0px 0px 2px #242424;
-  background-color: transparent;
-}
-#mainAdmin .adminSection .popup .button-container {
-  text-align: right;
-  margin-top: 20px;
-}
-#mainAdmin .adminSection .popup button {
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
-  background-color: #444492;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-#mainAdmin .adminSection .popup button:hover {
-  background-color: #2f2f68;
-}
-#mainAdmin .adminSection .cancel-btn {
-  background-color: #ccc;
-  color: #fff;
-  margin-left: 10px;
-}
-#mainAdmin .adminSection .popup-wrapper.active {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 #professeurMain {

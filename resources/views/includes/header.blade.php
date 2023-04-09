@@ -53,6 +53,9 @@
                     @if(Auth::user()->role_user == 'Etudiant')
                     <li><a href="/etudiant"><i class="bi bi-card-text"></i>Projets</a></li>
                     @endif
+                    @if(Auth::user()->role_user == 'Administrateur')
+                    <li><a href="/admin"><i class="bi bi-person-rolodex"></i>Dashboard</a></li>
+                    @endif
                     <hr>
                     <li><a href="/deconnexion"><i class="bi bi-box-arrow-right"></i>Déconnexion</a></li>
                 </ul>
