@@ -40,10 +40,14 @@ window.onload = function () {
         }
     });
 
+    // récupère l'identifiant de l'utilisateur
+    var id_user = '<?php echo $user_id; ?>';
+
+
     $(document).ready(function () {
         // crée un graphique à secteurs pour afficher le nombre de projets par domaine
         $.ajax({
-            url: '/projets/domaine',
+            url: '/projets/domaine/' + id_user,
             type: 'GET',
             dataType: 'json',
             success: function (data) {
@@ -63,10 +67,10 @@ window.onload = function () {
                         labels: labels,
                         datasets: [{
                             backgroundColor: [
-                                "#444492",
-                                "#3ba99c",
-                                "#69d1c5",
-                                "#7ebce6"
+                                "#e63946",
+                                "#40916c",
+                                "#e09f3e",
+                                "#1d3557"
                             ],
                             data: dataValues
                         }]

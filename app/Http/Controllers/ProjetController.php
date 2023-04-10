@@ -118,43 +118,45 @@ class ProjetController extends Controller
     $projet->save();
 
     return redirect()->back()->with('success', 'Le projet a été modifié avec succès.');
-}
+    }
 
-//get titre projetcts
-// public function getProjet(Request $request) {
-//     $q = $request->input('q');
-//     $projetTitre = Projet::where('titre_projet', 'like', "%$q%")
-//                          ->distinct('titre_projet', 'id_projet');
-//     $projetDomaine = Projet::where('domaine_projet', 'like', "%$q%")
-//                           ->distinct('domaine_projet', 'id_projet');
-//     $projets = $projetTitre->union($projetDomaine)->get();
-//     return response()->json($projets, 200);
-// }
-public function searchByTitreProjet(Request $request) {
-    $q = $request->input('q');
-    $projets = Projet::where('titre_projet', 'like', "%$q%")
-                     ->get()
-                     ->makeHidden(['domaine_projet']); 
-    return response()->json($projets, 200);
-}
+    //get titre projetcts
+    // public function getProjet(Request $request) {
+    //     $q = $request->input('q');
+    //     $projetTitre = Projet::where('titre_projet', 'like', "%$q%")
+    //                          ->distinct('titre_projet', 'id_projet');
+    //     $projetDomaine = Projet::where('domaine_projet', 'like', "%$q%")
+    //                           ->distinct('domaine_projet', 'id_projet');
+    //     $projets = $projetTitre->union($projetDomaine)->get();
+    //     return response()->json($projets, 200);
+    // }
+    public function searchByTitreProjet(Request $request) {
+        $q = $request->input('q');
+        $projets = Projet::where('titre_projet', 'like', "%$q%")
+                        ->get()
+                        ->makeHidden(['domaine_projet']); 
+        return response()->json($projets, 200);
+    }
 
-public function searchByDomaineProjet(Request $request) {
-    $q = $request->input('q');
-    $projets = Projet::where('domaine_projet', 'like', "%$q%")
-                     ->distinct('domaine_projet')
-                     ->get()
-                     ->makeHidden(['id_projet', 'titre_projet']);
-    return response()->json($projets, 200);
-}
+    public function searchByDomaineProjet(Request $request) {
+        $q = $request->input('q');
+        $projets = Projet::where('domaine_projet', 'like', "%$q%")
+                        ->distinct('domaine_projet')
+                        ->get()
+                        ->makeHidden(['id_projet', 'titre_projet']);
+        return response()->json($projets, 200);
+    }
 
 
-public function projetsDomaine()
-{
-    $projetsDomaine = DB::table('projet_table')
-        ->select(DB::raw('count(*) as total, domaine_projet'))
-        ->groupBy('domaine_projet')
-        ->get();
+    public function projetsDomaine()
+    {
+        $user_id = Auth::user()->id_user;
+        $projetsDomaine = DB::table('projet_table')
+            ->select(DB::raw('count(*) as total, domaine_projet'))
+            ->where('user_id', $user_id)
+            ->groupBy('domaine_projet')
+            ->get();
 
-    return response()->json($projetsDomaine);
-}
+        return response()->json($projetsDomaine);
+    }
 }

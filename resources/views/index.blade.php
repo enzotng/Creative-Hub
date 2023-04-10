@@ -52,25 +52,9 @@
             </div>
         </section>
 
-        <!-- <div class="projets shadow-md flex flex-col">
-            <h1 class="text-3xl font-bold mb-4">Les derniers projets</h1>
-            @php
-            $projets = \App\Models\Projet::latest()->take(4)->get();
-            @endphp
-            @if ($projets->count() > 0)
-            <div class="w-full flex flex-wrap">
-                @foreach ($projets as $projet)
-                <div class="projets_box flex flex-col items-center flex-grow mb-4 mr-4">
-                    <img src="{{ asset('assets/images/png/'.$projet->image_projet) }}" alt="Image Projet" class="mb-2">
-                    <a href="{{ route('affichage.projet', ['id_projet' => $projet->id_projet]) }}"
-                        title="Accéder au projet">{{ $projet->titre_projet }}</a>
-                </div>
-                @endforeach
-            </div>
-            @else
-            <p>Aucun élève n'a encore créé de projets.</p>
-            @endif
-        </div> -->
+        @php
+        $projets = \App\Models\Projet::latest()->take(4)->get();
+        @endphp
 
         <section class="projetsLatest shadow-md">
             <h1 class="text-3xl font-bold mb-4">Les derniers projets</h1>
@@ -97,7 +81,6 @@
 
     </main>
     @include('includes.footer')
-    <script src="./assets/js/projet.js"></script>
 </body>
 
 </html>

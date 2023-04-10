@@ -1,15 +1,43 @@
 #portfolio {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: stretch;
     h1 {
         margin-block-end: 20px;
+        color: $violet;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
     }
 
     hr {
-        border: 1px solid #f8f8f8;
+        border: 1px solid #dadada;
         width: 100%;
     }
+
+    .boutonGeneral {
+        width: fit-content;
+        height: fit-content;
+        padding: 15px 20px;
+        border: 0;
+        background: $violet;
+        font-family: "Ubuntu", sans-serif;
+        border-radius: 7px;
+        outline: none;
+        color: $blanc;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        transition: all 0.3s;
+        font-weight: normal;
+        gap: 10px;
+        &:hover {
+            background: $violet2;
+        }
+    }
+    
     .portfolioSection {
         background: $blanc;
         margin-block: 3vw;
@@ -27,27 +55,6 @@
             justify-content: space-between;
             align-items: baseline;
             flex-direction: row;
-            margin-block-end: 5vh;
-            .boutonGeneral {
-                width: fit-content;
-                height: fit-content;
-                padding: 15px 20px;
-                border: 0;
-                background: $violet;
-                font-family: "Ubuntu", sans-serif;
-                border-radius: 7px;
-                outline: none;
-                color: #ffffff;
-                cursor: pointer;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                transition: all 0.3s;
-                font-weight: normal;
-                &:hover {
-                    background: $violet2;
-                }
-            }
         }
         .gridTravaux {
             display: grid;
@@ -70,7 +77,7 @@
                     border-radius: 5px;
                     height: 30vh;
                     aspect-ratio: 16/9;
-                    object-fit: contain;
+                    object-fit: cover;
                 }
 
                 .boutonDiv {
@@ -83,6 +90,7 @@
                     margin-block-start: 20px;
                     .boutonGeneral {
                         background: $violet;
+                        text-align: center;
                         &:hover {
                             transform: scale(0.95);
                             color: $violet2;
@@ -231,9 +239,15 @@
         align-items: flex-start;
         flex-direction: column;
         width: 30%;
-        label {
+
+        li {
+            list-style: inside;
+        }
+
+        label, h2 {
             font-weight: bold;
             margin-block: 3vh;
+            font-size: clamp(1rem, 0.7619rem + 1.1905vw, 1.25rem);
         }
         .select {
             position: relative;
@@ -276,6 +290,8 @@
 
         p {
             margin-block: 2vh;
+            line-height: 1.25;
+            text-align: justify;
         }
         .boxProgression {
             width: 100%;
@@ -302,6 +318,32 @@
             .php {
                 width: 60%;
                 background: $violet;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #portfolio {
+        .portfolioSection {
+            .gridTravaux {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 20px;
+                .travaux {
+                    .boutonDiv {
+                        display: flex;
+                        width: 100%;
+                        justify-content: space-between;
+                        align-items: stretch;
+                        flex-direction: column;
+                        gap: 20px;
+                        margin-block-start: 20px;
+                        .boutonGeneral {
+                            width: 100%;
+                        }
+                    }
+                }
             }
         }
     }

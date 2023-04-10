@@ -67,6 +67,6 @@ Route::get('/portfolio/{id_projet}/comment', [CommentaireController::class, 'sho
 
 Route::delete('/projets/{id}', [EtudiantController::class, 'supprimerProjet'])->name('projets.supprimer');
 Route::put('/projets/{id}', [ProjetController::class, 'update'])->name('projets.modifier');
-Route::get('/projets/domaine', [ProjetController::class, 'projetsDomaine'])->name('projets.domaine');
+Route::get('/projets/domaine/{id_user}', [ProjetController::class, 'projetsDomaine'])->name('projets.domaine');
 
 Route::get('/api/apprentissages-critiques/{id}', [CompetenceController::class, 'getApprentissagesCritiques']);

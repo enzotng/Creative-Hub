@@ -85,7 +85,7 @@
                         <label class="input_label" for="note_projet">Note sur 20</label>
                         <div class="relative">
                             <i class="bi bi-star-fill icon text-gray-400 hover:text-gray-500"></i>
-                            <input type="number" name="note_projet" class="input_field" min="0" max="20" step="1"
+                            <input type="number" name="note_projet" class="input_field" min="0" maxlength="2" max="20" step="1"
                                 placeholder="Exemple : 10/20" required>
                         </div>
 

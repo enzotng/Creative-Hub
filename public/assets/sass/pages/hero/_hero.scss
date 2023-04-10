@@ -63,7 +63,7 @@
         grid-column-gap: 20px;
         grid-row-gap: 20px;
         padding: 20px;
-    
+
         img {
             border-radius: 10px;
             width: 100%;
@@ -89,9 +89,8 @@
                     background: $violet2;
                 }
             }
-    
         }
-    
+
         .block3 {
             display: flex;
             width: 30%;
@@ -133,5 +132,19 @@
             padding: 0;
         }
     }
+    .projetsLatest {
+        .block {
+            flex-direction: column;
+            padding: 0;
+            .block2 {
+                width: 100%;
+                a {
+                    display: none;
+                }
+            }
+            .block3 {
+                width: 100%;
+            }
+        }
+    }
 }
-

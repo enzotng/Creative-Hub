@@ -20,15 +20,12 @@
 
                 @if (Auth::check())
                 <h1>Bonjour, {{ Auth::user()->prenom_user }} {{ Auth::user()->nom_user }} !</h1>
-                <!-- <form action="{{ route('deconnexion') }}" method="POST">
-                    @csrf
-                    <button class="boutonGeneral" type="submit">Déconnexion</button>
-                </form> -->
                 <a href="creationProjet" class="boutonGeneral">Créer un nouveau projet</a>
                 @else
                 <h1>Travaux MMI</h1>
                 <a href="{{ route('connexion') }}" class="boutonGeneral">Se connecter</a>
                 @endif
+
             </div>
 
             <hr>
@@ -44,7 +41,7 @@
                     <hr>
                     <div class="boutonDiv">
                         <a class="boutonGeneral"
-                            href="{{ route('affichage.projet', ['id_projet' => $projet->id_projet]) }}">Voir le
+                            href="{{ route('affichage.projet', ['id_projet' => $projet->id_projet]) }}"><i class="bi bi-eye"></i> Voir le
                             projet</a>
                         <div class="popup-wrapper">
                             <div class="popup" id="modifierProjetPopup">
@@ -72,12 +69,12 @@
                                 </form>
                             </div>
                         </div>
-                        <button class="boutonGeneral" id="btnModifierProjet">Modifier le projet</button>
+                        <button class="boutonGeneral" id="btnModifierProjet"><i class="bi bi-pencil-square"></i> Modifier le projet</button>
                         <form action="{{ route('projets.supprimer', ['id' => $projet->id_projet]) }}" method="POST"
                             class="formDelete">
                             @csrf
                             @method('DELETE')
-                            <button class="boutonGeneral" type="submit">Supprimer le projet</button>
+                            <button class="boutonGeneral" type="submit"><i class="bi bi-trash"></i> Supprimer le projet</button>
                         </form>
                     </div>
                 </div>
@@ -88,10 +85,25 @@
         </section>
 
         <aside class="etudiantAside">
-            <h1>Informations complémentaires</h1>
+            <h1>Informations<i class="bi bi-info-circle"></i></h1>
             <hr>
+            
+            <h2>Le saviez-vous ?</h2>
 
-            <label for="nomDomaine">Choisissez votre domaine</label>
+            <p>Sur cette page, vous pourrez consulter tous les projets que vous avez publiés sur notre plateforme. Si
+                vous souhaitez ajouter un nouveau projet, vous pouvez cliquer sur le bouton "Créer un nouveau projet".
+                Si vous souhaitez modifier un projet existant, il vous suffit de cliquer sur le projet en question et de
+                sélectionner "Modifier". Si vous souhaitez supprimer un projet, il vous suffit de cliquer sur le projet
+                en question et de sélectionner "Supprimer".
+            </p>
+
+            <ul>
+                <li>Créer un nouveau projet</li>
+                <li>Modifier un projet</li>
+                <li>Supprimer un projet</li>
+            </ul>
+
+            <!-- <label for="nomDomaine">Choisissez votre domaine</label>
             <div class="select">
                 <select name="domaine" id="domaine">
                     <option value="default">Tous les projets</option>
@@ -100,7 +112,7 @@
                     <option value="graphisme">Graphisme</option>
                     <option value="audiovisuel">Audiovisuel</option>
                 </select>
-            </div>
+            </div> -->
 
             <label for="nomProgress">Nombre de projets par domaine</label>
 
@@ -109,7 +121,9 @@
         </aside>
     </main>
     @include('includes.footer')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js"></script>
     <script src="./assets/js/etudiant.js"></script>
