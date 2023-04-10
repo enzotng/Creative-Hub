@@ -12,8 +12,8 @@ app.controller("myController", function($scope, $http, $q) {
 
   $scope.getResults = function() {
     if ($scope.search.length >= 2) {
-      var api1 = $http.get("http://127.0.0.1:8000/api/projet?q=" + $scope.search);
-      var api2 = $http.get("http://127.0.0.1:8000/api/domaine?q=" + $scope.search);
+      var api1 = $http.get("http://creativehub.enzotang.fr/api/projet?q=" + $scope.search);
+      var api2 = $http.get("http://creativehub.enzotang.fr/api/domaine?q=" + $scope.search);
 
       $q.all([api1, api2]).then(function(responses) {
         var results = [];

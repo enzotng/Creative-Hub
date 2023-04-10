@@ -17,8 +17,8 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    // public function boot(): void
-    // {
-    //     \Debugbar::disable(); 
-    // }
+    public function boot(): void
+    {
+        \Debugbar::disable(); 
+    }
 }

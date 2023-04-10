@@ -27,7 +27,7 @@ use App\Http\Middleware\PreventEtudiantAccess;
 |
 */
 
-Route::get('/home', [HelloController::class, 'index'])->name('home');
+Route::get('/', [HelloController::class, 'index'])->name('home');
 
 Route::get('/conditions', [ConditionsController::class, 'affichageController'])->name('conditions');
 
