@@ -12,26 +12,59 @@
         justify-content: center;
         align-items: stretch;
         flex-direction: column;
+        gap: 20px;
 
         h1 {
             color: $violet;
             text-transform: capitalize;
-        }
-
-        hr {
-            border: 1px solid $violet2;
+            text-align: center;
         }
 
         p {
             margin-block-end: 10px;
-            i {
-                padding-inline-end: 10px;
-                color: $violet;
-                font-weight: bold;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            background: $violet;
+            color: $blanc;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .commentaireProjet {
+            background: transparent;
+            color: $noir;
+        }
+
+        .infos_projet {
+            display: flex;
+            justify-content: space-between;
+            
+            p {
+                box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
             }
         }
 
+        hr {
+            margin: 0 auto;
+            width: 100%;
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(27, 27, 57, 0), rgba(27, 27, 57, 0.75), rgba(27, 27, 57, 0));
+        }
+
+        .description_projet {
+            background: $violet;
+            border-radius: 5px;
+            line-height: 1.5;
+        }
+
         .boutonGeneral {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: center;
             width: fit-content;
         }
 
@@ -41,10 +74,13 @@
             height: 50vh;
             border-radius: 10px;
             object-fit: cover;
+            object-position: center;
+            aspect-ratio: 16/9;
+            box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
         }
 
         .formulaireCommentaire{
-            margin-block: 3vw;
+            margin-block-end: 3vw;
             height: auto;
             display: flex;
             justify-content: center;

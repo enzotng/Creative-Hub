@@ -13,110 +13,122 @@
     .sectionMMI {
         background: $blanc;
         margin-block: 3vw;
-        padding: 20px;
         border-radius: 10px;
+        width: 100%;
+        padding: 20px;
         display: flex;
-        justify-content: space-between;
-        align-items: stretch;
+        justify-content: center;
         flex-direction: column;
+
+        
         h1 {
             color: $violet;
             text-align: center;
+            font-size: 3rem;
         }
-        .box_mmi {
-            background: $background;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            text-align: left;
-            flex-direction: column;
-            margin: 20px;
-            img {
-                width: 100%;
-                height: 200px;
-                object-fit: cover;
-                border-radius: 10px;
-                cursor: pointer;
-                aspect-ratio: 16/9;
-                transition: transform 0.3s ease-out;
-                margin-block-end: 20px;
-            }
-            .titre_projet {
-                    color: $violet;
-                width: 100%;
+
+        .containerMMI {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+            .box_mmi {
                 background: $background;
-                font-weight: normal;
-                &:hover {
-                    color: $violet2;
-                }
-            }
-
-            p {
-                margin-block: 20px;
-                color: $violet;
-                width: 100%;
-                text-align: justify;
-            }
-
-            .icon {
-                position: absolute;
-                top: 50%;
-                left: 0;
-                transform: translateY(-50%);
-                z-index: 99;
-                color: $violet;
-            }
-
-            .boutonGeneral {
-                margin-block-start: 20px;
-                width: 100%;
-                padding: 15px 20px;
-                border: 0;
-                background: $violet;
-                border-radius: 7px;
-                outline: none;
-                color: #ffffff;
-                cursor: pointer;
+                padding: 20px;
                 display: flex;
                 justify-content: center;
-                align-items: center;
-                transition: all 0.3s;
-                font-weight: normal;
-                &:hover {
-                    background: $violet2;
+                align-items: flex-start;
+                text-align: left;
+                width: 100%;
+                border-radius: 10px;
+                flex-direction: column;
+                img {
+                    width: 100%;
+                    height: 35vh;
+                    object-fit: cover;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    aspect-ratio: 16/9;
+                    transition: transform 0.3s ease-out;
+                    margin-block-end: 20px;
                 }
-            }
-
-            .lire_projet {
-                cursor: pointer;
-                font-weight: bold;
-                color: $blanc;
-                transition: all 0.3s;
-                padding: 10px 20px;
-                border-radius: 100px;
-                background: $violet;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                &:hover {
-                    background: $violet2;
-                }
-                
-                &:active {
-                    transform: scale(0.95);
-                }
-                svg {
-                    width: 40px;
-                    margin-left: 10px;
-                    transition: transform 0.3s ease-in-out;
+                .titre_projet {
+                    color: $violet;
+                    width: 100%;
+                    background: $background;
+                    font-weight: normal;
                     &:hover {
-                        transform: translateX(10px);
+                        color: $violet2;
+                    }
+                }
+    
+                p {
+                    margin-block: 20px;
+                    color: $violet;
+                    width: 100%;
+                    text-align: justify;
+                }
+    
+                .icon {
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    z-index: 99;
+                    color: $violet;
+                }
+    
+                .boutonGeneral {
+                    margin-block-start: 20px;
+                    width: 100%;
+                    padding: 15px 20px;
+                    border: 0;
+                    background: $violet;
+                    border-radius: 7px;
+                    outline: none;
+                    color: #ffffff;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: all 0.3s;
+                    font-weight: normal;
+                    &:hover {
+                        background: $violet2;
+                    }
+                }
+    
+                .lire_projet {
+                    cursor: pointer;
+                    font-weight: bold;
+                    color: $blanc;
+                    transition: all 0.3s;
+                    padding: 10px 20px;
+                    border-radius: 100px;
+                    background: $violet;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    &:hover {
+                        background: $violet2;
+                    }
+    
+                    &:active {
+                        transform: scale(0.95);
+                    }
+                    svg {
+                        width: 40px;
+                        margin-left: 10px;
+                        transition: transform 0.3s ease-in-out;
+                        &:hover {
+                            transform: translateX(10px);
+                        }
                     }
                 }
             }
-
         }
+
         .simple-pagination ul {
             margin-block: 50px 30px;
             padding: 0;
@@ -148,6 +160,28 @@
         .simple-pagination .prev.current,
         .simple-pagination .next.current {
             background: $violet;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .containerMMI {
+        display: grid;
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        .box_mmi {
+            img {
+                width: 100%;
+                height: 15vh !important;
+                object-fit: cover;
+                border-radius: 10px;
+                cursor: pointer;
+                aspect-ratio: 16/9;
+                transition: transform 0.3s ease-out;
+                margin-block-end: 20px;
+            }
         }
     }
 }

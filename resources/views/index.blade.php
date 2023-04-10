@@ -44,14 +44,15 @@
                     critiques.
 
                 </p>
-                <a href="https://www.mmi-velizy.fr/" target="_blank" class="boutonGeneral">En savoir plus <i class="bi bi-arrow-right"></i></a>
+                <a href="https://www.mmi-velizy.fr/" target="_blank" class="boutonGeneral">En savoir plus <i
+                        class="bi bi-arrow-right"></i></a>
             </div>
             <div class="w-full md:w-2/5 p-5 flex justify-center items-end">
                 <div class="box_hero"></div>
             </div>
         </section>
 
-        <div class="projets shadow-md flex flex-col">
+        <!-- <div class="projets shadow-md flex flex-col">
             <h1 class="text-3xl font-bold mb-4">Les derniers projets</h1>
             @php
             $projets = \App\Models\Projet::latest()->take(4)->get();
@@ -69,7 +70,30 @@
             @else
             <p>Aucun élève n'a encore créé de projets.</p>
             @endif
-        </div>
+        </div> -->
+
+        <section class="projetsLatest shadow-md">
+            <h1 class="text-3xl font-bold mb-4">Les derniers projets</h1>
+            <div class="block">
+                <div class="block2">
+                    @foreach ($projets->take(1) as $projet)
+                    <img src="{{ asset('assets/images/png/'.$projet->image_projet) }}" alt="Image Projet">
+                    <a href="{{ route('affichage.projet', ['id_projet' => $projet->id_projet]) }}"
+                        title="Accéder au projet">Voir le projet : {{ $projet->titre_projet }}</a>
+                    @endforeach
+                </div>
+                <div class="block3">
+                    @foreach ($projets->slice(1, 3) as $projet)
+                    <div class="projetDroit">
+                        <a href="{{ route('affichage.projet', ['id_projet' => $projet->id_projet]) }}"
+                            title="Accéder au projet">
+                            <img src="{{ asset('assets/images/png/'.$projet->image_projet) }}" alt="Image Projet">
+                        </a>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
 
     </main>
     @include('includes.footer')
