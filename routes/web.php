@@ -39,7 +39,11 @@ Route::middleware([PreventEtudiantAccess::class])->group(function () {
 
 Route::get('/admin', [AdminController::class, 'pageAdmin'])->name('admin');
 Route::post('/admin/edit-user', [AdminController::class, 'editUser'])->name('admin.edit-user');
-Route::post('/admin/delete-user/{id}', [AdminController::class, 'deleteUser'])->name('admin.delete-user');
+Route::delete('/admin/delete-user/{id}', [AdminController::class, 'deleteUser'])->name('admin.delete-user');
+
+Route::post('/admin/edit-projet', [AdminController::class, 'editProjet'])->name('admin.edit-projet');
+Route::delete('/admin/delete-projet/{id}', [AdminController::class, 'deleteProjet'])->name('admin.delete-projet');
+
 
 Route::get('/connexion', [ConnexionController::class, 'showLoginForm'])->name('connexion');
 Route::post('/connexion', [ConnexionController::class, 'login'])->name('login');

@@ -18,31 +18,39 @@
     <main id="mainAdmin">
 
         <section class="adminSection shadow-md">
-            <h1>Admin Dashboard</h1>
+
             <div class="headerSection mb-4">
                 <nav>
                     <ul>
                         <li class="active" onclick="showTable('tableUtilisateur')">Utilisateurs</li>
                         <li onclick="showTable('tableProjet')">Projets</li>
-                        <li>Commentaires</li>
                     </ul>
-                    <a href="home" class="boutonGeneral">Revenir à l'accueil</a>
+                    <div class="titre_nav">
+                        <h1>Admin Dashboard</h1>
+                        <i class="bi bi-person-rolodex"></i>
+                    </div>
                 </nav>
             </div>
 
             <div class="barreRecherche">
                 <div class="barreRechercheWrapper">
-                    <label for="search">Rechercher un utilisateur</label>
-                    <div class="barreRechercheContainer">
-                        <input type="search" id="search" placeholder="Rechercher un utilisateur..."
-                            class="searchUtilisateur" onkeyup="filterTable('tableUtilisateur', this.value)">
+                    <div class="rechercherContainer">
+                        <label for="search">Rechercher un utilisateur</label>
+                        <div class="barreRechercheContainer">
+                            <input type="search" id="search" placeholder="Rechercher un utilisateur..."
+                                class="searchUtilisateur" onkeyup="filterTable('tableUtilisateur', this.value)">
+                        </div>
+
+                        <label for="searchProjet">Rechercher un projet</label>
+                        <div class="barreRechercheContainer">
+                            <input type="search" id="searchProjet" placeholder="Rechercher un projet..."
+                                class="searchProjet hidden" onkeyup="filterTable('tableProjet', this.value)">
+                        </div>
                     </div>
 
-                    <label for="searchProjet">Rechercher un projet</label>
-                    <div class="barreRechercheContainer">
-                        <input type="search" id="searchProjet" placeholder="Rechercher un projet..."
-                            class="searchProjet hidden" onkeyup="filterTable('tableProjet', this.value)">
-                    </div>
+                    <p id="compteurUser">Nombre d'utilisateurs inscrits : {{ $userCount }}</p>
+                    <p id="compteurProjets" class="hidden">Nombre de projets : {{ $projetCount }}</p>
+
                 </div>
             </div>
 
@@ -66,8 +74,32 @@
                     <td class="tdDateCreation">{{ $user->created_at }}</td>
                     <td class="tdRole">{{ $user->role_user }}</td>
                     <td class="tdActions">
-                        <a href="{{ route('admin.edit-user', $user->id_user) }}" title="Modifier"><i
-                                class="bi bi-pencil"></i></a>
+
+                        <a href="#" data-user-id="{{ $user->id_user }}" data-user-role="{{ $user->role_user }}"
+                            class="edit-user-btn"><i class="bi bi-pencil-square"></i></a>
+                        <div class="edit-user-form" style="display:none">
+                            <form method="POST" action="{{ route('admin.edit-user') }}">
+                                @csrf
+                                <input type="hidden" class="edit-user-id" name="user_id" value="">
+                                <label for="edit-user-role">Rôle:</label>
+                                <select id="edit-user-role" name="role">
+                                    @if ($user->role_user == "Etudiant")
+                                    <option value="Professeur">Professeur</option>
+                                    <option value="Administrateur">Administrateur</option>
+                                    @elseif ($user->role_user == "Professeur")
+                                    <option value="Etudiant">Etudiant</option>
+                                    <option value="Administrateur">Administrateur</option>
+                                    @else
+                                    <option value="Etudiant">Etudiant</option>
+                                    <option value="Professeur">Professeur</option>
+                                    @endif
+                                </select>
+                                <button type="submit" class="boutonGeneral">Enregistrer</button>
+                                <button type="button" class="boutonGeneral cancel-edit-user">Annuler</button>
+
+                            </form>
+                        </div>
+
                         <form method="POST" action="{{ route('admin.delete-user', $user->id_user) }}">
                             @csrf
                             @method('DELETE')
@@ -87,8 +119,9 @@
                     <th>Titre du projet</th>
                     <th>Description projet</th>
                     <th>Image projet</th>
-                    <th>Date de création</th>
-                    <th>Note projet</th>
+                    <th>Date de création et mise à jour</th>
+                    <th>Note projet / 20</th>
+                    <th>Actions</th>
                 </tr>
                 @foreach ($projets as $projet)
                 <tr>
@@ -99,9 +132,49 @@
                     <td class="tdImage">{{ $projet->image_projet }}</td>
                     <td class="tdCreationProjet">{{ $projet->created_at }}</td>
                     <td class="tdNote">{{ $projet->note_projet }} / 20</td>
+                    <td class="tdActions">
+                        <a href="#" data-projet-id="{{ $projet->id_projet }}"
+                            data-projet-titre="{{ $projet->titre_projet }}"
+                            data-projet-description="{{ $projet->description_projet }}"
+                            data-projet-domaine="{{ $projet->domaine_projet }}"
+                            data-projet-note="{{ $projet->note_projet }}" class="edit-projet-btn"><i
+                                class="bi bi-pencil-square"></i></a>
+                        <div class="edit-projet-form" style="display:none">
+                            <form method="POST" action="{{ route('admin.edit-projet') }}">
+                                @csrf
+                                @method('POST')
+                                <input type="hidden" class="edit-projet-id" name="projet_id" value="">
+                                <label for="edit-projet-titre">Titre du projet :</label>
+                                <input type="text" id="edit-projet-titre" name="titre" value="">
+                                <label for="edit-projet-description">Description du projet :</label>
+                                <textarea id="edit-projet-description" name="description"></textarea>
+                                <label for="edit-projet-domaine">Domaine du projet :</label>
+                                <select id="edit-projet-domaine" name="domaine">
+                                    <option value="Communication">Communication</option>
+                                    <option value="Web">Web</option>
+                                    <option value="Audiovisuel">Audiovisuel</option>
+                                    <option value="Graphisme">Graphisme</option>
+                                </select>
+                                <label for="edit-projet-note">Note du projet :</label>
+                                <input type="number" id="edit-projet-note" name="note" min="0" max="20" step="1"
+                                    value="">
+                                <button type="submit" class="boutonGeneral">Enregistrer</button>
+                                <button type="button" class="boutonGeneral cancel-edit-projet">Annuler</button>
+                            </form>
+                        </div>
+                        <form method="POST" action="{{ route('admin.delete-projet', $projet->id_projet) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger" title="Supprimer"
+                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce projet ?')"><i
+                                    class="bi bi-trash"></i></button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
+
             </table>
+
         </section>
 
     </main>
